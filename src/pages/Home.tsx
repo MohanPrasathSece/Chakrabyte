@@ -105,24 +105,30 @@ const Home = () => {
                 </p>
               </div>
 
-              {/* Buttons - Compact Premium Design */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-6">
+              {/* Buttons - Modern Premium Design */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <Button
                   asChild
-                  className="bg-gradient-to-r from-white to-gray-50 text-purple-600 hover:from-gray-50 hover:to-white font-semibold px-8 py-3 text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl border-2 border-purple-200/50 relative overflow-hidden group"
+                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
                 >
-                  <Link to="/courses">
-                    <span className="relative z-10">Explore Courses</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Link to="/contact">
+                    <span className="relative z-10 flex items-center gap-2">
+                      Get Started Today
+                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 </Button>
 
                 <Button
                   asChild
-                  className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 text-white hover:from-purple-700 hover:via-purple-800 hover:to-indigo-900 font-semibold px-8 py-3 text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl border-2 border-purple-400/30 relative overflow-hidden group"
+                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden"
                 >
-                  <Link to="/contact">
-                    <span className="relative z-10">Book a Demo</span>
+                  <Link to="/courses">
+                    <span className="relative z-10 flex items-center gap-2">
+                      Explore Courses
+                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 </Button>
@@ -191,39 +197,39 @@ const Home = () => {
       </section>
 
       {/* Stats Section - Animated */}
-      <section className="py-12 bg-white border-b border-gray-100">
+      <section className="py-12 bg-gradient-to-br from-purple-50 to-purple-100 border-b border-purple-200/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="flex flex-col items-center p-6 bg-purple-50 rounded-2xl hover:shadow-md transition-all">
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
               <div className="text-4xl font-bold text-primary mb-2 flex">
                 <AnimatedCounter to={2500} />+
               </div>
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">Students Trained</div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Students Trained</div>
             </div>
-            <div className="flex flex-col items-center p-6 bg-purple-50 rounded-2xl hover:shadow-md transition-all">
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
               <div className="text-4xl font-bold text-primary mb-2 flex">
                 <AnimatedCounter to={10} />+
               </div>
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">Expert Courses</div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Expert Courses</div>
             </div>
-            <div className="flex flex-col items-center p-6 bg-purple-50 rounded-2xl hover:shadow-md transition-all">
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
               <div className="text-4xl font-bold text-primary mb-2 flex">
                 <AnimatedCounter to={100} />%
               </div>
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">Practical Labs</div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Practical Labs</div>
             </div>
-            <div className="flex flex-col items-center p-6 bg-purple-50 rounded-2xl hover:shadow-md transition-all">
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
               <div className="text-4xl font-bold text-primary mb-2 flex">
                 <AnimatedCounter to={4.9} duration={1.5} />
               </div>
-              <div className="text-sm font-medium text-gray-600 uppercase tracking-wide">Student Rating</div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Student Rating</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-20 bg-light-section">
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
@@ -238,9 +244,9 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group flex items-start gap-4 p-6 bg-white rounded-xl border border-border hover:border-primary/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="group flex items-start gap-4 p-6 bg-gradient-to-br from-white to-purple-50/50 rounded-xl border border-purple-100/50 hover:border-purple-300/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/5 group-hover:bg-primary/10 flex items-center justify-center transition-colors">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/10 to-purple-600/10 group-hover:from-primary/20 group-hover:to-purple-600/20 flex items-center justify-center transition-colors border border-purple-200/50">
                   <CheckCircle className="text-primary group-hover:scale-110 transition-transform" size={24} />
                 </div>
                 <p className="text-base leading-relaxed text-gray-700 font-medium pt-2">
@@ -253,7 +259,7 @@ const Home = () => {
       </section>
 
       {/* Featured Courses Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -274,10 +280,14 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              className="bg-primary text-white hover:bg-primary/90 font-semibold px-10 py-6"
+              className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
             >
               <Link to="/courses">
-                View All Courses
+                <span className="relative z-10 flex items-center gap-2">
+                  Explore All Courses
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </Button>
           </div>

@@ -219,7 +219,10 @@ const Header = () => {
             </button>
 
             {/* Get Started Button */}
-            <button className="hidden sm:block px-3 py-1.5 lg:px-4 lg:py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm lg:text-sm">
+            <button 
+              onClick={() => handleNavigation("/contact")}
+              className="hidden sm:block px-3 py-1.5 lg:px-4 lg:py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm lg:text-sm"
+            >
               Get Started
             </button>
 
@@ -358,7 +361,7 @@ const Header = () => {
                 {/* Mobile Get Started Button */}
                 <div className="pt-2 border-t border-gray-200/50 mt-2">
                   <button 
-                    onClick={() => handleNavigation("/get-started")}
+                    onClick={() => handleNavigation("/contact")}
                     className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm"
                   >
                     Get Started
@@ -368,8 +371,6 @@ const Header = () => {
             </div>
           </div>
         )}
-
-        {/* Rest of the code remains the same */}
       </div>
     </header>
   );

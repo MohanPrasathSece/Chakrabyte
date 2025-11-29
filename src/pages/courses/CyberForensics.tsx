@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Search, FileSearch, Shield, HardDrive } from "lucide-react";
+import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap, Search, FileSearch, HardDrive } from "lucide-react";
 import forensicsImg from "@/assets/course-forensics.jpg";
 
 const CyberForensics = () => {
@@ -93,11 +93,23 @@ const CyberForensics = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold px-8 py-6 text-lg shadow-xl hover:-translate-y-1 transition-all">
-                <Link to="/contact?course=cyber-forensics">Enroll Now</Link>
+              <Button asChild size="lg" className="relative bg-gradient-to-r from-white to-gray-50 text-cyan-600 hover:from-gray-50 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-cyan-300/50 group overflow-hidden">
+                <Link to="/contact?course=cyber-forensics">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Enroll Now
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-6 text-lg hover:-translate-y-1 transition-all">
-                <Link to="/contact">Download Syllabus</Link>
+              <Button asChild size="lg" variant="outline" className="relative bg-transparent backdrop-blur-md text-white hover:bg-white/10 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/50 group overflow-hidden">
+                <Link to="/contact">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Download Syllabus
+                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
               </Button>
             </div>
           </div>
@@ -173,59 +185,132 @@ const CyberForensics = () => {
         </div>
       </section>
 
-      {/* Modules - Sideways Scrolling */}
-      <section className="py-20 bg-white overflow-hidden">
+      {/* Detailed Course Information */}
+      <section className="py-20 bg-gradient-to-br from-cyan-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">Course Curriculum</h2>
-              <p className="text-gray-600">Swipe to explore all {modules.length} specialized modules</p>
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">Comprehensive Course Details</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Everything you need to know about our Cyber Forensics program
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Learning Outcomes */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-cyan-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                <Target size={28} />
+              </div>
+              <h3 className="font-heading text-xl font-bold mb-4 text-gray-900">Learning Outcomes</h3>
+              <ul className="space-y-3">
+                {[
+                  "Conduct digital forensic investigations",
+                  "Collect and preserve digital evidence",
+                  "Analyze malware and security incidents",
+                  "Write forensic investigation reports",
+                  "Use industry-standard forensics tools",
+                  "Prepare for CHFI and GIAC certifications"
+                ].map((outcome, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="text-green-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="hidden md:flex gap-2">
-              <div className="p-2 rounded-full bg-gray-100 text-gray-400">
-                <ChevronRight className="rotate-180" />
+
+            {/* Target Audience */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-cyan-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                <Users size={28} />
               </div>
-              <div className="p-2 rounded-full bg-primary text-white animate-pulse">
-                <ChevronRight />
+              <h3 className="font-heading text-xl font-bold mb-4 text-gray-900">Who Should Take This Course</h3>
+              <ul className="space-y-3">
+                {[
+                  "IT professionals interested in forensics",
+                  "Law enforcement personnel",
+                  "Security auditors and investigators",
+                  "Legal professionals handling digital evidence",
+                  "Compliance officers",
+                  "Anyone interested in digital investigation"
+                ].map((audience, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="text-green-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">{audience}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Career Opportunities */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-cyan-100">
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                <Award size={28} />
               </div>
+              <h3 className="font-heading text-xl font-bold mb-4 text-gray-900">Career Opportunities</h3>
+              <ul className="space-y-3">
+                {[
+                  "Digital Forensics Analyst - $70K-$120K",
+                  "Security Investigator - $65K-$115K",
+                  "Malware Analyst - $80K-$130K",
+                  "Incident Response Analyst - $75K-$125K",
+                  "Forensics Consultant - $85K-$140K",
+                  "Law Enforcement Tech Specialist - $60K-$110K"
+                ].map((career, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckCircle className="text-green-500 flex-shrink-0 mt-0.5" size={18} />
+                    <span className="text-gray-700 text-sm">{career}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Horizontal Scroll Container */}
-          <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-            {modules.map((module, index) => (
-              <div
-                key={index}
-                className="min-w-[300px] md:min-w-[350px] bg-cyan-50 rounded-2xl border border-cyan-100 p-6 shadow-sm hover:shadow-xl hover:border-cyan-500/30 transition-all duration-300 snap-center flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded-full">
-                    Module {index + 1}
-                  </span>
-                  <div className="w-8 h-8 bg-gray-50 rounded-full flex items-center justify-center text-gray-400">
-                    <BookOpen size={14} />
-                  </div>
+          {/* Additional Details Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
+            {/* Course Format */}
+            <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-2xl p-8 text-white">
+              <h3 className="font-heading text-2xl font-bold mb-6">Course Format</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center pb-3 border-b border-white/20">
+                  <span className="font-medium">Training Mode</span>
+                  <span>Online Live + Classroom</span>
                 </div>
-
-                <h3 className="font-heading text-xl font-bold mb-4 text-gray-900 line-clamp-2 h-14">
-                  {module.title}
-                </h3>
-
-                <ul className="space-y-3 flex-1">
-                  {module.topics.slice(0, 4).map((topic, topicIndex) => (
-                    <li key={topicIndex} className="text-sm text-gray-600 flex items-start gap-2">
-                      <span className="text-cyan-500 mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0"></span>
-                      <span className="line-clamp-1">{topic}</span>
-                    </li>
-                  ))}
-                  {module.topics.length > 4 && (
-                    <li className="text-xs text-cyan-600 font-medium pt-2">
-                      + {module.topics.length - 4} more topics
-                    </li>
-                  )}
-                </ul>
+                <div className="flex justify-between items-center pb-3 border-b border-white/20">
+                  <span className="font-medium">Class Duration</span>
+                  <span>2 hours/day, 5 days/week</span>
+                </div>
+                <div className="flex justify-between items-center pb-3 border-b border-white/20">
+                  <span className="font-medium">Lab Access</span>
+                  <span>24/7 for 6 months</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Certificate</span>
+                  <span>Industry Recognized</span>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Prerequisites */}
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200">
+              <h3 className="font-heading text-2xl font-bold mb-6 text-gray-900">Prerequisites</h3>
+              <div className="space-y-3">
+                {[
+                  "Basic understanding of computer systems",
+                  "Knowledge of operating systems (Windows/Linux)",
+                  "Familiarity with networking concepts",
+                  "Attention to detail and analytical mindset",
+                  "No prior forensics experience required"
+                ].map((prereq, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-6 h-6 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="text-cyan-600" size={14} />
+                    </div>
+                    <span className="text-gray-700 text-sm">{prereq}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -239,8 +324,14 @@ const CyberForensics = () => {
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light">
             Join the ranks of elite forensic investigators
           </p>
-          <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold px-10 py-6 text-lg shadow-lg">
-            <Link to="/contact?course=cyber-forensics">Enroll Now</Link>
+          <Button asChild size="lg" className="relative bg-gradient-to-r from-cyan-600 to-cyan-700 text-white hover:from-cyan-700 hover:to-cyan-800 font-bold px-12 py-5 text-lg shadow-2xl hover:shadow-cyan-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-cyan-500/30 group overflow-hidden">
+            <Link to="/contact?course=cyber-forensics">
+              <span className="relative z-10 flex items-center gap-2">
+                Enroll Now
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </Link>
           </Button>
         </div>
       </section>
