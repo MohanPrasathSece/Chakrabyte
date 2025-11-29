@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Shield, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
+import { Menu, X, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -10,6 +10,32 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Timeout refs for dropdown delays
+  let coursesTimeout: NodeJS.Timeout;
+  let servicesTimeout: NodeJS.Timeout;
+
+  const handleCoursesMouseEnter = () => {
+    clearTimeout(coursesTimeout);
+    setCoursesDropdownOpen(true);
+  };
+
+  const handleCoursesMouseLeave = () => {
+    coursesTimeout = setTimeout(() => {
+      setCoursesDropdownOpen(false);
+    }, 100);
+  };
+
+  const handleServicesMouseEnter = () => {
+    clearTimeout(servicesTimeout);
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    servicesTimeout = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 100);
+  };
 
   const navigation = [
     { name: "Home", path: "/" },
@@ -48,18 +74,13 @@ const Header = () => {
     setSearchOpen(false);
   };
 
-  const handleLinkClick = (e: React.MouseEvent, path: string) => {
-    e.preventDefault();
-    handleNavigation(path);
-  };
-
   const isActivePath = (path: string) => {
     if (path === "/") return location.pathname === "/";
     return location.pathname.startsWith(path);
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border/50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -81,8 +102,8 @@ const Header = () => {
                 onClick={() => handleNavigation(item.path)}
                 className={`text-sm font-medium transition-colors ${
                   isActivePath(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-purple-600"
+                    : "text-gray-700 hover:text-purple-600"
                 }`}
               >
                 {item.name}
@@ -92,10 +113,9 @@ const Header = () => {
             {/* Courses Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onMouseEnter={() => setCoursesDropdownOpen(true)}
-                onMouseLeave={() => setCoursesDropdownOpen(false)}
-                onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)}
+                className="flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors"
+                onMouseEnter={handleCoursesMouseEnter}
+                onMouseLeave={handleCoursesMouseLeave}
               >
                 <BookOpen className="h-4 w-4" />
                 <span>Courses</span>
@@ -103,20 +123,20 @@ const Header = () => {
               </button>
               {coursesDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-lg py-2"
-                  onMouseEnter={() => setCoursesDropdownOpen(true)}
-                  onMouseLeave={() => setCoursesDropdownOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
+                  onMouseEnter={handleCoursesMouseEnter}
+                  onMouseLeave={handleCoursesMouseLeave}
                 >
                   <button
                     onClick={() => {
                       handleNavigation("/courses");
                       setCoursesDropdownOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block w-full text-left px-4 py-2 text-sm font-medium text-gray-900 hover:bg-purple-50 hover:text-purple-600 transition-colors"
                   >
                     All Courses
                   </button>
-                  <div className="border-t border-border/50 my-1"></div>
+                  <div className="border-t border-gray-200/50 my-1"></div>
                   {courses.map((course) => (
                     <button
                       key={course.path}
@@ -124,7 +144,7 @@ const Header = () => {
                         handleNavigation(course.path);
                         setCoursesDropdownOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-colors"
                     >
                       {course.name}
                     </button>
@@ -136,10 +156,9 @@ const Header = () => {
             {/* Services Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onMouseEnter={() => setServicesDropdownOpen(true)}
-                onMouseLeave={() => setServicesDropdownOpen(false)}
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                className="flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors"
+                onMouseEnter={handleServicesMouseEnter}
+                onMouseLeave={handleServicesMouseLeave}
               >
                 <Briefcase className="h-4 w-4" />
                 <span>Services</span>
@@ -147,20 +166,20 @@ const Header = () => {
               </button>
               {servicesDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-lg py-2"
-                  onMouseEnter={() => setServicesDropdownOpen(true)}
-                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                  className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
                 >
                   <button
                     onClick={() => {
                       handleNavigation("/services");
                       setServicesDropdownOpen(false);
                     }}
-                    className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="block w-full text-left px-4 py-2 text-sm font-medium text-gray-900 hover:bg-purple-50 hover:text-purple-600 transition-colors"
                   >
                     All Services
                   </button>
-                  <div className="border-t border-border/50 my-1"></div>
+                  <div className="border-t border-gray-200/50 my-1"></div>
                   {services.map((service) => (
                     <button
                       key={service.path}
@@ -168,7 +187,7 @@ const Header = () => {
                         handleNavigation(service.path);
                         setServicesDropdownOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-colors"
                     >
                       {service.name}
                     </button>
@@ -182,7 +201,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {/* Search Button */}
             <button
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              className="p-2 text-gray-600 hover:text-purple-600 transition-colors"
               onClick={() => setSearchOpen(!searchOpen)}
               aria-label="Search"
             >
@@ -190,7 +209,7 @@ const Header = () => {
             </button>
 
             {/* Get Started Button */}
-            <button className="hidden sm:block px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            <button className="hidden sm:block px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors">
               Get Started
             </button>
 
@@ -211,13 +230,13 @@ const Header = () => {
 
         {/* Search Bar */}
         {searchOpen && (
-          <div className="py-4 border-t border-border/50">
+          <div className="py-4 border-t border-gray-200/50">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search courses, services, and more..."
-                className="w-full pl-10 pr-4 py-2 bg-background/50 border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                 autoFocus
               />
             </div>
@@ -226,7 +245,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border/50">
+          <div className="lg:hidden py-4 border-t border-gray-200/50">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <button
@@ -234,8 +253,8 @@ const Header = () => {
                   onClick={() => handleNavigation(item.path)}
                   className={`text-sm font-medium transition-colors ${
                     isActivePath(item.path)
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-primary"
+                      ? "text-purple-600"
+                      : "text-gray-700 hover:text-purple-600"
                   }`}
                 >
                   {item.name}
@@ -244,14 +263,14 @@ const Header = () => {
               
               {/* Mobile Courses Dropdown */}
               <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
                   <BookOpen className="h-4 w-4 mr-2" />
                   Courses
                 </h4>
                 <div className="pl-6 space-y-2">
                   <button
                     onClick={() => handleNavigation("/courses")}
-                    className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                    className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors"
                   >
                     All Courses
                   </button>
@@ -259,7 +278,7 @@ const Header = () => {
                     <button
                       key={course.path}
                       onClick={() => handleNavigation(course.path)}
-                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="block text-sm text-gray-600 hover:text-purple-600 transition-colors"
                     >
                       {course.name}
                     </button>
@@ -269,14 +288,14 @@ const Header = () => {
 
               {/* Mobile Services Dropdown */}
               <div>
-                <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
                   <Briefcase className="h-4 w-4 mr-2" />
                   Services
                 </h4>
                 <div className="pl-6 space-y-2">
                   <button
                     onClick={() => handleNavigation("/services")}
-                    className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                    className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors"
                   >
                     All Services
                   </button>
@@ -284,7 +303,7 @@ const Header = () => {
                     <button
                       key={service.path}
                       onClick={() => handleNavigation(service.path)}
-                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="block text-sm text-gray-600 hover:text-purple-600 transition-colors"
                     >
                       {service.name}
                     </button>
@@ -295,7 +314,7 @@ const Header = () => {
               {/* Mobile Get Started Button */}
               <button 
                 onClick={() => handleNavigation("/get-started")}
-                className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
               >
                 Get Started
               </button>

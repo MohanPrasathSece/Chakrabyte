@@ -105,26 +105,25 @@ const Home = () => {
                 </p>
               </div>
 
-              {/* Buttons - Fixed Text Colors */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              {/* Buttons - Compact Premium Design */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-6">
                 <Button
                   asChild
-                  size="lg"
-                  className="bg-white text-primary hover:bg-gray-100 font-bold px-8 py-6 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all border-2 border-white/30"
+                  className="bg-gradient-to-r from-white to-gray-50 text-purple-600 hover:from-gray-50 hover:to-white font-semibold px-8 py-3 text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl border-2 border-purple-200/50 relative overflow-hidden group"
                 >
                   <Link to="/courses">
-                    Explore Courses
+                    <span className="relative z-10">Explore Courses</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 </Button>
 
                 <Button
                   asChild
-                  size="lg"
-                  variant="outline"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-bold px-8 py-6 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+                  className="bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 text-white hover:from-purple-700 hover:via-purple-800 hover:to-indigo-900 font-semibold px-8 py-3 text-base shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 rounded-xl border-2 border-purple-400/30 relative overflow-hidden group"
                 >
                   <Link to="/contact">
-                    Book a Demo
+                    <span className="relative z-10">Book a Demo</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 </Button>
               </div>
@@ -362,24 +361,34 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Minimal Design */}
-      <section className="py-16 bg-white">
+      {/* Testimonials Section - Modern Design */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-              What Our <span className="text-primary">Students Say</span>
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              What Our <span className="text-purple-600">Students Say</span>
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Real stories from real students who transformed their careers with our cybersecurity training
+            </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-primary/20"
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200 relative overflow-hidden group"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  {/* Quote Icon */}
+                  <div className="absolute top-4 right-4 text-purple-200 opacity-50">
+                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                  </div>
+
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-purple-100">
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -387,21 +396,24 @@ const Home = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-sm text-primary font-medium">{testimonial.role}</p>
-                      <p className="text-xs text-gray-500">{testimonial.company}</p>
+                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
+                      <p className="text-purple-600 font-medium">{testimonial.role}</p>
+                      <p className="text-sm text-gray-500">{testimonial.company}</p>
                     </div>
                   </div>
-                  
-                  <div className="flex gap-1 mb-3">
+
+                  <div className="flex gap-1 mb-4">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} size={12} className="text-amber-400 fill-amber-400" />
+                      <Star key={star} size={16} className="text-purple-500 fill-purple-500" />
                     ))}
                   </div>
-                  
-                  <p className="text-gray-700 text-sm leading-relaxed italic">
+
+                  <p className="text-gray-700 text-base leading-relaxed italic group-hover:text-purple-900 transition-colors">
                     "{testimonial.quote}"
                   </p>
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                 </div>
               ))}
             </div>
