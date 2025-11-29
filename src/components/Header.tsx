@@ -15,29 +15,11 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Hide header on scroll down, show on scroll up (mobile only)
+  // Keep header always visible on mobile (disable scroll hiding)
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isMobile = window.innerWidth < 1024; // lg breakpoint
-
-      if (isMobile) {
-        if (currentScrollY > lastScrollY && currentScrollY > 200) {
-          // Scrolling down and past 200px
-          setIsHeaderVisible(false);
-        } else if (currentScrollY < lastScrollY - 50) {
-          // Scrolling up by at least 50px
-          setIsHeaderVisible(true);
-        }
-        // If scrolling up but not enough, keep current state
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+    // Disabled scroll hiding for better mobile UX
+    // Header will remain sticky at all times
+  }, []);
 
   // Timeout refs for dropdown delays
   let coursesTimeout: NodeJS.Timeout;
@@ -108,7 +90,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm transition-transform duration-300 lg:transform-none ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
