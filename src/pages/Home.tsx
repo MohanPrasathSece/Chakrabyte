@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail } from "lucide-react";
+import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare } from "lucide-react";
 import { useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -305,29 +305,29 @@ const Home = () => {
               {/* First set of logos */}
               <div className="flex animate-scroll">
                 {[
-                  { name: "CompTIA", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop&bg=white" },
-                  { name: "EC-Council", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=200&h=100&fit=crop&bg=white" },
-                  { name: "ISC2", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=200&h=100&fit=crop&bg=white" },
-                  { name: "ISACA", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=200&h=100&fit=crop&bg=white" },
-                  { name: "GIAC", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Offensive Security", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=100&fit=crop&bg=white" },
-                  { name: "SANS Institute", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=100&fit=crop&bg=white" },
-                  { name: "CISCO", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Microsoft", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Amazon Web Services", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=200&h=100&fit=crop&bg=white" },
-                  { name: "IBM", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Oracle", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=200&h=100&fit=crop&bg=white" },
-                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Fortinet", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Palo Alto Networks", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Check Point", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=200&h=100&fit=crop&bg=white" },
-                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=100&fit=crop&bg=white" },
-                  { name: "CrowdStrike", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=200&h=100&fit=crop&bg=white" },
-                  { name: "FireEye", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop&bg=white" }
+                  { name: "Coursera", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Udemy", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "edX", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Khan Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
+                  { name: "LinkedIn Learning", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Pluralsight", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Skillshare", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Udacity", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "FutureLearn", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Codecademy", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "MasterClass", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Domestika", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
+                  { name: "CreativeLive", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Treehouse", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "DataCamp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "HubSpot Academy", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Google Digital Garage", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Microsoft Learn", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "IBM Skills", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Cisco Networking Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" }
                 ].map((partner, index) => (
                   <div key={index} className="flex-shrink-0 mx-8">
-                    <div className="w-40 h-20 md:w-48 md:h-24 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-4 hover:shadow-md transition-shadow">
+                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
@@ -340,29 +340,29 @@ const Home = () => {
               {/* Duplicate set for seamless scrolling */}
               <div className="flex animate-scroll">
                 {[
-                  { name: "CompTIA", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" },
-                  { name: "EC-Council", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
-                  { name: "ISC2", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "ISACA", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=160&h=80&fit=crop&bg=white" },
-                  { name: "GIAC", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Offensive Security", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "SANS Institute", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
-                  { name: "CISCO", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Microsoft", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Amazon Web Services", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "IBM", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Oracle", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Fortinet", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Palo Alto Networks", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Check Point", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
-                  { name: "CrowdStrike", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "FireEye", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" }
+                  { name: "Coursera", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Udemy", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "edX", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Khan Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
+                  { name: "LinkedIn Learning", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Pluralsight", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Skillshare", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Udacity", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "FutureLearn", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Codecademy", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "MasterClass", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Domestika", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
+                  { name: "CreativeLive", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Treehouse", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "DataCamp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "HubSpot Academy", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Google Digital Garage", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Microsoft Learn", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "IBM Skills", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Cisco Networking Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" }
                 ].map((partner, index) => (
                   <div key={`duplicate-${index}`} className="flex-shrink-0 mx-8">
-                    <div className="w-32 h-16 md:w-36 md:h-18 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-3 hover:shadow-md transition-shadow">
+                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
@@ -898,15 +898,17 @@ const Home = () => {
 
       {/* Floating Action Buttons */}
       <div className="fixed bottom-24 right-6 flex flex-col gap-3 z-40">
-        {/* WhatsApp Button - Smaller with proper icon */}
+        {/* WhatsApp Button */}
         <a
           href="https://wa.me/919876543210?text=Hi!%20I'm%20interested%20in%20your%20cybersecurity%20courses"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+          className="w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
           aria-label="Contact on WhatsApp"
         >
-          <MessageCircle className="w-5 h-5" />
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
         </a>
 
         {/* Call Button - Purple */}
@@ -915,9 +917,7 @@ const Home = () => {
           className="w-14 h-14 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
           aria-label="Call us"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
+          <Phone className="w-6 h-6" />
         </a>
       </div>
 

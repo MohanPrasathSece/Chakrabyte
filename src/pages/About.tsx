@@ -230,24 +230,24 @@ const About = () => {
               {/* First set of logos */}
               <div className="flex animate-scroll">
                 {[
-                  { name: "AWS", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Microsoft Azure", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "IBM Cloud", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Oracle Cloud", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Cisco", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Dell Technologies", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
-                  { name: "HPE", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
-                  { name: "NetApp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "ServiceNow", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Salesforce", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Adobe", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "SAP", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=160&h=80&fit=crop&bg=white" }
+                  { name: "Harvard Online", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "MIT OpenCourseWare", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Stanford Online", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Yale Online", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Princeton Online", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Columbia Online", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Berkeley Online", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Oxford Online", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Cambridge Online", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Imperial College", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "ETH Zurich", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "NYU Online", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
+                  { name: "UCL London", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "University of Toronto", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Melbourne University", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" }
                 ].map((partner, index) => (
                   <div key={index} className="flex-shrink-0 mx-8">
-                    <div className="w-32 h-16 md:w-36 md:h-18 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-3 hover:shadow-md transition-shadow">
+                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 
@@ -260,24 +260,24 @@ const About = () => {
               {/* Duplicate set for seamless scrolling */}
               <div className="flex animate-scroll">
                 {[
-                  { name: "AWS", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Microsoft Azure", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=160&h=80&fit=crop&bg=white" },
-                  { name: "IBM Cloud", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Oracle Cloud", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Cisco", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Dell Technologies", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
-                  { name: "HPE", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
-                  { name: "NetApp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
-                  { name: "ServiceNow", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Salesforce", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "Adobe", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=160&h=80&fit=crop&bg=white" },
-                  { name: "SAP", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=160&h=80&fit=crop&bg=white" }
+                  { name: "Harvard Online", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "MIT OpenCourseWare", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Stanford Online", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Yale Online", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Princeton Online", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Columbia Online", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Berkeley Online", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Oxford Online", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Cambridge Online", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Imperial College", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
+                  { name: "ETH Zurich", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "NYU Online", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
+                  { name: "UCL London", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
+                  { name: "University of Toronto", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
+                  { name: "Melbourne University", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" }
                 ].map((partner, index) => (
                   <div key={`duplicate-${index}`} className="flex-shrink-0 mx-8">
-                    <div className="w-32 h-16 md:w-36 md:h-18 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-3 hover:shadow-md transition-shadow">
+                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
                       <img 
                         src={partner.logo} 
                         alt={partner.name} 

@@ -116,6 +116,78 @@ const CyberForensics = () => {
         </div>
       </section>
 
+      {/* Course Overview Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {/* Course Stats */}
+            <div className="text-center">
+              <div className="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-cyan-600" />
+              </div>
+              <h3 className="font-bold text-2xl text-gray-900 mb-2">8 Weeks</h3>
+              <p className="text-gray-600">Duration</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Target className="w-8 h-8 text-cyan-600" />
+              </div>
+              <h3 className="font-bold text-2xl text-gray-900 mb-2">Intermediate</h3>
+              <p className="text-gray-600">Skill Level</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-cyan-600" />
+              </div>
+              <h3 className="font-bold text-2xl text-gray-900 mb-2">800+</h3>
+              <p className="text-gray-600">Students Enrolled</p>
+            </div>
+          </div>
+          
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-4">What You'll Learn</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Digital evidence collection",
+                    "Forensic analysis techniques",
+                    "Incident response procedures",
+                    "Malware analysis basics",
+                    "Chain of custody handling"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 mb-4">Key Features</h3>
+                <ul className="space-y-3">
+                  {[
+                    "Hands-on forensic labs",
+                    "Real case studies",
+                    "Expert investigators",
+                    "Legal procedures",
+                    "Industry tools"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
