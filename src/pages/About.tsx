@@ -1,45 +1,81 @@
-import { Award, Target, Users, Shield, CheckCircle, Linkedin, Twitter } from "lucide-react";
+import { Shield, Users, Target, Award, CheckCircle, Linkedin, Twitter, Zap, Globe, Brain } from "lucide-react";
 import StatsSection from "@/components/StatsSection";
 import PageBanner from "@/components/PageBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// Add CSS for continuous scrolling animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+`;
+document.head.appendChild(style);
+
 const About = () => {
-  const values = [
+  const achievements = [
     {
-      icon: Shield,
-      title: "Excellence in Security",
-      description: "We maintain the highest standards in cybersecurity training and services",
+      icon: Globe,
+      title: "Global Reach",
+      description: "Training professionals across 15+ countries with localized content and support",
+      metric: "15+ Countries"
     },
     {
-      icon: Users,
-      title: "Student-Centric Approach",
-      description: "Every learner receives personalized attention and career guidance",
+      icon: Brain,
+      title: "Expert-Led Training",
+      description: "Learn from industry veterans with 10+ years of real-world cybersecurity experience",
+      metric: "10+ Years Average Experience"
     },
     {
-      icon: Award,
-      title: "Industry Recognition",
-      description: "Our certifications are recognized by leading organizations worldwide",
-    },
-    {
-      icon: Target,
-      title: "Practical Focus",
-      description: "Hands-on labs and real-world scenarios prepare you for actual challenges",
-    },
+      icon: Zap,
+      title: "Rapid Skill Development",
+      description: "Practical, hands-on training that gets you job-ready in weeks, not months",
+      metric: "8-12 Week Programs"
+    }
   ];
 
-  const founders = [
+  const teamMembers = [
     {
       name: "Adnan",
-      role: "Co-Founder & Lead Instructor",
-      bio: "10+ years of experience in Penetration Testing and Security Auditing. Trained 2000+ students globally.",
+      role: "Lead Cybersecurity Instructor",
+      expertise: "Penetration Testing & Security Auditing",
+      achievements: "Trained 2000+ students, 15+ years experience",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
     },
     {
       name: "Sarah Jenkins",
-      role: "Co-Founder & Operations Head",
-      bio: "Former CISO with expertise in GRC and Corporate Security Strategy. Passionate about education.",
+      role: "Operations & Career Development",
+      expertise: "Security Strategy & GRC Frameworks",
+      achievements: "Former CISO, Career mentor for 500+ professionals",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80"
+    }
+  ];
+
+  const learningApproach = [
+    {
+      title: "Real-World Scenarios",
+      description: "Practice on live systems and actual threat simulations used by security teams worldwide",
+      icon: Target
+    },
+    {
+      title: "Industry Tools & Techniques",
+      description: "Master the same tools and methodologies used by Fortune 500 security teams",
+      icon: Shield
+    },
+    {
+      title: "Career-Focused Curriculum",
+      description: "Every module designed to match current job market requirements and employer expectations",
+      icon: Users
     }
   ];
 
@@ -47,140 +83,31 @@ const About = () => {
     <div className="flex flex-col min-h-screen bg-white">
       <PageBanner
         title="About Chakrabyte Security"
-        subtitle="Empowering the next generation of cybersecurity professionals"
+        subtitle="Building the next generation of cybersecurity professionals through practical, industry-relevant training"
         icon={Shield}
       />
 
-      {/* Intro Section with Image */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Building a Safer <span className="text-primary">Digital Future</span>
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  Chakrabyte Security is a premier cybersecurity training provider dedicated to empowering the next generation of security professionals.
-                </p>
-                <p>
-                  Founded by industry veterans with over 15 years of combined experience, we've trained thousands
-                  of students, professionals, and organizations in cutting-edge security practices.
-                </p>
-                <p>
-                  Our mission is to bridge the cybersecurity skills gap by providing world-class training that combines theoretical
-                  knowledge with practical, hands-on experience.
-                </p>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">2500+</div>
-                  <div className="text-sm text-gray-600 mt-1">Students</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">10+</div>
-                  <div className="text-sm text-gray-600 mt-1">Courses</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">4.9</div>
-                  <div className="text-sm text-gray-600 mt-1">Rating</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=800&fit=crop&q=80"
-                  alt="Team collaboration"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative Elements */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-purple-200 rounded-full blur-2xl opacity-60"></div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-200 rounded-full blur-2xl opacity-60"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision - Side by Side */}
-      <section className="py-20 bg-white">
+      {/* Our Approach - Practical Focus */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Purpose & Direction
+                Our <span className="text-purple-600">Practical Approach</span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Guided by a clear mission and inspired by an ambitious vision
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                We bridge the gap between theoretical knowledge and real-world application through hands-on training that prepares you for actual cybersecurity challenges.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Mission */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-purple-600 to-purple-700 text-white p-8 rounded-2xl shadow-lg">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
-                    <Target className="w-7 h-7 text-white" />
+            <div className="grid md:grid-cols-3 gap-8">
+              {learningApproach.map((item, index) => (
+                <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100">
+                  <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                    <item.icon className="w-8 h-8 text-purple-600" />
                   </div>
-                  <h3 className="font-heading text-2xl font-bold mb-4">Our Mission</h3>
-                  <p className="text-purple-100 leading-relaxed">
-                    To empower individuals and organizations with the knowledge and skills needed to protect against
-                    evolving cyber threats. We strive to make cybersecurity education accessible to everyone, from
-                    beginners to advanced professionals.
-                  </p>
-                </div>
-              </div>
-
-              {/* Vision */}
-              <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-700 text-white p-8 rounded-2xl shadow-lg">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
-                    <Award className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold mb-4">Our Vision</h3>
-                  <p className="text-blue-100 leading-relaxed">
-                    To become the most trusted cybersecurity training provider globally, recognized for producing
-                    skilled professionals who make a real difference in securing our digital world.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values - Grid Layout */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Core Values
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                The principles that guide everything we do
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-                >
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-4">
-                    <value.icon className="text-primary" size={28} />
-                  </div>
-                  <h3 className="font-heading text-lg font-bold mb-2 text-gray-900">{value.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -188,52 +115,90 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founders Section - Enhanced */}
+      {/* Key Achievements - Metrics Focus */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Meet Our Founders
+                What Makes Us <span className="text-purple-600">Different</span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Led by industry experts committed to excellence in cybersecurity education
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Real metrics that demonstrate our commitment to excellence and student success
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {achievements.map((achievement, index) => (
+                <div key={index} className="relative group">
+                  <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-8 rounded-2xl text-white h-full">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="relative z-10">
+                      <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
+                        <achievement.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <h3 className="font-heading text-2xl font-bold mb-3">{achievement.title}</h3>
+                      <p className="text-purple-100 leading-relaxed mb-4">{achievement.description}</p>
+                      <div className="inline-block px-4 py-2 bg-white/20 rounded-full">
+                        <span className="font-semibold">{achievement.metric}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Team - Practical Focus */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Learn From <span className="text-purple-600">Industry Experts</span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Our instructors bring real-world experience from leading security teams and Fortune 500 companies
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-10">
-              {founders.map((founder, index) => (
+              {teamMembers.map((member, index) => (
                 <div key={index} className="group">
-                  <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-                    {/* Image */}
-                    <div className="relative h-80 overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div className="relative h-80 bg-gradient-to-br from-purple-100 to-purple-200">
                       <img
-                        src={founder.image}
-                        alt={founder.name}
+                        src={member.image}
+                        alt={member.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-
-                      {/* Name overlay on image */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent to-transparent"></div>
+                      
                       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 className="font-heading text-2xl font-bold mb-1">{founder.name}</h3>
-                        <p className="text-purple-200 font-medium">{founder.role}</p>
+                        <h3 className="font-heading text-2xl font-bold mb-2">{member.name}</h3>
+                        <p className="text-purple-200 font-medium mb-2">{member.role}</p>
+                        <p className="text-purple-100 text-sm">{member.expertise}</p>
                       </div>
                     </div>
-
-                    {/* Content */}
-                    <div className="p-6 bg-gradient-to-br from-gray-50 to-white">
-                      <p className="text-gray-600 mb-4 leading-relaxed">{founder.bio}</p>
+                    
+                    <div className="p-6">
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-gray-900 mb-2">Key Achievements</h4>
+                        <p className="text-gray-600">{member.achievements}</p>
+                      </div>
+                      
                       <div className="flex gap-3">
                         <a
                           href="#"
-                          className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors shadow-sm"
+                          className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
                         >
                           <Linkedin className="w-5 h-5" />
                         </a>
                         <a
                           href="#"
-                          className="w-10 h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors shadow-sm"
+                          className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white transition-colors"
                         >
                           <Twitter className="w-5 h-5" />
                         </a>
@@ -247,27 +212,150 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-purple-700 to-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-              Join Our Growing Community
+      {/* Technology Partners Section */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Trusted by <span className="text-purple-600">Industry Leaders</span>
             </h2>
-            <p className="text-xl mb-10 opacity-90 font-light leading-relaxed">
-              Be part of a network of cybersecurity professionals making the digital world safer.
-              Start your journey with us today.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              We partner with leading technology companies and certification bodies to deliver cutting-edge cybersecurity training
             </p>
+          </div>
+
+          {/* Scrolling Brand Logos */}
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              {/* First set of logos */}
+              <div className="flex animate-scroll">
+                {[
+                  { name: "AWS", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Microsoft Azure", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=160&h=80&fit=crop&bg=white" },
+                  { name: "IBM Cloud", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Oracle Cloud", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=160&h=80&fit=crop&bg=white" },
+                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Cisco", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Dell Technologies", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
+                  { name: "HPE", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
+                  { name: "NetApp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
+                  { name: "ServiceNow", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Salesforce", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Adobe", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=160&h=80&fit=crop&bg=white" },
+                  { name: "SAP", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=160&h=80&fit=crop&bg=white" }
+                ].map((partner, index) => (
+                  <div key={index} className="flex-shrink-0 mx-8">
+                    <div className="w-32 h-16 md:w-36 md:h-18 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-3 hover:shadow-md transition-shadow">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* Duplicate set for seamless scrolling */}
+              <div className="flex animate-scroll">
+                {[
+                  { name: "AWS", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Google Cloud", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Microsoft Azure", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=160&h=80&fit=crop&bg=white" },
+                  { name: "IBM Cloud", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Oracle Cloud", logo: "https://images.unsplash.com/photo-1573164713613-4e6f12e6b1d0?w=160&h=80&fit=crop&bg=white" },
+                  { name: "VMware", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Cisco", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Dell Technologies", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=160&h=80&fit=crop&bg=white" },
+                  { name: "HPE", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=160&h=80&fit=crop&bg=white" },
+                  { name: "NetApp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Splunk", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=160&h=80&fit=crop&bg=white" },
+                  { name: "ServiceNow", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Salesforce", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=160&h=80&fit=crop&bg=white" },
+                  { name: "Adobe", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=160&h=80&fit=crop&bg=white" },
+                  { name: "SAP", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=160&h=80&fit=crop&bg=white" }
+                ].map((partner, index) => (
+                  <div key={`duplicate-${index}`} className="flex-shrink-0 mx-8">
+                    <div className="w-32 h-16 md:w-36 md:h-18 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-3 hover:shadow-md transition-shadow">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Partnership Stats */}
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
+              <div className="text-sm text-gray-600">Tech Partners</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-2">8+</div>
+              <div className="text-sm text-gray-600">Cloud Platforms</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-2">25+</div>
+              <div className="text-sm text-gray-600">Enterprise Tools</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+              <div className="text-sm text-gray-600">Industry Integration</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Commitment - Action-Oriented */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Our Commitment to <span className="text-purple-600">Your Success</span>
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              We don't just teach cybersecurity – we build careers. Our commitment extends beyond the classroom with lifetime support, continuous learning resources, and a growing network of cybersecurity professionals.
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Lifetime Support</h3>
+                <p className="text-gray-600 text-sm">Get help whenever you need it, even after course completion</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Community Access</h3>
+                <p className="text-gray-600 text-sm">Join our network of 2500+ cybersecurity professionals</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-2">Career Guidance</h3>
+                <p className="text-gray-600 text-sm">Personalized mentorship and job placement assistance</p>
+              </div>
+            </div>
+
             <Button
               asChild
               size="lg"
-              className="bg-white text-primary hover:bg-gray-100 font-bold px-12 py-6 text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+              className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-12 py-4 text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
             >
               <Link to="/contact">
-                Get Started Today
+                Start Your Cybersecurity Journey
               </Link>
             </Button>
           </div>

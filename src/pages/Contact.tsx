@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -15,6 +15,11 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  
+  const toggleFaq = (index) => {
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -212,6 +217,193 @@ const Contact = () => {
                     Chat on WhatsApp
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Frequently Asked <span className="text-purple-600">Questions</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Get answers to common questions about our cybersecurity courses and services
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-4">
+              {/* FAQ 1 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(0)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">What are the prerequisites for your cybersecurity courses?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 0 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 0 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Most of our beginner courses require only basic computer skills. For advanced courses, we recommend having some IT background or completing our foundational courses first.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 2 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(1)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Do you provide job placement assistance?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 1 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 1 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Yes, we offer comprehensive career support including resume building, interview preparation, and connections with our network of hiring partners in the cybersecurity industry.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 3 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(2)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Are your certifications industry-recognized?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 2 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 2 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Absolutely! Our certifications are recognized by leading organizations and align with industry standards like CEH, CompTIA Security+, and other globally recognized cybersecurity certifications.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 4 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(3)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">What is the duration of your courses?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 3 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 3 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Course durations vary from 8 weeks for foundational courses to 12 weeks for advanced programs. We also offer flexible weekend batches and self-paced learning options.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 5 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(4)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Do you offer corporate training programs?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 4 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 4 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Yes, we provide customized corporate training programs tailored to your organization's specific needs. Our trainers can conduct sessions at your premises or online.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 6 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(5)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">What payment options are available?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 5 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 5 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    We offer flexible payment options including one-time payment, EMI options, and installment plans. We also accept major credit cards, debit cards, and online banking transfers.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 7 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(6)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Do you provide course materials and recordings?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 6 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 6 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Yes, all students get access to comprehensive course materials, lab guides, and session recordings. These resources are available for lifetime access even after course completion.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 8 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(7)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Can I attend classes from outside India?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 7 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 7 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Absolutely! Our online courses are accessible globally. We have students from various countries attending live sessions and accessing our learning platform from anywhere in the world.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 9 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(8)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">What kind of lab access do students get?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 8 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 8 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    Students get 24/7 access to our virtual lab environment with real-world scenarios, tools, and vulnerabilities. This includes access to penetration testing labs, SIEM platforms, and cloud environments.
+                  </p>
+                </div>
+              </div>
+
+              {/* FAQ 10 */}
+              <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
+                <button 
+                  onClick={() => toggleFaq(9)}
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                >
+                  <span className="font-semibold text-gray-900">Do you offer refunds if I'm not satisfied?</span>
+                  <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 9 ? 'rotate-180' : 'rotate-90'}`} />
+                </button>
+                <div className={`px-6 overflow-hidden transition-all duration-300 ${expandedFaq === 9 ? 'pb-4 max-h-40' : 'max-h-0'}`}>
+                  <p className="text-gray-600">
+                    We offer a 7-day money-back guarantee for most courses. If you're not satisfied within the first week, you can request a full refund. Certain specialized courses may have different policies.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <div className="inline-flex items-center gap-2 text-purple-600 font-medium">
+                <span>Still have questions?</span>
+                <a href="#contact-form" className="underline hover:no-underline">
+                  Contact our support team
+                </a>
               </div>
             </div>
           </div>

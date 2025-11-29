@@ -123,10 +123,11 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
-                className={`text-sm font-medium transition-colors ${isActivePath(item.path)
-                  ? "text-purple-600"
-                  : "text-gray-700 hover:text-purple-600"
-                  }`}
+                className={`text-sm font-medium transition-colors ${
+                  isActivePath(item.path)
+                    ? "text-purple-600"
+                    : "text-gray-700 hover:text-purple-600"
+                }`}
               >
                 {item.name}
               </button>
@@ -457,7 +458,7 @@ const Header = () => {
                       >
                         All Services
                       </button>
-                      {services.map((service) => (
+                      {services.slice(0, 5).map((service) => (
                         <button
                           key={service.path}
                           onClick={() => {
