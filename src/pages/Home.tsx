@@ -361,61 +361,116 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Modern Design */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
+      {/* Testimonials Section - Premium Design */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              What Our <span className="text-purple-600">Students Say</span>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-white">
+              What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Students Say</span>
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Real stories from real students who transformed their careers with our cybersecurity training
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+              Real stories from cybersecurity professionals who transformed their careers
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-purple-200 relative overflow-hidden group"
+                  className="group relative"
                 >
-                  {/* Quote Icon */}
-                  <div className="absolute top-4 right-4 text-purple-200 opacity-50">
-                    <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                    </svg>
-                  </div>
+                  {/* Card Container */}
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 hover:bg-white/15 hover:border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20">
+                    
+                    {/* Gradient Border Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 h-full flex flex-col">
+                      {/* Quote Icon */}
+                      <div className="mb-6">
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                          </svg>
+                        </div>
+                      </div>
 
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-4 ring-purple-100">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
+                      {/* Testimonial Content */}
+                      <p className="text-gray-200 text-lg leading-relaxed mb-8 flex-grow italic group-hover:text-white transition-colors duration-300">
+                        "{testimonial.quote}"
+                      </p>
+
+                      {/* Bottom Section */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className="relative">
+                            <div className="w-14 h-14 rounded-full overflow-hidden ring-4 ring-purple-500/20 group-hover:ring-purple-500/40 transition-all duration-300">
+                              <img
+                                src={testimonial.image}
+                                alt={testimonial.name}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            {/* Status Indicator */}
+                            <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white/10"></div>
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-white text-lg group-hover:text-purple-300 transition-colors duration-300">
+                              {testimonial.name}
+                            </h4>
+                            <p className="text-purple-300 font-medium text-sm group-hover:text-purple-200 transition-colors duration-300">
+                              {testimonial.role}
+                            </p>
+                            <p className="text-gray-400 text-xs group-hover:text-gray-300 transition-colors duration-300">
+                              {testimonial.company}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Rating */}
+                        <div className="flex flex-col items-center gap-1">
+                          <div className="flex gap-0.5">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <Star key={star} size={14} className="text-yellow-400 fill-yellow-400 drop-shadow-sm" />
+                            ))}
+                          </div>
+                          <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">5.0</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-gray-900 text-lg">{testimonial.name}</h4>
-                      <p className="text-purple-600 font-medium">{testimonial.role}</p>
-                      <p className="text-sm text-gray-500">{testimonial.company}</p>
-                    </div>
                   </div>
-
-                  <div className="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} size={16} className="text-purple-500 fill-purple-500" />
-                    ))}
-                  </div>
-
-                  <p className="text-gray-700 text-base leading-relaxed italic group-hover:text-purple-900 transition-colors">
-                    "{testimonial.quote}"
-                  </p>
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1">10K+</div>
+              <div className="text-sm text-gray-400">Students</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1">98%</div>
+              <div className="text-sm text-gray-400">Success Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1">500+</div>
+              <div className="text-sm text-gray-400">Companies</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-white mb-1">4.9</div>
+              <div className="text-sm text-gray-400">Average Rating</div>
             </div>
           </div>
         </div>
@@ -448,8 +503,8 @@ const Home = () => {
         </a>
       </div>
 
-      {/* Sticky Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-lg z-30">
+      {/* Sticky Footer - Hidden on Mobile */}
+      <footer className="hidden md:block fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-lg z-30">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-12 text-xs">
             {/* Left Side - Navigation Links */}

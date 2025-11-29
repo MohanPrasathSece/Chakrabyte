@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -8,8 +8,36 @@ const Header = () => {
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // Hide header on scroll down, show on scroll up (mobile only)
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isMobile = window.innerWidth < 1024; // lg breakpoint
+
+      if (isMobile) {
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+          // Scrolling down and past 200px
+          setIsHeaderVisible(false);
+        } else if (currentScrollY < lastScrollY - 50) {
+          // Scrolling up by at least 50px
+          setIsHeaderVisible(true);
+        }
+        // If scrolling up but not enough, keep current state
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   // Timeout refs for dropdown delays
   let coursesTimeout: NodeJS.Timeout;
@@ -80,7 +108,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm">
+    <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm transition-transform duration-300 lg:transform-none ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -88,8 +116,8 @@ const Header = () => {
             onClick={() => handleNavigation("/")}
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <img src={logo} alt="chakrabyte security" className="h-10 w-10" />
-            <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase">
+            <img src={logo} alt="chakrabyte security" className="h-10 w-10 lg:h-10 lg:w-10 md:h-9 md:w-9 sm:h-8 sm:w-8" />
+            <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase lg:text-lg md:text-base sm:text-sm">
               CHAKRABYTE
             </span>
           </button>
@@ -198,31 +226,31 @@ const Header = () => {
           </nav>
 
           {/* Right side buttons */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 lg:space-x-3 md:space-x-2 sm:space-x-1">
             {/* Search Button */}
             <button
-              className="p-2 text-gray-600 hover:text-purple-600 transition-colors"
+              className="p-1.5 lg:p-2 text-gray-600 hover:text-purple-600 transition-colors"
               onClick={() => setSearchOpen(!searchOpen)}
               aria-label="Search"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4 lg:h-5 lg:w-5" />
             </button>
 
             {/* Get Started Button */}
-            <button className="hidden sm:block px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors">
+            <button className="hidden sm:block px-3 py-1.5 lg:px-4 lg:py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm lg:text-sm">
               Get Started
             </button>
 
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-1.5"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-4 sm:w-4" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 sm:h-4 sm:w-4" />
               )}
             </button>
           </div>
@@ -231,96 +259,135 @@ const Header = () => {
         {/* Search Bar */}
         {searchOpen && (
           <div className="py-4 border-t border-gray-200/50">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+            <div className="relative max-w-md mx-auto">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
               <input
                 type="text"
-                placeholder="Search courses, services, and more..."
-                className="w-full pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                placeholder="Search..."
+                className="block w-full pl-10 pr-3 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
                 autoFocus
               />
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                <span className="text-xs text-gray-400">Press ESC to close</span>
+              </div>
             </div>
           </div>
         )}
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Compact Dropdown Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200/50">
-            <nav className="flex flex-col space-y-4">
-              {navigation.map((item) => (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavigation(item.path)}
-                  className={`text-sm font-medium transition-colors ${
-                    isActivePath(item.path)
-                      ? "text-purple-600"
-                      : "text-gray-700 hover:text-purple-600"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-              
-              {/* Mobile Courses Dropdown */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-                  <BookOpen className="h-4 w-4 mr-2" />
-                  Courses
-                </h4>
-                <div className="pl-6 space-y-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-lg z-50">
+            <div className="container mx-auto px-4 py-3">
+              <nav className="flex flex-col space-y-1">
+                {navigation.map((item) => (
                   <button
-                    onClick={() => handleNavigation("/courses")}
-                    className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors"
+                    key={item.path}
+                    onClick={() => handleNavigation(item.path)}
+                    className={`text-sm font-medium transition-colors text-left py-2 px-3 rounded-md ${
+                      isActivePath(item.path)
+                        ? "text-purple-600 bg-purple-50"
+                        : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                    }`}
                   >
-                    All Courses
+                    {item.name}
                   </button>
-                  {courses.map((course) => (
-                    <button
-                      key={course.path}
-                      onClick={() => handleNavigation(course.path)}
-                      className="block text-sm text-gray-600 hover:text-purple-600 transition-colors"
-                    >
-                      {course.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Mobile Services Dropdown */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-                  <Briefcase className="h-4 w-4 mr-2" />
-                  Services
-                </h4>
-                <div className="pl-6 space-y-2">
+                ))}
+                
+                {/* Mobile Courses Dropdown - Click to Open */}
+                <div>
                   <button
-                    onClick={() => handleNavigation("/services")}
-                    className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors"
+                    onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+                    className="flex items-center justify-between w-full text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 transition-colors py-2 px-3 rounded-md"
                   >
-                    All Services
+                    <div className="flex items-center">
+                      <BookOpen className="h-4 w-4 mr-2" />
+                      Courses
+                    </div>
+                    <ChevronDown className={`h-3 w-3 transition-transform ${mobileCoursesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  {services.map((service) => (
-                    <button
-                      key={service.path}
-                      onClick={() => handleNavigation(service.path)}
-                      className="block text-sm text-gray-600 hover:text-purple-600 transition-colors"
-                    >
-                      {service.name}
-                    </button>
-                  ))}
+                  {mobileCoursesOpen && (
+                    <div className="pl-6 pt-1 pb-2 space-y-1 bg-gray-50/50 rounded-md mx-2">
+                      <button
+                        onClick={() => {
+                          handleNavigation("/courses");
+                          setMobileCoursesOpen(false);
+                        }}
+                        className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors py-1.5 px-3 rounded w-full text-left"
+                      >
+                        All Courses
+                      </button>
+                      {courses.slice(0, 5).map((course) => (
+                        <button
+                          key={course.path}
+                          onClick={() => {
+                            handleNavigation(course.path);
+                            setMobileCoursesOpen(false);
+                          }}
+                          className="block text-sm text-gray-600 hover:text-purple-600 transition-colors py-1.5 px-3 rounded w-full text-left"
+                        >
+                          {course.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
 
-              {/* Mobile Get Started Button */}
-              <button 
-                onClick={() => handleNavigation("/get-started")}
-                className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
-              >
-                Get Started
-              </button>
-            </nav>
+                {/* Mobile Services Dropdown - Click to Open */}
+                <div>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="flex items-center justify-between w-full text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 transition-colors py-2 px-3 rounded-md"
+                  >
+                    <div className="flex items-center">
+                      <Briefcase className="h-4 w-4 mr-2" />
+                      Services
+                    </div>
+                    <ChevronDown className={`h-3 w-3 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileServicesOpen && (
+                    <div className="pl-6 pt-1 pb-2 space-y-1 bg-gray-50/50 rounded-md mx-2">
+                      <button
+                        onClick={() => {
+                          handleNavigation("/services");
+                          setMobileServicesOpen(false);
+                        }}
+                        className="block text-sm font-medium text-gray-900 hover:text-purple-600 transition-colors py-1.5 px-3 rounded w-full text-left"
+                      >
+                        All Services
+                      </button>
+                      {services.map((service) => (
+                        <button
+                          key={service.path}
+                          onClick={() => {
+                            handleNavigation(service.path);
+                            setMobileServicesOpen(false);
+                          }}
+                          className="block text-sm text-gray-600 hover:text-purple-600 transition-colors py-1.5 px-3 rounded w-full text-left"
+                        >
+                          {service.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Get Started Button */}
+                <div className="pt-2 border-t border-gray-200/50 mt-2">
+                  <button 
+                    onClick={() => handleNavigation("/get-started")}
+                    className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm"
+                  >
+                    Get Started
+                  </button>
+                </div>
+              </nav>
+            </div>
           </div>
         )}
+
+        {/* Rest of the code remains the same */}
       </div>
     </header>
   );
