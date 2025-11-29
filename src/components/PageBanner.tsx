@@ -8,7 +8,7 @@ interface PageBannerProps {
 
 const PageBanner = ({ title, subtitle, icon: Icon }: PageBannerProps) => {
     return (
-        <div className="bg-primary text-white py-20 relative overflow-hidden">
+        <div className="bg-primary text-white py-24 md:py-28 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
                 <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
@@ -24,10 +24,10 @@ const PageBanner = ({ title, subtitle, icon: Icon }: PageBannerProps) => {
                         <Icon className="w-8 h-8 text-white" />
                     </div>
                 )}
-                <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                     {title}
                 </h1>
-                <p className="text-lg md:text-xl text-purple-100 max-w-2xl mx-auto font-light">
+                <p className="text-lg md:text-xl text-purple-100 max-w-3xl mx-auto font-light leading-relaxed">
                     {subtitle}
                 </p>
             </div>

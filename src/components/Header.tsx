@@ -8,6 +8,7 @@ const Header = () => {
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -20,6 +21,19 @@ const Header = () => {
     // Disabled scroll hiding for better mobile UX
     // Header will remain sticky at all times
   }, []);
+
+  // Handle ESC key to close search
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && searchOpen) {
+        setSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [searchOpen]);
 
   // Timeout refs for dropdown delays
   let coursesTimeout: NodeJS.Timeout;
@@ -50,7 +64,6 @@ const Header = () => {
   const navigation = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
   ];
 
   const courses = [
@@ -94,7 +107,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <button 
+          <button
             onClick={() => handleNavigation("/")}
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
@@ -110,16 +123,15 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
-                className={`text-sm font-medium transition-colors ${
-                  isActivePath(item.path)
-                    ? "text-purple-600"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
+                className={`text-sm font-medium transition-colors ${isActivePath(item.path)
+                  ? "text-purple-600"
+                  : "text-gray-700 hover:text-purple-600"
+                  }`}
               >
                 {item.name}
               </button>
             ))}
-            
+
             {/* Courses Dropdown */}
             <div className="relative">
               <button
@@ -132,7 +144,7 @@ const Header = () => {
                 <ChevronDown className="h-3 w-3" />
               </button>
               {coursesDropdownOpen && (
-                <div 
+                <div
                   className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={handleCoursesMouseEnter}
                   onMouseLeave={handleCoursesMouseLeave}
@@ -175,7 +187,7 @@ const Header = () => {
                 <ChevronDown className="h-3 w-3" />
               </button>
               {servicesDropdownOpen && (
-                <div 
+                <div
                   className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
@@ -205,21 +217,42 @@ const Header = () => {
                 </div>
               )}
             </div>
+
+            {/* Contact Link */}
+            <button
+              onClick={() => handleNavigation("/contact")}
+              className={`text-sm font-medium transition-colors ${isActivePath("/contact")
+                ? "text-purple-600"
+                : "text-gray-700 hover:text-purple-600"
+                }`}
+            >
+              Contact
+            </button>
           </nav>
 
           {/* Right side buttons */}
           <div className="flex items-center space-x-2 lg:space-x-3 md:space-x-2 sm:space-x-1">
-            {/* Search Button */}
+            {/* Search Button - Box Style with Label */}
             <button
-              className="p-1.5 lg:p-2 text-gray-600 hover:text-purple-600 transition-colors"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition-colors border border-gray-200"
               onClick={() => setSearchOpen(!searchOpen)}
               aria-label="Search"
             >
-              <Search className="h-4 w-4 lg:h-5 lg:w-5" />
+              <Search className="h-4 w-4" />
+              <span className="text-sm font-medium">Search</span>
+            </button>
+
+            {/* Mobile Search Icon Only */}
+            <button
+              className="lg:hidden p-1.5 text-gray-600 hover:text-purple-600 transition-colors"
+              onClick={() => setSearchOpen(!searchOpen)}
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4" />
             </button>
 
             {/* Get Started Button */}
-            <button 
+            <button
               onClick={() => handleNavigation("/contact")}
               className="hidden sm:block px-3 py-1.5 lg:px-4 lg:py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm lg:text-sm"
             >
@@ -241,22 +274,105 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Search Bar */}
+        {/* Search Bar with Live Results */}
         {searchOpen && (
-          <div className="py-4 border-t border-gray-200/50">
-            <div className="relative max-w-md mx-auto">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="py-4 border-t border-gray-200/50 bg-white">
+            <div className="relative max-w-2xl mx-auto px-4">
+              <div className="absolute inset-y-0 left-7 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-400" />
               </div>
               <input
                 type="text"
-                placeholder="Search..."
-                className="block w-full pl-10 pr-3 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
+                placeholder="Search courses and services..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="block w-full pl-12 pr-3 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm"
                 autoFocus
               />
-              <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                <span className="text-xs text-gray-400">Press ESC to close</span>
-              </div>
+
+              {/* Search Results Dropdown */}
+              {searchQuery.trim() !== "" && (
+                <div className="absolute top-full left-4 right-4 mt-2 bg-white border border-gray-200 rounded-lg shadow-xl max-h-96 overflow-y-auto z-50">
+                  {(() => {
+                    const query = searchQuery.toLowerCase();
+                    const filteredCourses = courses.filter(course =>
+                      course.name.toLowerCase().includes(query)
+                    );
+                    const filteredServices = services.filter(service =>
+                      service.name.toLowerCase().includes(query)
+                    );
+                    const hasResults = filteredCourses.length > 0 || filteredServices.length > 0;
+
+                    if (!hasResults) {
+                      return (
+                        <div className="p-8 text-center text-gray-500">
+                          <Search className="h-12 w-12 mx-auto mb-3 text-gray-300" />
+                          <p className="font-medium">No results found</p>
+                          <p className="text-sm mt-1">Try searching for different keywords</p>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div className="py-2">
+                        {filteredCourses.length > 0 && (
+                          <div className="mb-2">
+                            <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide bg-gray-50">
+                              Courses ({filteredCourses.length})
+                            </div>
+                            {filteredCourses.map((course) => (
+                              <button
+                                key={course.path}
+                                onClick={() => {
+                                  handleNavigation(course.path);
+                                  setSearchQuery("");
+                                  setSearchOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-3 hover:bg-purple-50 transition-colors flex items-center gap-3 group"
+                              >
+                                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                                  <Search className="w-4 h-4 text-purple-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium text-gray-900">{course.name}</div>
+                                  <div className="text-xs text-gray-500">Course</div>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
+                        {filteredServices.length > 0 && (
+                          <div>
+                            <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide bg-gray-50">
+                              Services ({filteredServices.length})
+                            </div>
+                            {filteredServices.map((service) => (
+                              <button
+                                key={service.path}
+                                onClick={() => {
+                                  handleNavigation(service.path);
+                                  setSearchQuery("");
+                                  setSearchOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-3 hover:bg-purple-50 transition-colors flex items-center gap-3 group"
+                              >
+                                <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                                  <Search className="w-4 h-4 text-blue-600" />
+                                </div>
+                                <div>
+                                  <div className="font-medium text-gray-900">{service.name}</div>
+                                  <div className="text-xs text-gray-500">Service</div>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -270,16 +386,15 @@ const Header = () => {
                   <button
                     key={item.path}
                     onClick={() => handleNavigation(item.path)}
-                    className={`text-sm font-medium transition-colors text-left py-2 px-3 rounded-md ${
-                      isActivePath(item.path)
-                        ? "text-purple-600 bg-purple-50"
-                        : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
-                    }`}
+                    className={`text-sm font-medium transition-colors text-left py-2 px-3 rounded-md ${isActivePath(item.path)
+                      ? "text-purple-600 bg-purple-50"
+                      : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                      }`}
                   >
                     {item.name}
                   </button>
                 ))}
-                
+
                 {/* Mobile Courses Dropdown - Click to Open */}
                 <div>
                   <button
@@ -360,7 +475,7 @@ const Header = () => {
 
                 {/* Mobile Get Started Button */}
                 <div className="pt-2 border-t border-gray-200/50 mt-2">
-                  <button 
+                  <button
                     onClick={() => handleNavigation("/contact")}
                     className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors text-sm"
                   >

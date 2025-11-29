@@ -1,71 +1,97 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Clock, Award, Users, CheckCircle } from "lucide-react";
+import { Clock, Award, Users, CheckCircle, Target, Shield } from "lucide-react";
 
 const NetworkSecurity = () => {
-  const modules = [
-    { title: "Network Security Fundamentals", topics: ["OSI model", "TCP/IP protocol suite", "Network devices", "Security principles", "Threat landscape"] },
-    { title: "Firewalls and IDS/IPS", topics: ["Firewall types", "Firewall rules", "IDS vs IPS", "Snort", "Suricata", "Alert management"] },
-    { title: "VPN Technologies", topics: ["VPN protocols", "IPsec", "SSL/TLS VPN", "Site-to-site VPN", "Remote access VPN", "VPN security"] },
-    { title: "Network Access Control", topics: ["802.1X authentication", "NAC solutions", "RADIUS/TACACS+", "Port security", "MAC filtering"] },
-    { title: "Wireless Security", topics: ["Wi-Fi security protocols", "WPA3", "Enterprise Wi-Fi", "Wireless attacks", "Secure configuration"] },
-    { title: "Network Monitoring", topics: ["Traffic analysis", "NetFlow", "SNMP", "Syslog", "Network baselines", "Anomaly detection"] },
-    { title: "Secure Network Design", topics: ["Defense in depth", "Network segmentation", "DMZ design", "Zero trust architecture", "Micro-segmentation"] },
-    { title: "DDoS Protection", topics: ["DDoS types", "Mitigation techniques", "Rate limiting", "BGP protection", "CDN services"] },
-    { title: "Network Vulnerability Assessment", topics: ["Scanning techniques", "Vulnerability prioritization", "Patch management", "Configuration audits"] },
-    { title: "Incident Response", topics: ["Network forensics", "Log analysis", "Incident containment", "Recovery procedures", "Post-incident review"] }
-  ];
-
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="py-20 bg-gradient-to-r from-primary to-accent text-primary-foreground">
+      {/* Hero Banner */}
+      <section className="py-24 md:py-28 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl">
-            <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Network Security</h1>
-            <p className="text-xl mb-6 opacity-90">Protect networks with firewalls, IDS/IPS, VPNs, and advanced security controls</p>
-            <div className="flex flex-wrap gap-4 mb-6 opacity-90">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Network Security</h1>
+            <p className="text-xl mb-8 opacity-90">Protect networks with firewalls, IDS/IPS, VPNs, and advanced security controls</p>
+            <div className="flex flex-wrap justify-center gap-6 mb-8 opacity-90">
               <div className="flex items-center gap-2"><Clock size={20} /><span>8 Weeks</span></div>
               <div className="flex items-center gap-2"><Award size={20} /><span>Certification</span></div>
               <div className="flex items-center gap-2"><Users size={20} /><span>900+ Students</span></div>
             </div>
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 h-12">
               <Link to="/contact?course=network-security">Enroll Now</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-light-section">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="font-heading text-3xl font-bold mb-6">Course Overview</h2>
-          <p className="text-muted-foreground mb-4">Master network security technologies and best practices to protect organizational infrastructure from cyber threats. Learn to design, implement, and manage secure networks using firewalls, VPNs, IDS/IPS systems, and other security controls.</p>
-        </div>
-      </section>
+      {/* Course Overview */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">Course Overview</h2>
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Master network security technologies and best practices to protect organizational infrastructure from cyber threats.
+              Learn to design, implement, and manage secure networks using firewalls, VPNs, IDS/IPS systems, and other security controls.
+            </p>
+          </div>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="font-heading text-3xl font-bold mb-8">Course Modules</h2>
-          <div className="space-y-4">
-            {modules.map((module, index) => (
-              <div key={index} className="bg-light-section p-6 rounded-lg">
-                <h3 className="font-heading text-lg font-semibold mb-3">Module {index + 1}: {module.title}</h3>
-                <ul className="space-y-1">
-                  {module.topics.map((topic, i) => (
-                    <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                      <span className="text-primary">•</span><span>{topic}</span>
-                    </li>
-                  ))}
-                </ul>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* What You'll Learn */}
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Target className="w-6 h-6 text-purple-600" />
               </div>
-            ))}
+              <h3 className="font-heading text-xl font-bold mb-4 text-gray-900">What You'll Learn</h3>
+              <ul className="space-y-3">
+                {[
+                  "Network security fundamentals and best practices",
+                  "Firewall configuration and management",
+                  "IDS/IPS implementation and monitoring",
+                  "VPN technologies and secure remote access",
+                  "Wireless network security",
+                  "Network vulnerability assessment"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Who Should Enroll */}
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                <Shield className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="font-heading text-xl font-bold mb-4 text-gray-900">Who Should Enroll</h3>
+              <ul className="space-y-3">
+                {[
+                  "Network administrators and engineers",
+                  "IT security professionals",
+                  "System administrators",
+                  "Aspiring security analysts",
+                  "IT professionals seeking specialization",
+                  "Anyone interested in network security"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold mb-4">Secure Your Network Infrastructure</h2>
-          <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+      {/* CTA Section */}
+      <section className="py-20 bg-purple-600 text-white text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
+          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+            Join hundreds of students and become a network security expert
+          </p>
+          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 h-12">
             <Link to="/contact?course=network-security">Enroll Now</Link>
           </Button>
         </div>

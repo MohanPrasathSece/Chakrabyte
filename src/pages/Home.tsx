@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Star } from "lucide-react";
+import { Shield, Users, Award, CheckCircle, Quote, ChevronRight } from "lucide-react";
 import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import heroImage from "@/assets/hero-image.jpg";
@@ -109,10 +109,10 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <Button
                   asChild
-                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
+                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-8 sm:px-10 py-5 sm:py-4 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden h-14 sm:h-auto"
                 >
                   <Link to="/contact">
-                    <span className="relative z-10 flex items-center gap-2">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
                       Get Started Today
                       <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -122,10 +122,10 @@ const Home = () => {
 
                 <Button
                   asChild
-                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden"
+                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-8 sm:px-10 py-5 sm:py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden h-14 sm:h-auto"
                 >
                   <Link to="/courses">
-                    <span className="relative z-10 flex items-center gap-2">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
                       Explore Courses
                       <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -371,116 +371,50 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section - Premium Design */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, white 1px, transparent 1px), radial-gradient(circle at 75% 75%, white 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-white">
-              What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Students Say</span>
+      {/* Testimonials Section - Simple Design */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              What Our <span className="text-primary">Students Say</span>
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Real stories from cybersecurity professionals who transformed their careers
             </p>
           </div>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="group relative"
+                  className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-200"
                 >
-                  {/* Card Container */}
-                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 h-full transition-all duration-500 hover:bg-white/15 hover:border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20">
-                    
-                    {/* Gradient Border Effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                    
-                    {/* Content */}
-                    <div className="relative z-10 h-full flex flex-col">
-                      {/* Quote Icon */}
-                      <div className="mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                          </svg>
-                        </div>
-                      </div>
+                  {/* Quote */}
+                  <div className="mb-6">
+                    <Quote className="w-10 h-10 text-purple-200" />
+                  </div>
 
-                      {/* Testimonial Content */}
-                      <p className="text-gray-200 text-lg leading-relaxed mb-8 flex-grow italic group-hover:text-white transition-colors duration-300">
-                        "{testimonial.quote}"
-                      </p>
+                  {/* Testimonial Text */}
+                  <p className="text-gray-700 mb-6 leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
 
-                      {/* Bottom Section */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <div className="relative">
-                            <div className="w-14 h-14 rounded-full overflow-hidden ring-4 ring-purple-500/20 group-hover:ring-purple-500/40 transition-all duration-300">
-                              <img
-                                src={testimonial.image}
-                                alt={testimonial.name}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            {/* Status Indicator */}
-                            <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white/10"></div>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-white text-lg group-hover:text-purple-300 transition-colors duration-300">
-                              {testimonial.name}
-                            </h4>
-                            <p className="text-purple-300 font-medium text-sm group-hover:text-purple-200 transition-colors duration-300">
-                              {testimonial.role}
-                            </p>
-                            <p className="text-gray-400 text-xs group-hover:text-gray-300 transition-colors duration-300">
-                              {testimonial.company}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Rating */}
-                        <div className="flex flex-col items-center gap-1">
-                          <div className="flex gap-0.5">
-                            {[1, 2, 3, 4, 5].map((star) => (
-                              <Star key={star} size={14} className="text-yellow-400 fill-yellow-400 drop-shadow-sm" />
-                            ))}
-                          </div>
-                          <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300">5.0</span>
-                        </div>
-                      </div>
+                  {/* Author Info */}
+                  <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                      <p className="text-sm text-gray-600">{testimonial.role}</p>
+                      <p className="text-xs text-gray-500">{testimonial.company}</p>
                     </div>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Bottom Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">10K+</div>
-              <div className="text-sm text-gray-400">Students</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">98%</div>
-              <div className="text-sm text-gray-400">Success Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">500+</div>
-              <div className="text-sm text-gray-400">Companies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-1">4.9</div>
-              <div className="text-sm text-gray-400">Average Rating</div>
             </div>
           </div>
         </div>
@@ -497,7 +431,7 @@ const Home = () => {
           aria-label="Contact on WhatsApp"
         >
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
         </a>
 
