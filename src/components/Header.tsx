@@ -1,0 +1,310 @@
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Shield, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
+import logo from "@/assets/logo.png";
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const navigation = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  const courses = [
+    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
+    { name: "SOC Analyst", path: "/courses/soc-analyst" },
+    { name: "Cyber Forensics", path: "/courses/cyber-forensics" },
+    { name: "Network Security", path: "/courses/network-security" },
+    { name: "Web App Security", path: "/courses/web-app-security" },
+    { name: "Cloud Security", path: "/courses/cloud-security" },
+    { name: "Malware Analysis", path: "/courses/malware-analysis" },
+    { name: "Red Team", path: "/courses/red-team" },
+    { name: "Blue Team", path: "/courses/blue-team" },
+    { name: "Cybersecurity Basics", path: "/courses/cybersecurity-basics" },
+  ];
+
+  const services = [
+    { name: "Corporate Training", path: "/services/corporate-training" },
+    { name: "Device Security", path: "/services/device-security" },
+    { name: "College Workshops", path: "/services/college-workshops" },
+    { name: "VAPT Services", path: "/services/vapt" },
+    { name: "Consultation", path: "/services/consultation" },
+  ];
+
+  const handleNavigation = (path: string) => {
+    // Navigate to the path
+    navigate(path);
+    // Scroll to top immediately
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Close mobile menu and search only, keep dropdowns open for desktop
+    setIsMenuOpen(false);
+    setSearchOpen(false);
+  };
+
+  const handleLinkClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    handleNavigation(path);
+  };
+
+  const isActivePath = (path: string) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border/50 shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <button 
+            onClick={() => handleNavigation("/")}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
+            <img src={logo} alt="chakrabyte security" className="h-10 w-10" />
+            <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase">
+              CHAKRABYTE
+            </span>
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <button
+                key={item.path}
+                onClick={() => handleNavigation(item.path)}
+                className={`text-sm font-medium transition-colors ${
+                  isActivePath(item.path)
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+            
+            {/* Courses Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                onMouseEnter={() => setCoursesDropdownOpen(true)}
+                onMouseLeave={() => setCoursesDropdownOpen(false)}
+                onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)}
+              >
+                <BookOpen className="h-4 w-4" />
+                <span>Courses</span>
+                <ChevronDown className="h-3 w-3" />
+              </button>
+              {coursesDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-lg py-2"
+                  onMouseEnter={() => setCoursesDropdownOpen(true)}
+                  onMouseLeave={() => setCoursesDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => {
+                      handleNavigation("/courses");
+                      setCoursesDropdownOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    All Courses
+                  </button>
+                  <div className="border-t border-border/50 my-1"></div>
+                  {courses.map((course) => (
+                    <button
+                      key={course.path}
+                      onClick={() => {
+                        handleNavigation(course.path);
+                        setCoursesDropdownOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                    >
+                      {course.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Services Dropdown */}
+            <div className="relative">
+              <button
+                className="flex items-center space-x-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                onMouseLeave={() => setServicesDropdownOpen(false)}
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+              >
+                <Briefcase className="h-4 w-4" />
+                <span>Services</span>
+                <ChevronDown className="h-3 w-3" />
+              </button>
+              {servicesDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-xl border border-border/50 rounded-lg shadow-lg py-2"
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => {
+                      handleNavigation("/services");
+                      setServicesDropdownOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    All Services
+                  </button>
+                  <div className="border-t border-border/50 my-1"></div>
+                  {services.map((service) => (
+                    <button
+                      key={service.path}
+                      onClick={() => {
+                        handleNavigation(service.path);
+                        setServicesDropdownOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-accent/50 transition-colors"
+                    >
+                      {service.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          {/* Right side buttons */}
+          <div className="flex items-center space-x-3">
+            {/* Search Button */}
+            <button
+              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              onClick={() => setSearchOpen(!searchOpen)}
+              aria-label="Search"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+
+            {/* Get Started Button */}
+            <button className="hidden sm:block px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
+              Get Started
+            </button>
+
+            {/* Mobile menu button */}
+            <button
+              className="lg:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        {searchOpen && (
+          <div className="py-4 border-t border-border/50">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="Search courses, services, and more..."
+                className="w-full pl-10 pr-4 py-2 bg-background/50 border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                autoFocus
+              />
+            </div>
+          </div>
+        )}
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t border-border/50">
+            <nav className="flex flex-col space-y-4">
+              {navigation.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigation(item.path)}
+                  className={`text-sm font-medium transition-colors ${
+                    isActivePath(item.path)
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+              
+              {/* Mobile Courses Dropdown */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center">
+                  <BookOpen className="h-4 w-4 mr-2" />
+                  Courses
+                </h4>
+                <div className="pl-6 space-y-2">
+                  <button
+                    onClick={() => handleNavigation("/courses")}
+                    className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    All Courses
+                  </button>
+                  {courses.map((course) => (
+                    <button
+                      key={course.path}
+                      onClick={() => handleNavigation(course.path)}
+                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {course.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center">
+                  <Briefcase className="h-4 w-4 mr-2" />
+                  Services
+                </h4>
+                <div className="pl-6 space-y-2">
+                  <button
+                    onClick={() => handleNavigation("/services")}
+                    className="block text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  >
+                    All Services
+                  </button>
+                  {services.map((service) => (
+                    <button
+                      key={service.path}
+                      onClick={() => handleNavigation(service.path)}
+                      className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {service.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Get Started Button */}
+              <button 
+                onClick={() => handleNavigation("/get-started")}
+                className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Get Started
+              </button>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
