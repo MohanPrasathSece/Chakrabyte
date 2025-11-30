@@ -64,7 +64,7 @@ const About = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white overflow-x-hidden">
       <PageBanner
         title="About Chakrabyte Security"
         subtitle="Building the next generation of cybersecurity professionals through practical, industry-relevant training"
@@ -73,9 +73,9 @@ const About = () => {
 
       {/* Our Approach - Practical Focus */}
       <section
-        className="py-20 bg-gradient-to-br from-purple-50 to-white"
+        className="py-12 sm:py-20 bg-gradient-to-br from-purple-50 to-white overflow-x-hidden"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -90,7 +90,7 @@ const About = () => {
               {learningApproach.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100"
+                  className="bg-white p-4 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100"
                 >
                   <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                     <item.icon className="w-8 h-8 text-purple-600" />
@@ -106,9 +106,9 @@ const About = () => {
 
       {/* Key Achievements - Metrics Focus */}
       <section
-        className="py-20 bg-white"
+        className="py-20 bg-white overflow-x-hidden"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -125,8 +125,8 @@ const About = () => {
                   key={index}
                   className="relative group transition-all duration-600"
                 >
-                  <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-8 rounded-2xl text-white h-full">
-                    <div className="absolute -top-4 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                  <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-4 sm:p-8 rounded-2xl text-white h-full">
+                    <div className="absolute -top-8 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                     <div className="relative z-10">
                       <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
                         <achievement.icon className="w-7 h-7 text-white" />
@@ -147,9 +147,9 @@ const About = () => {
 
       {/* Expert Team - Practical Focus */}
       <section
-        className="py-20 bg-gradient-to-br from-purple-50 to-white"
+        className="py-20 bg-gradient-to-br from-purple-50 to-white overflow-x-hidden"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -213,9 +213,9 @@ const About = () => {
 
       {/* Partners, Certifications & Recognition Section */}
       <section
-        className="py-16 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden"
+        className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-gray-100 overflow-x-hidden"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-12">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
               Our <span className="text-purple-600">Credentials & Support</span>
@@ -229,18 +229,16 @@ const About = () => {
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">Global Partners</h3>
             <div className="relative">
-              <div className="flex overflow-hidden">
+              <div className="flex overflow-x-auto scrollbar-hide">
                 <div className="flex animate-scroll">
                   {[
                     { name: "Cybersecurity Partner 1", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=200&fit=crop" },
-                    { name: "Tech Alliance Partner", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&h=200&fit=crop" },
-                    { name: "Security Solutions Partner", image: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=300&h=200&fit=crop" },
-                    { name: "Cloud Security Partner", image: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=300&h=200&fit=crop" },
-                    { name: "Enterprise Partner", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
+                    { name: "Tech Innovation Lab", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop" },
+                    { name: "Security Alliance", image: "https://images.unsplash.com/photo-1504639725590-78a6ba7b9bb7?w=300&h=200&fit=crop" },
                     { name: "Global Tech Partner", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop" }
                   ].map((partner, index) => (
-                    <div key={index} className="flex-shrink-0 mx-4">
-                      <div className="w-64 h-40 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <div key={index} className="flex-shrink-0 mx-2 sm:mx-4">
+                      <div className="w-48 sm:w-64 h-32 sm:h-40 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
                         <img
                           src={partner.image}
                           alt={partner.name}
@@ -258,8 +256,8 @@ const About = () => {
                     { name: "Enterprise Partner", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
                     { name: "Global Tech Partner", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop" }
                   ].map((partner, index) => (
-                    <div key={`dup-${index}`} className="flex-shrink-0 mx-4">
-                      <div className="w-64 h-40 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <div key={`dup-${index}`} className="flex-shrink-0 mx-2 sm:mx-4">
+                      <div className="w-48 sm:w-64 h-32 sm:h-40 bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
                         <img
                           src={partner.image}
                           alt={partner.name}
@@ -277,7 +275,7 @@ const About = () => {
           <div className="mb-8">
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">Industry Certifications</h3>
             <div className="relative">
-              <div className="flex overflow-hidden">
+              <div className="flex overflow-x-auto scrollbar-hide">
                 <div className="flex animate-scroll-reverse">
                   {[
                     { name: "CEH Certification", image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop" },
@@ -287,8 +285,8 @@ const About = () => {
                     { name: "CISM Certification", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=200&fit=crop" },
                     { name: "ISO 27001", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&h=200&fit=crop" }
                   ].map((cert, index) => (
-                    <div key={index} className="flex-shrink-0 mx-4">
-                      <div className="w-64 h-40 bg-white rounded-lg shadow-md border border-purple-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <div key={index} className="flex-shrink-0 mx-2 sm:mx-4">
+                      <div className="w-48 sm:w-64 h-32 sm:h-40 bg-white rounded-lg shadow-md border border-purple-200 overflow-hidden hover:shadow-lg transition-shadow">
                         <img
                           src={cert.image}
                           alt={cert.name}
@@ -306,8 +304,8 @@ const About = () => {
                     { name: "CISM Certification", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=200&fit=crop" },
                     { name: "ISO 27001", image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&h=200&fit=crop" }
                   ].map((cert, index) => (
-                    <div key={`dup-${index}`} className="flex-shrink-0 mx-4">
-                      <div className="w-64 h-40 bg-white rounded-lg shadow-md border border-purple-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <div key={`dup-${index}`} className="flex-shrink-0 mx-2 sm:mx-4">
+                      <div className="w-48 sm:w-64 h-32 sm:h-40 bg-white rounded-lg shadow-md border border-purple-200 overflow-hidden hover:shadow-lg transition-shadow">
                         <img
                           src={cert.image}
                           alt={cert.name}
@@ -370,7 +368,7 @@ const About = () => {
           </div>
 
           {/* Updated Stats */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto overflow-x-hidden">
             <div className="text-center">
               <div className="text-3xl font-bold text-purple-600 mb-2">20+</div>
               <div className="text-sm text-gray-600">Global Partners</div>
@@ -393,9 +391,9 @@ const About = () => {
 
       {/* Our Commitment - Action-Oriented */}
       <section
-        className="py-20 bg-gradient-to-br from-purple-800 to-purple-900"
+        className="py-12 sm:py-20 bg-gradient-to-br from-purple-800 to-purple-900"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="transition-all duration-800 delay-200">
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
@@ -444,7 +442,7 @@ const About = () => {
               <Button
                 asChild
                 size="lg"
-                className="font-poppins bg-purple-600 text-white hover:bg-purple-700 font-bold px-12 py-4 text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                className="font-poppins bg-purple-600 text-white hover:bg-purple-700 font-bold px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
               >
                 <Link to="/contact">
                   Start Your Cybersecurity Journey

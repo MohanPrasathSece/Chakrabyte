@@ -42,7 +42,7 @@ const TestimonialSection = () => {
             Learn why professionals trust our solutions to complete their customer journeys and advance their careers in cybersecurity.
           </p>
           
-          <Button asChild className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-lg">
+          <Button asChild className="bg-blue-600 text-white px-4 py-2 text-base rounded-lg hover:bg-blue-700 transition-colors shadow-lg">
             <Link to="/testimonials">
               Read Success Stories
             </Link>

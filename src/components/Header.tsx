@@ -499,6 +499,17 @@ const Header = () => {
                   )}
                 </div>
 
+                {/* Contact Menu Item */}
+                <button
+                  onClick={() => handleNavigation("/contact")}
+                  className={`text-sm font-medium transition-colors text-left py-2 px-3 rounded-md ${isActivePath("/contact")
+                    ? "text-purple-600 bg-purple-50"
+                    : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                    }`}
+                >
+                  Contact
+                </button>
+
                 {/* Mobile Get Started Button */}
                 <div className="pt-2 border-t border-gray-200/50 mt-2">
                   <button

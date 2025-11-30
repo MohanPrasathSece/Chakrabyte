@@ -94,7 +94,7 @@ const SOCAnalyst = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+              <Button asChild size="lg" className="relative bg-white text-purple-600 hover:bg-gray-100 font-bold px-4 sm:px-8 py-2 sm:py-3 text-base shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
                 <Link to="/contact?course=soc-analyst">
                   <span className="relative z-10 flex items-center gap-2">
                     Enroll Now
@@ -103,7 +103,7 @@ const SOCAnalyst = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-100/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="relative bg-transparent backdrop-blur-md text-white hover:bg-white/10 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/50 group overflow-hidden">
+              <Button asChild size="lg" variant="outline" className="relative bg-transparent backdrop-blur-md text-white hover:bg-white/10 font-bold px-4 sm:px-8 py-2 sm:py-3 text-base shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/50 group overflow-hidden">
                 <Link to="/contact">
                   <span className="relative z-10 flex items-center gap-2">
                     Download Syllabus
@@ -325,7 +325,7 @@ const SOCAnalyst = () => {
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light">
             Join the ranks of elite security analysts protecting global organizations
           </p>
-          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 h-12">
+          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-4 sm:px-6 py-2 sm:py-3 text-base">
             <Link to="/contact?course=soc-analyst">
               Enroll Now
             </Link>

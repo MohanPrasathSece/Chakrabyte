@@ -104,7 +104,7 @@ const Services = () => {
                   </div>
                 </div>
                 <Link to="/services/device-security">
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-white">Book a Repair Service</Button>
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 text-base">Book a Repair Service</Button>
                 </Link>
               </div>
               <div className="order-1 md:order-2 bg-gray-50 rounded-2xl p-8 border border-gray-100">
@@ -161,7 +161,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <Link to="/services/corporate-training">
-                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">Learn More</Button>
+                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 text-base">Learn More</Button>
                 </Link>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-border">
@@ -234,7 +234,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <Link to="/services/college-workshops">
-                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">Explore Workshops</Button>
+                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white px-4 py-2 text-base">Explore Workshops</Button>
                 </Link>
               </div>
             </div>

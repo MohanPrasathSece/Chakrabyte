@@ -114,7 +114,7 @@ const Home = () => {
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>
 
-        <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className="container mx-auto px-4 pt-24 sm:pt-20 pb-20 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
             {/* Left Column: Content */}
@@ -141,7 +141,7 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <Button
                   asChild
-                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-8 sm:px-10 py-5 sm:py-4 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden h-14 sm:h-auto"
+                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-3 sm:px-4 py-2 sm:py-3 text-base shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden h-10 sm:h-auto"
                 >
                   <Link to="/contact">
                     <span className="relative z-10 flex items-center justify-center gap-2">
@@ -154,7 +154,7 @@ const Home = () => {
 
                 <Button
                   asChild
-                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-8 sm:px-10 py-5 sm:py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden h-14 sm:h-auto"
+                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-3 sm:px-4 py-2 sm:py-3 text-base shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden h-10 sm:h-auto"
                 >
                   <Link to="/courses">
                     <span className="relative z-10 flex items-center justify-center gap-2">
@@ -220,8 +220,8 @@ const Home = () => {
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-10 -right-10 w-24 h-24 bg-purple-400/30 rounded-full blur-2xl animate-pulse" />
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-400/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+              <div className="absolute -top-20 -right-10 w-24 h-24 bg-purple-400/30 rounded-full blur-2xl animate-pulse" />
+              <div className="absolute -bottom-20 -left-10 w-32 h-32 bg-blue-400/30 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
             </div>
 
           </div>
@@ -292,8 +292,8 @@ const Home = () => {
 
       
       {/* Featured Courses Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white overflow-x-hidden">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-300 text-sm font-semibold text-purple-700 mb-4">
               ⚡ Launch Your Career in 8-12 Weeks
@@ -306,7 +306,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 overflow-x-hidden">
             {featuredCourses.map((course, index) => (
               <div key={index}>
                 <CourseCard {...course} />
@@ -318,7 +318,7 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
+              className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-6 py-3 text-base shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
             >
               <Link to="/courses">
                 <span className="relative z-10 flex items-center gap-2">
@@ -333,8 +333,8 @@ const Home = () => {
       </section>
 
       {/* Services Section - Detailed Cards */}
-      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900 overflow-x-hidden">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-white">
               Our <span className="text-purple-200">Services</span>
@@ -344,7 +344,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto overflow-x-hidden">
             {/* Service 1 - Corporate Training */}
             <div className="group">
               <div className="bg-purple-700/50 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 hover:border-purple-300/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
@@ -569,7 +569,7 @@ const Home = () => {
 
               <Button
                 asChild
-                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-3 text-sm rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 <Link to="/contact">
                   Read Success Stories →
