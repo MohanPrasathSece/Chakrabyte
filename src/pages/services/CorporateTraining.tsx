@@ -2,6 +2,7 @@ import { Building2, CheckCircle, Users, Target, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const CorporateTraining = () => {
   return (
@@ -27,7 +28,7 @@ const CorporateTraining = () => {
                 We offer customized training solutions ranging from general security awareness for all staff to advanced technical training for your IT and security teams.
               </p>
               <div className="flex gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
                   <Link to="/contact">Request Proposal</Link>
                 </Button>
               </div>
@@ -141,6 +142,8 @@ const CorporateTraining = () => {
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

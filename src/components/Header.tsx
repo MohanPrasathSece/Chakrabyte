@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
 import logo from "@/assets/logo.png";
@@ -15,6 +15,7 @@ const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+  const searchRef = useRef<HTMLDivElement>(null);
 
   // Keep header always visible on mobile (disable scroll hiding)
   useEffect(() => {
@@ -33,6 +34,19 @@ const Header = () => {
 
     window.addEventListener('keydown', handleEscKey);
     return () => window.removeEventListener('keydown', handleEscKey);
+  }, [searchOpen]);
+
+  // Handle click outside to close search
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node) && searchOpen) {
+        setSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [searchOpen]);
 
   // Timeout refs for dropdown delays
@@ -123,11 +137,10 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => handleNavigation(item.path)}
-                className={`text-sm font-medium transition-colors ${
-                  isActivePath(item.path)
-                    ? "text-purple-600"
-                    : "text-gray-700 hover:text-purple-600"
-                }`}
+                className={`text-sm font-medium transition-colors ${isActivePath(item.path)
+                  ? "text-purple-600"
+                  : "text-gray-700 hover:text-purple-600"
+                  }`}
               >
                 {item.name}
               </button>
@@ -277,7 +290,7 @@ const Header = () => {
 
         {/* Search Bar with Live Results */}
         {searchOpen && (
-          <div className="py-4 border-t border-gray-200/50 bg-white">
+          <div ref={searchRef} className="py-4 border-t border-gray-200/50 bg-white">
             <div className="relative max-w-2xl mx-auto px-4">
               <div className="absolute inset-y-0 left-7 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-400" />

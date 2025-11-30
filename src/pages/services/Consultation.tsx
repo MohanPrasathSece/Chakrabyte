@@ -2,6 +2,7 @@ import { FileSearch, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Consultation = () => {
   return (
@@ -20,11 +21,13 @@ const Consultation = () => {
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             Get expert advice on building a robust security posture, meeting compliance requirements, and managing cyber risks effectively.
           </p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+          <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
             <Link to="/contact">Talk to an Expert</Link>
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

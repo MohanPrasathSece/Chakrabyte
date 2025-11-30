@@ -2,6 +2,7 @@ import { GraduationCap, CheckCircle, Users, Award, BookOpen } from "lucide-react
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const CollegeWorkshops = () => {
   return (
@@ -27,7 +28,7 @@ const CollegeWorkshops = () => {
                 From 1-day awareness seminars to week-long bootcamps, we offer flexible formats to suit your institution's schedule and requirements.
               </p>
               <div className="flex gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
                   <Link to="/contact">Schedule a Workshop</Link>
                 </Button>
               </div>
@@ -108,6 +109,8 @@ const CollegeWorkshops = () => {
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Shield, Users, Target, Award, CheckCircle, Linkedin, Twitter, Zap, Globe, Brain } from "lucide-react";
 import StatsSection from "@/components/StatsSection";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 import PageBanner from "@/components/PageBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -175,20 +176,20 @@ const About = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-transparent to-transparent"></div>
-                      
+
                       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                         <h3 className="font-heading text-2xl font-bold mb-2">{member.name}</h3>
                         <p className="text-purple-200 font-medium mb-2">{member.role}</p>
                         <p className="text-purple-100 text-sm">{member.expertise}</p>
                       </div>
                     </div>
-                    
+
                     <div className="p-6">
                       <div className="mb-4">
                         <h4 className="font-semibold text-gray-900 mb-2">Key Achievements</h4>
                         <p className="text-gray-600">{member.achievements}</p>
                       </div>
-                      
+
                       <div className="flex gap-3">
                         <a
                           href="#"
@@ -248,9 +249,9 @@ const About = () => {
                 ].map((partner, index) => (
                   <div key={index} className="flex-shrink-0 mx-8">
                     <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
                         className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
@@ -278,9 +279,9 @@ const About = () => {
                 ].map((partner, index) => (
                   <div key={`duplicate-${index}`} className="flex-shrink-0 mx-8">
                     <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
+                      <img
+                        src={partner.logo}
+                        alt={partner.name}
                         className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
@@ -322,7 +323,7 @@ const About = () => {
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               We don't just teach cybersecurity – we build careers. Our commitment extends beyond the classroom with lifetime support, continuous learning resources, and a growing network of cybersecurity professionals.
             </p>
-            
+
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -331,7 +332,7 @@ const About = () => {
                 <h3 className="font-bold text-gray-900 mb-2">Lifetime Support</h3>
                 <p className="text-gray-600 text-sm">Get help whenever you need it, even after course completion</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-purple-600" />
@@ -339,7 +340,7 @@ const About = () => {
                 <h3 className="font-bold text-gray-900 mb-2">Community Access</h3>
                 <p className="text-gray-600 text-sm">Join our network of 2500+ cybersecurity professionals</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="w-8 h-8 text-purple-600" />
@@ -361,6 +362,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

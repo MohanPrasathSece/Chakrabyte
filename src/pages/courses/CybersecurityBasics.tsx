@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Clock, Award, Users, CheckCircle, Target, Shield, BookOpen, ChevronRight, Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const CybersecurityBasics = () => {
   const { toast } = useToast();
@@ -33,7 +34,7 @@ const CybersecurityBasics = () => {
           Object.values(forms).forEach(form => {
             if (form) form.classList.add('hidden');
           });
-          
+
           // Show selected form
           const selectedForm = forms[target.value];
           if (selectedForm) {
@@ -197,7 +198,7 @@ const CybersecurityBasics = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-gradient-to-r from-white to-gray-50 text-purple-600 hover:from-gray-50 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+              <Button asChild size="lg" className="relative bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
                 <Link to="/contact?course=cybersecurity-basics">
                   <span className="relative z-10 flex items-center gap-2">
                     Enroll Now
@@ -232,7 +233,7 @@ const CybersecurityBasics = () => {
               <h3 className="font-bold text-2xl text-gray-900 mb-2">6 Weeks</h3>
               <p className="text-gray-600">Duration</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-purple-600" />
@@ -240,7 +241,7 @@ const CybersecurityBasics = () => {
               <h3 className="font-bold text-2xl text-gray-900 mb-2">Beginner</h3>
               <p className="text-gray-600">Skill Level</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-purple-600" />
@@ -249,7 +250,7 @@ const CybersecurityBasics = () => {
               <p className="text-gray-600">Students Enrolled</p>
             </div>
           </div>
-          
+
           <div className="mt-12 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -269,7 +270,7 @@ const CybersecurityBasics = () => {
                   ))}
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-4">Key Features</h3>
                 <ul className="space-y-3">
@@ -386,7 +387,7 @@ const CybersecurityBasics = () => {
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Build a strong foundation in cybersecurity fundamentals and learn to protect digital assets from modern threats. This comprehensive course covers essential security concepts and practical defensive techniques.
                 </p>
-                
+
                 <div className="space-y-6 mb-8">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -397,7 +398,7 @@ const CybersecurityBasics = () => {
                       <p className="text-gray-600">Get certified with our globally recognized cybersecurity fundamentals certification</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Users className="w-6 h-6 text-blue-600" />
@@ -407,7 +408,7 @@ const CybersecurityBasics = () => {
                       <p className="text-gray-600">Learn from industry professionals with years of real-world experience</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Shield className="w-6 h-6 text-purple-600" />
@@ -418,9 +419,9 @@ const CybersecurityBasics = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 h-14">
+                  <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-purple-600 font-semibold px-8 h-14">
                     <Link to="/contact?course=cybersecurity-basics">Enroll Now</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50 font-semibold px-8 h-14">
@@ -428,7 +429,7 @@ const CybersecurityBasics = () => {
                   </Button>
                 </div>
               </div>
-              
+
               {/* Right Side - Course Details Grid */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
@@ -439,7 +440,7 @@ const CybersecurityBasics = () => {
                   <p className="text-gray-600">6 Weeks</p>
                   <p className="text-sm text-gray-500 mt-1">Comprehensive training program</p>
                 </div>
-                
+
                 <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Award className="w-6 h-6" />
@@ -448,7 +449,7 @@ const CybersecurityBasics = () => {
                   <p className="text-gray-600">Beginner</p>
                   <p className="text-sm text-gray-500 mt-1">No prior experience needed</p>
                 </div>
-                
+
                 <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Users className="w-6 h-6" />
@@ -457,7 +458,7 @@ const CybersecurityBasics = () => {
                   <p className="text-gray-600">1500+</p>
                   <p className="text-sm text-gray-500 mt-1">Successful graduates</p>
                 </div>
-                
+
                 <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100">
                   <div className="w-12 h-12 bg-orange-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Target className="w-6 h-6" />
@@ -703,6 +704,8 @@ const CybersecurityBasics = () => {
           </div>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

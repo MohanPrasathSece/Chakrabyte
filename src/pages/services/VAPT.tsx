@@ -2,6 +2,7 @@ import { ShieldCheck, CheckCircle, FileSearch } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const VAPT = () => {
   return (
@@ -20,11 +21,13 @@ const VAPT = () => {
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             Our VAPT services provide a deep dive into your security posture, identifying weaknesses in your web applications, networks, and cloud infrastructure.
           </p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+          <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
             <Link to="/contact">Request Assessment</Link>
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

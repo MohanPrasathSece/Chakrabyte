@@ -2,6 +2,7 @@ import { Laptop, Shield, Wrench, HardDrive, CheckCircle, Cpu, Battery, Wifi } fr
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const DeviceSecurity = () => {
   return (
@@ -27,10 +28,10 @@ const DeviceSecurity = () => {
                 Whether you need a screen replacement, an SSD upgrade for better speed, or professional malware removal, our certified technicians are here to help with quick turnaround times and guaranteed quality.
               </p>
               <div className="flex gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
                   <Link to="/contact">Book a Repair</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white">
+                <Button asChild variant="outline" size="lg" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">
                   <Link to="/contact">Get a Quote</Link>
                 </Button>
               </div>
@@ -206,6 +207,8 @@ const DeviceSecurity = () => {
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

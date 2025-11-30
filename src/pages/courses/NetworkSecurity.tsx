@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Shield, Users, Target, BookOpen, Award, Clock, Globe, Zap, CheckCircle, ChevronRight } from 'lucide-react';
+import StickyFooterAndActions from '@/components/StickyFooterAndActions';
 
 const NetworkSecurity = () => {
   const { toast } = useToast();
@@ -33,7 +34,7 @@ const NetworkSecurity = () => {
           Object.values(forms).forEach(form => {
             if (form) form.classList.add('hidden');
           });
-          
+
           // Show selected form
           const selectedForm = forms[target.value];
           if (selectedForm) {
@@ -197,7 +198,7 @@ const NetworkSecurity = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-gradient-to-r from-white to-gray-50 text-purple-600 hover:from-gray-50 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+              <Button asChild size="lg" className="relative bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
                 <Link to="/contact?course=network-security">
                   <span className="relative z-10 flex items-center gap-2">
                     Enroll Now
@@ -227,13 +228,13 @@ const NetworkSecurity = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left Side - Course Info */}
               <div>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-purple-900">
                   What You'll Learn in Network Security
                 </h2>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-purple-700 mb-8 leading-relaxed">
                   Master the fundamentals of network security and learn to protect digital infrastructure from modern cyber threats. This comprehensive course covers everything from basic network concepts to advanced security protocols.
                 </p>
-                
+
                 <div className="space-y-6 mb-8">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -244,7 +245,7 @@ const NetworkSecurity = () => {
                       <p className="text-gray-600">Get certified with our globally recognized network security certification</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Users className="w-6 h-6 text-blue-600" />
@@ -254,7 +255,7 @@ const NetworkSecurity = () => {
                       <p className="text-gray-600">Learn from industry professionals with years of real-world experience</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Shield className="w-6 h-6 text-purple-600" />
@@ -265,9 +266,9 @@ const NetworkSecurity = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 h-14">
+                  <Button asChild size="lg" className="bg-white hover:bg-gray-100 text-purple-600 font-semibold px-8 h-14">
                     <Link to="/contact?course=network-security">Enroll Now</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50 font-semibold px-8 h-14">
@@ -275,7 +276,7 @@ const NetworkSecurity = () => {
                   </Button>
                 </div>
               </div>
-              
+
               {/* Right Side - Course Details Grid */}
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
@@ -286,7 +287,7 @@ const NetworkSecurity = () => {
                   <p className="text-gray-600">8 Weeks</p>
                   <p className="text-sm text-gray-500 mt-1">Comprehensive training program</p>
                 </div>
-                
+
                 <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100">
                   <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Award className="w-6 h-6" />
@@ -295,7 +296,7 @@ const NetworkSecurity = () => {
                   <p className="text-gray-600">Intermediate</p>
                   <p className="text-sm text-gray-500 mt-1">Basic knowledge required</p>
                 </div>
-                
+
                 <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
                   <div className="w-12 h-12 bg-green-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Users className="w-6 h-6" />
@@ -304,7 +305,7 @@ const NetworkSecurity = () => {
                   <p className="text-gray-600">900+</p>
                   <p className="text-sm text-gray-500 mt-1">Successful graduates</p>
                 </div>
-                
+
                 <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100">
                   <div className="w-12 h-12 bg-orange-600 text-white rounded-xl flex items-center justify-center mb-4">
                     <Target className="w-6 h-6" />
@@ -608,6 +609,8 @@ const NetworkSecurity = () => {
           </div>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Shield, Users, Award, Clock, Search, Filter } from "lucide-react";
 import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
 import socAnalystImg from "@/assets/course-soc-analyst.jpg";
 import forensicsImg from "@/assets/course-forensics.jpg";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
   const courses = [
@@ -206,6 +207,8 @@ const Courses = () => {
           </div>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

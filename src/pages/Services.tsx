@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
 import PageBanner from "@/components/PageBanner";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Services = () => {
   const services = [
@@ -103,7 +104,7 @@ const Services = () => {
                   </div>
                 </div>
                 <Link to="/services/device-security">
-                  <Button className="bg-primary hover:bg-primary/90">Book a Repair Service</Button>
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white">Book a Repair Service</Button>
                 </Link>
               </div>
               <div className="order-1 md:order-2 bg-gray-50 rounded-2xl p-8 border border-gray-100">
@@ -160,7 +161,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <Link to="/services/corporate-training">
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">Learn More</Button>
+                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">Learn More</Button>
                 </Link>
               </div>
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-border">
@@ -233,7 +234,7 @@ const Services = () => {
                   ))}
                 </ul>
                 <Link to="/services/college-workshops">
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">Explore Workshops</Button>
+                  <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white">Explore Workshops</Button>
                 </Link>
               </div>
             </div>
@@ -252,7 +253,7 @@ const Services = () => {
           <Button
             asChild
             size="lg"
-            className="bg-white text-primary hover:bg-gray-100 font-bold px-10 py-6 text-lg"
+            className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-6 text-lg"
           >
             <Link to="/contact">
               Request a Consultation
@@ -260,6 +261,8 @@ const Services = () => {
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };

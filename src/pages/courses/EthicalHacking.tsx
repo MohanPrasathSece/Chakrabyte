@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap } from "lucide-react";
 import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
+import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const EthicalHacking = () => {
   const modules = [
@@ -149,7 +150,7 @@ const EthicalHacking = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-gradient-to-r from-white to-gray-50 text-purple-600 hover:from-gray-50 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+              <Button asChild size="lg" className="relative bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
                 <Link to="/contact?course=ethical-hacking">
                   <span className="relative z-10 flex items-center gap-2">
                     Enroll Now
@@ -184,7 +185,7 @@ const EthicalHacking = () => {
               <h3 className="font-bold text-2xl text-gray-900 mb-2">12 Weeks</h3>
               <p className="text-gray-600">Duration</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-purple-600" />
@@ -192,7 +193,7 @@ const EthicalHacking = () => {
               <h3 className="font-bold text-2xl text-gray-900 mb-2">Advanced</h3>
               <p className="text-gray-600">Skill Level</p>
             </div>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-purple-600" />
@@ -201,7 +202,7 @@ const EthicalHacking = () => {
               <p className="text-gray-600">Students Enrolled</p>
             </div>
           </div>
-          
+
           <div className="mt-12 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -221,7 +222,7 @@ const EthicalHacking = () => {
                   ))}
                 </ul>
               </div>
-              
+
               <div>
                 <h3 className="font-bold text-lg text-gray-900 mb-4">Key Features</h3>
                 <ul className="space-y-3">
@@ -248,20 +249,20 @@ const EthicalHacking = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">Why Take This Course?</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-purple-900">Why Take This Course?</h2>
+            <p className="text-purple-700 max-w-2xl mx-auto">
               Unlock your potential with industry-leading training designed for your success
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="p-6 bg-purple-50 rounded-2xl border border-purple-100 hover:shadow-lg transition-all duration-300">
-                <div className="w-14 h-14 bg-primary text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+              <div key={index} className="p-6 bg-purple-50 rounded-2xl border border-purple-200 hover:shadow-lg transition-all duration-300">
+                <div className="w-14 h-14 bg-purple-600 text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
                   <benefit.icon size={28} />
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-3 text-gray-900">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{benefit.description}</p>
+                <h3 className="font-heading text-xl font-bold mb-3 text-purple-900">{benefit.title}</h3>
+                <p className="text-purple-700 leading-relaxed text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -269,12 +270,12 @@ const EthicalHacking = () => {
       </section>
 
       {/* Course Overview */}
-      <section className="py-20 bg-light-section">
+      <section className="py-20 bg-purple-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <h2 className="font-heading text-3xl font-bold mb-6 text-gray-900">Course Overview</h2>
-              <div className="space-y-6 text-gray-600 leading-relaxed">
+              <h2 className="font-heading text-3xl font-bold mb-6 text-purple-900">Course Overview</h2>
+              <div className="space-y-6 text-purple-700 leading-relaxed">
                 <p>
                   This comprehensive Ethical Hacking and Penetration Testing course is designed to provide you with in-depth knowledge and hands-on experience in identifying, exploiting, and securing vulnerabilities in computer systems and networks.
                 </p>
@@ -283,16 +284,16 @@ const EthicalHacking = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-6">
                   {tools.slice(0, 8).map((tool, index) => (
-                    <span key={index} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-600">
+                    <span key={index} className="px-3 py-1 bg-white border border-purple-300 rounded-full text-xs font-medium text-purple-700">
                       {tool}
                     </span>
                   ))}
-                  <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">+7 more</span>
+                  <span className="px-3 py-1 bg-purple-600 text-white rounded-full text-xs font-medium">+7 more</span>
                 </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-border">
-              <h3 className="font-heading text-xl font-bold mb-6">What You Will Learn</h3>
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-purple-200">
+              <h3 className="font-heading text-xl font-bold mb-6 text-purple-900">What You Will Learn</h3>
               <div className="grid gap-4">
                 {[
                   "Master ethical hacking methodologies",
@@ -304,8 +305,8 @@ const EthicalHacking = () => {
                   "Malware analysis basics"
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle className="text-green-500 flex-shrink-0" size={18} />
-                    <span className="text-gray-700 font-medium">{item}</span>
+                    <CheckCircle className="text-purple-600 flex-shrink-0" size={18} />
+                    <span className="text-purple-800 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
@@ -445,7 +446,7 @@ const EthicalHacking = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-primary text-white text-center">
+      <section className="py-24 bg-purple-600 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your Journey?
@@ -453,17 +454,15 @@ const EthicalHacking = () => {
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light">
             Join 1500+ students who have transformed their careers with this course
           </p>
-          <Button asChild size="lg" className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-12 py-5 text-lg shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden">
+          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 h-12">
             <Link to="/contact?course=ethical-hacking">
-              <span className="relative z-10 flex items-center gap-2">
-                Enroll Now
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              Enroll Now
             </Link>
           </Button>
         </div>
       </section>
+
+      <StickyFooterAndActions />
     </div>
   );
 };
