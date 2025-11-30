@@ -126,7 +126,7 @@ const About = () => {
                   className="relative group transition-all duration-600"
                 >
                   <div className="bg-gradient-to-br from-purple-600 to-purple-700 p-8 rounded-2xl text-white h-full">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="absolute -top-4 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
                     <div className="relative z-10">
                       <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6">
                         <achievement.icon className="w-7 h-7 text-white" />
@@ -393,15 +393,15 @@ const About = () => {
 
       {/* Our Commitment - Action-Oriented */}
       <section
-        className="py-20 bg-white"
+        className="py-20 bg-gradient-to-br from-purple-800 to-purple-900"
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="transition-all duration-800 delay-200">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Our Commitment to <span className="text-purple-600">Your Success</span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+                Our Commitment to <span className="text-purple-200">Your Success</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-purple-100 mb-8 leading-relaxed">
                 We don't just teach cybersecurity – we build careers. Our commitment extends beyond the classroom with lifetime support, continuous learning resources, and a growing network of cybersecurity professionals.
               </p>
             </div>
@@ -411,29 +411,29 @@ const About = () => {
                 <div className="text-center transition-all duration-600" style={{ transitionDelay: `${300 + index * 100}ms` }}>
                   {index === 0 && (
                     <div>
-                      <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <CheckCircle className="w-8 h-8 text-purple-600" />
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <CheckCircle className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-2">Lifetime Support</h3>
-                      <p className="text-gray-600 text-sm">Get help whenever you need it, even after course completion</p>
+                      <h3 className="font-bold text-white mb-2">Lifetime Support</h3>
+                      <p className="text-purple-100 text-sm">Get help whenever you need it, even after course completion</p>
                     </div>
                   )}
                   {index === 1 && (
                     <div>
-                      <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Users className="w-8 h-8 text-purple-600" />
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Users className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-2">Community Access</h3>
-                      <p className="text-gray-600 text-sm">Join our network of 2500+ cybersecurity professionals</p>
+                      <h3 className="font-bold text-white mb-2">Community Access</h3>
+                      <p className="text-purple-100 text-sm">Join our network of 2500+ cybersecurity professionals</p>
                     </div>
                   )}
                   {index === 2 && (
                     <div>
-                      <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Target className="w-8 h-8 text-purple-600" />
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Target className="w-8 h-8 text-white" />
                       </div>
-                      <h3 className="font-bold text-gray-900 mb-2">Career Guidance</h3>
-                      <p className="text-gray-600 text-sm">Personalized mentorship and job placement assistance</p>
+                      <h3 className="font-bold text-white mb-2">Career Guidance</h3>
+                      <p className="text-purple-100 text-sm">Personalized mentorship and job placement assistance</p>
                     </div>
                   )}
                 </div>
@@ -444,7 +444,7 @@ const About = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-12 py-4 text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
+                className="font-poppins bg-purple-600 text-white hover:bg-purple-700 font-bold px-12 py-4 text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
               >
                 <Link to="/contact">
                   Start Your Cybersecurity Journey

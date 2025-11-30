@@ -109,8 +109,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-8 pt-8 border-t border-border text-center pb-8">
+          <p className="text-sm text-muted-foreground mb-4">
             © {new Date().getFullYear()} chakrabyte security. All rights reserved.
           </p>
         </div>
