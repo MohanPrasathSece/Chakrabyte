@@ -187,16 +187,33 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isVisible, onClose })
 // Exit Intent Hook
 export const useExitIntent = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const lastActivityTime = useRef(Date.now());
+  const popupTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // Check if user already submitted
     const hasSubmitted = localStorage.getItem('exit-intent-submitted');
     if (hasSubmitted) return;
 
+    // Update last activity time on user interactions
+    const updateActivity = () => {
+      lastActivityTime.current = Date.now();
+    };
+
     const handleMouseLeave = (e: MouseEvent) => {
       // Only trigger when mouse leaves from top
       if (e.clientY <= 10) {
-        setShowPopup(true);
+        // Check if user has been inactive for at least 2 minutes (120000 ms)
+        const inactiveTime = Date.now() - lastActivityTime.current;
+        if (inactiveTime >= 120000) {
+          // Add a 3-second delay before showing popup
+          if (popupTimeoutRef.current) {
+            clearTimeout(popupTimeoutRef.current);
+          }
+          popupTimeoutRef.current = setTimeout(() => {
+            setShowPopup(true);
+          }, 3000);
+        }
       }
     };
 
@@ -208,11 +225,32 @@ export const useExitIntent = () => {
       }
     };
 
-    // Add event listeners
+    // Check for inactivity every 30 seconds
+    const inactivityCheck = setInterval(() => {
+      const inactiveTime = Date.now() - lastActivityTime.current;
+      // Show popup after 5 minutes of inactivity
+      if (inactiveTime >= 300000) {
+        setShowPopup(true);
+      }
+    }, 30000);
+
+    // Add event listeners for activity tracking
+    const activityEvents = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    activityEvents.forEach(event => {
+      document.addEventListener(event, updateActivity, true);
+    });
+
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      if (popupTimeoutRef.current) {
+        clearTimeout(popupTimeoutRef.current);
+      }
+      clearInterval(inactivityCheck);
+      activityEvents.forEach(event => {
+        document.removeEventListener(event, updateActivity, true);
+      });
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('keydown', handleKeyDown);
     };

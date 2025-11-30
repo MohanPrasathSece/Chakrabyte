@@ -324,18 +324,9 @@ const Home = () => {
               />
             </div>
 
-            {/* Image 4 - Bottom left (woman with wine glass) */}
-            <div className="absolute left-8 bottom-16 hidden lg:block">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop"
-                alt="Professional"
-                className="rounded-2xl shadow-lg w-34 h-34 object-cover"
-              />
-            </div>
-
             {/* TOP CENTER - 4 images in a row */}
             {/* Image 5 - Top center left (man with glasses) */}
-            <div className="absolute left-1/2 -translate-x-64 top-4 hidden lg:block">
+            <div className="absolute left-1/2 -translate-x-48 top-4 hidden lg:block">
               <img
                 src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=170&h=170&fit=crop"
                 alt="Professional"
@@ -344,7 +335,7 @@ const Home = () => {
             </div>
 
             {/* Image 6 - Top center middle (man in blue shirt) */}
-            <div className="absolute left-1/2 -translate-x-32 top-0 hidden lg:block">
+            <div className="absolute left-1/2 -translate-x-16 top-0 hidden lg:block">
               <img
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=180&h=180&fit=crop"
                 alt="Professional"
@@ -353,20 +344,11 @@ const Home = () => {
             </div>
 
             {/* Image 7 - Top center (man in dark suit) */}
-            <div className="absolute left-1/2 translate-x-0 top-8 hidden lg:block">
+            <div className="absolute left-1/2 translate-x-16 top-8 hidden lg:block">
               <img
                 src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=160&h=160&fit=crop"
                 alt="Professional"
                 className="rounded-2xl shadow-lg w-36 h-36 object-cover"
-              />
-            </div>
-
-            {/* Image 8 - Top center right (woman smiling) */}
-            <div className="absolute left-1/2 translate-x-32 top-0 hidden lg:block">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=170&h=170&fit=crop"
-                alt="Professional"
-                className="rounded-2xl shadow-lg w-38 h-38 object-cover"
               />
             </div>
 
@@ -398,34 +380,27 @@ const Home = () => {
               />
             </div>
 
-            {/* Image 12 - Bottom right (woman with curly hair) */}
-            <div className="absolute right-8 bottom-20 hidden lg:block">
-              <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop"
-                alt="Professional"
-                className="rounded-2xl shadow-lg w-36 h-36 object-cover"
-              />
-            </div>
+
 
             {/* CENTER CONTENT */}
             <div className="relative z-10 text-center py-40 px-4">
-              <div className="inline-block px-4 py-2 bg-purple-100 rounded-full mb-6">
-                <span className="text-sm font-semibold text-purple-700">Testimonials</span>
+              <div className="inline-block px-4 py-2 bg-purple-600 rounded-full mb-6">
+                <span className="text-sm font-semibold text-white">Testimonials</span>
               </div>
 
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-gray-900">
                 Trusted by leaders<br />
-                <span className="text-gray-400">from various industries</span>
+                <span className="text-purple-600">from various industries</span>
               </h2>
 
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
                 Learn why professionals trust our solutions to<br />
                 complete their customer journeys.
               </p>
 
               <Button
                 asChild
-                className="bg-black hover:bg-gray-800 text-white font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 <Link to="/contact">
                   Read Success Stories →
@@ -695,8 +670,7 @@ const Home = () => {
         </div>
       </section>
 
-      <TestimonialSection />
-
+      
       {/* FAQ Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
         <div className="container mx-auto px-4">
