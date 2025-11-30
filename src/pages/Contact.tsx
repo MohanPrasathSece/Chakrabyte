@@ -1,28 +1,48 @@
-import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Mail, Phone, MapPin, ChevronRight, Loader2, Clock } from "lucide-react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
+import { toast, useToast } from "@/components/ui/use-toast";
 import PageBanner from "@/components/PageBanner";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
+import emailService, { LeadData } from "@/services/emailService";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
+  const [searchParams] = useSearchParams();
+  const [formData, setFormData] = useState<LeadData>({
     name: "",
     email: "",
     phone: "",
     message: "",
+    type: "contact",
+    timestamp: new Date().toISOString()
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState(null);
+
+  // Check for course parameter in URL
+  useEffect(() => {
+    const course = searchParams.get('course');
+    if (course) {
+      const courseName = course.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      setFormData(prev => ({
+        ...prev,
+        course: courseName,
+        type: "course-enquiry",
+        message: prev.message || `I'm interested in the ${courseName} course. Please provide me with more information about enrollment, schedule, and fees.`
+      }));
+    }
+  }, [searchParams]);
 
   const toggleFaq = (index) => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Basic validation
@@ -46,20 +66,63 @@ const Contact = () => {
       return;
     }
 
-    console.log("Form submitted:", formData);
+    // Phone validation
+    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    if (!phoneRegex.test(formData.phone) || formData.phone.length < 10) {
+      toast({
+        title: "Invalid Phone",
+        description: "Please enter a valid phone number",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
+    setIsSubmitting(true);
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    try {
+      // Prepare lead data with timestamp
+      const leadData: LeadData = {
+        ...formData,
+        source: formData.course ? "Course Page" : "Contact Form",
+        timestamp: new Date().toISOString()
+      };
+
+      // Send email notification
+      const result = await emailService.sendLeadNotification(leadData);
+
+      if (result.success) {
+        toast({
+          title: formData.course ? "🎓 Course Enquiry Sent!" : "Message Sent Successfully! 🎉",
+          description: result.message,
+        });
+
+        // Reset form - keep course info if it's a course enquiry
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          type: "contact",
+          course: formData.course, // Keep course for potential follow-up
+          timestamp: new Date().toISOString()
+        });
+      } else {
+        toast({
+          title: "Sending Failed",
+          description: result.message,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast({
+        title: "Unexpected Error",
+        description: "An unexpected error occurred. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -78,8 +141,22 @@ const Contact = () => {
               <div className="lg:col-span-3">
                 <div className="bg-white p-8 md:p-10 rounded-2xl shadow-lg border border-gray-200">
                   <div className="mb-8">
-                    <h2 className="font-heading text-3xl font-bold text-gray-900 mb-2">Send Us a Message</h2>
-                    <p className="text-gray-600">Fill out the form below and we'll respond shortly.</p>
+                    {formData.course && (
+                      <div className="mb-4 p-3 bg-purple-50 border border-purple-200 rounded-lg">
+                        <p className="text-purple-700 font-medium">
+                          🎓 Enquiring about: <span className="font-bold">{formData.course}</span>
+                        </p>
+                      </div>
+                    )}
+                    <h2 className="font-heading text-3xl font-bold text-gray-900 mb-2">
+                      {formData.course ? "Course Enquiry" : "Send Us a Message"}
+                    </h2>
+                    <p className="text-gray-600">
+                      {formData.course 
+                        ? "Fill out the form below and our course counselor will contact you shortly."
+                        : "Fill out the form below and we'll respond shortly."
+                      }
+                    </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -137,9 +214,17 @@ const Contact = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-semibold h-14 shadow-lg hover:shadow-xl transition-all"
+                      disabled={isSubmitting}
+                      className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-semibold h-14 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        "Send Message"
+                      )}
                     </Button>
                   </form>
                 </div>
