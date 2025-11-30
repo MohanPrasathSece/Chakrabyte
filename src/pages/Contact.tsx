@@ -67,7 +67,7 @@ const Contact = () => {
     }
 
     // Phone validation
-    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    const phoneRegex = /^[\d\s\-+()]+$/;
     if (!phoneRegex.test(formData.phone) || formData.phone.length < 10) {
       toast({
         title: "Invalid Phone",

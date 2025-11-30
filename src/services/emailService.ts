@@ -2,13 +2,7 @@ import { toast } from "@/components/ui/use-toast";
 
 // Email configuration - Using environment variables for security
 const EMAIL_CONFIG = {
-  // EmailJS Configuration
-  EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  EMAILJS_TEMPLATE_ID_ADMIN: import.meta.env.VITE_EMAILJS_TEMPLATE_ID_ADMIN,
-  EMAILJS_TEMPLATE_ID_USER: import.meta.env.VITE_EMAILJS_TEMPLATE_ID_USER,
-  EMAILJS_USER_ID: import.meta.env.VITE_EMAILJS_USER_ID,
-  
-  // SMTP2GO Configuration (Alternative)
+  // SMTP2GO Configuration
   SMTP2GO_API_KEY: import.meta.env.VITE_SMTP2GO_API_KEY,
   
   // Email Addresses
@@ -40,39 +34,6 @@ export interface LeadData {
 }
 
 class EmailService {
-  private async sendEmailViaEmailJS(templateId: string, templateParams: any): Promise<boolean> {
-    try {
-      if (!EMAIL_CONFIG.EMAILJS_SERVICE_ID || !EMAIL_CONFIG.EMAILJS_USER_ID) {
-        console.warn('EmailJS not configured. Please set up environment variables.');
-        return false;
-      }
-
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          service_id: EMAIL_CONFIG.EMAILJS_SERVICE_ID,
-          template_id: templateId,
-          user_id: EMAIL_CONFIG.EMAILJS_USER_ID,
-          template_params: templateParams
-        })
-      });
-
-      if (response.ok) {
-        console.log('Email sent successfully via EmailJS');
-        return true;
-      } else {
-        console.error('EmailJS failed:', response.statusText);
-        return false;
-      }
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      return false;
-    }
-  }
-
   private async sendEmailViaSMTP2GO(emailData: EmailData): Promise<boolean> {
     try {
       if (!EMAIL_CONFIG.SMTP2GO_API_KEY) {
@@ -95,7 +56,13 @@ class EmailService {
         })
       });
 
-      return response.ok;
+      if (response.ok) {
+        console.log('Email sent successfully via SMTP2GO');
+        return true;
+      } else {
+        console.error('SMTP2GO failed:', response.statusText);
+        return false;
+      }
     } catch (error) {
       console.error('SMTP2GO error:', error);
       return false;
@@ -316,97 +283,47 @@ class EmailService {
   // Main method to send lead notifications
   async sendLeadNotification(leadData: LeadData): Promise<{ success: boolean; message: string }> {
     try {
-      // Try EmailJS first
-      if (EMAIL_CONFIG.EMAILJS_SERVICE_ID) {
-        // Send email to admin via EmailJS
-        const adminTemplateParams = {
-          to_email: EMAIL_CONFIG.ADMIN_EMAIL,
-          subject: `🚀 New Lead: ${leadData.type.toUpperCase()} - ${leadData.name}`,
-          html_message: this.generateAdminEmail(leadData),
-          from_name: EMAIL_CONFIG.FROM_NAME,
-          reply_to: leadData.email,
-          name: leadData.name,
-          email: leadData.email,
-          phone: leadData.phone,
-          course: leadData.course || '',
-          service: leadData.service || '',
-          message: leadData.message || '',
-          type: leadData.type,
-          source: leadData.source || '',
-          timestamp: new Date(leadData.timestamp).toLocaleString()
-        };
-
-        const adminEmailSent = await this.sendEmailViaEmailJS(
-          EMAIL_CONFIG.EMAILJS_TEMPLATE_ID_ADMIN || 'admin_notification',
-          adminTemplateParams
-        );
-
-        // Send confirmation email to user via EmailJS
-        const userTemplateParams = {
-          to_email: leadData.email,
-          subject: 'Thank You - Chakrabyte Security',
-          html_message: this.generateUserConfirmationEmail(leadData),
-          from_name: EMAIL_CONFIG.FROM_NAME,
-          reply_to: EMAIL_CONFIG.ADMIN_EMAIL,
-          name: leadData.name,
-          course: leadData.course || '',
-          service: leadData.service || '',
-          type: leadData.type,
-          reference_id: Date.now().toString(36).toUpperCase()
-        };
-
-        const userEmailSent = await this.sendEmailViaEmailJS(
-          EMAIL_CONFIG.EMAILJS_TEMPLATE_ID_USER || 'user_confirmation',
-          userTemplateParams
-        );
-
-        if (adminEmailSent && userEmailSent) {
-          return {
-            success: true,
-            message: 'Your enquiry has been sent successfully! You will receive a confirmation email shortly.'
-          };
-        }
-      }
-
-      // Fallback to SMTP2GO if EmailJS fails or not configured
-      if (EMAIL_CONFIG.SMTP2GO_API_KEY) {
-        const adminEmailData: EmailData = {
-          to: EMAIL_CONFIG.ADMIN_EMAIL,
-          subject: `🚀 New Lead: ${leadData.type.toUpperCase()} - ${leadData.name}`,
-          html: this.generateAdminEmail(leadData),
-          replyTo: leadData.email
-        };
-
-        const userEmailData: EmailData = {
-          to: leadData.email,
-          subject: 'Thank You - Chakrabyte Security',
-          html: this.generateUserConfirmationEmail(leadData)
-        };
-
-        const adminEmailSent = await this.sendEmailViaSMTP2GO(adminEmailData);
-        const userEmailSent = await this.sendEmailViaSMTP2GO(userEmailData);
-
-        if (adminEmailSent && userEmailSent) {
-          return {
-            success: true,
-            message: 'Your enquiry has been sent successfully! You will receive a confirmation email shortly.'
-          };
-        }
-      }
-
-      // If no email service is configured
-      if (!EMAIL_CONFIG.EMAILJS_SERVICE_ID && !EMAIL_CONFIG.SMTP2GO_API_KEY) {
-        console.warn('No email service configured. Please set up EmailJS or SMTP2GO.');
+      // Check if SMTP2GO is configured
+      if (!EMAIL_CONFIG.SMTP2GO_API_KEY) {
+        console.warn('SMTP2GO not configured. Please set up environment variables.');
         return {
           success: false,
           message: 'Email service not configured. Please contact administration.'
         };
       }
 
-      return {
-        success: false,
-        message: 'Failed to send email. Please try again or contact us directly.'
+      // Send email to admin
+      const adminEmailData: EmailData = {
+        to: EMAIL_CONFIG.ADMIN_EMAIL,
+        subject: `🚀 New Lead: ${leadData.type.toUpperCase()} - ${leadData.name}`,
+        html: this.generateAdminEmail(leadData),
+        replyTo: leadData.email
       };
+
+      // Send confirmation email to user
+      const userEmailData: EmailData = {
+        to: leadData.email,
+        subject: 'Thank You - Chakrabyte Security',
+        html: this.generateUserConfirmationEmail(leadData)
+      };
+
+      // Send both emails concurrently for better performance
+      const [adminEmailSent, userEmailSent] = await Promise.all([
+        this.sendEmailViaSMTP2GO(adminEmailData),
+        this.sendEmailViaSMTP2GO(userEmailData)
+      ]);
+
+      if (adminEmailSent && userEmailSent) {
+        return {
+          success: true,
+          message: 'Your enquiry has been sent successfully! You will receive a confirmation email shortly.'
+        };
+      } else {
+        return {
+          success: false,
+          message: 'Failed to send email. Please try again or contact us directly.'
+        };
+      }
 
     } catch (error) {
       console.error('Lead notification error:', error);
