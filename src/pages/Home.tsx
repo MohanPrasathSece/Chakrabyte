@@ -4,6 +4,7 @@ import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, Message
 import { useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import TestimonialSection from "@/components/TestimonialSection";
 import heroImage from "@/assets/hero-image.jpg";
 import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
 import socAnalystImg from "@/assets/course-soc-analyst.jpg";
@@ -29,11 +30,13 @@ style.textContent = `
     animation-play-state: paused;
   }
 `;
-document.head.appendChild(style);
+if (!document.head.contains(style)) {
+  document.head.appendChild(style);
+}
 
 const Home = () => {
   const [expandedFaq, setExpandedFaq] = useState(null);
-  
+
   const toggleFaq = (index) => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
@@ -118,19 +121,19 @@ const Home = () => {
             <div className="text-left space-y-8">
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium">
-                <Shield className="w-4 h-4 text-purple-200" />
-                <span>Trusted by 2,500+ Students</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 text-sm font-medium animate-pulse">
+                <Shield className="w-4 h-4 text-green-300" />
+                <span className="text-green-100">🚀 Become SOC Ready in 90 Days</span>
               </div>
 
               {/* Headings */}
               <div className="space-y-4">
                 <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   Master Cybersecurity <br />
-                  <span className="text-purple-200">With Industry Experts</span>
+                  <span className="text-purple-200">From Zero to Hero</span>
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 max-w-xl leading-relaxed font-light">
-                  Launch your career with hands-on training, real-world projects, and recognized certifications. Available online and offline.
+                  <span className="font-semibold text-white">Transform your career in just 90 days.</span> Get hands-on training, real-world projects, and industry-recognized certifications. Join 2,500+ successful cybersecurity professionals.
                 </p>
               </div>
 
@@ -225,7 +228,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section - Animated */}
+      {/* Stats Section */}
       <section className="py-12 bg-gradient-to-br from-purple-50 to-purple-100 border-b border-purple-200/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -261,8 +264,11 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-purple-200 border border-purple-300 text-sm font-semibold text-purple-700 mb-4">
+              💼 100% Job-Ready Training
+            </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Why Choose <span className="text-primary">chakrabyte security?</span>
+              Why Choose <span className="text-primary">Chakrabyte Security?</span>
             </h2>
             <p className="text-lg text-gray-600">
               We provide comprehensive cybersecurity training with real-world applications
@@ -271,10 +277,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group flex items-start gap-4 p-6 bg-gradient-to-br from-white to-purple-50/50 rounded-xl border border-purple-100/50 hover:border-purple-300/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-              >
+              <div key={index} className="group flex items-start gap-4 p-6 bg-gradient-to-br from-white to-purple-50/50 rounded-xl border border-purple-100/50 hover:border-purple-300/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                 <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/10 to-purple-600/10 group-hover:from-primary/20 group-hover:to-purple-600/20 flex items-center justify-center transition-colors border border-purple-200/50">
                   <CheckCircle className="text-primary group-hover:scale-110 transition-transform" size={24} />
                 </div>
@@ -287,96 +290,152 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Authorized Training Partners Section */}
-      <section className="py-16 bg-gradient-to-br from-purple-100 to-purple-50 overflow-hidden">
+      {/* Trusted by Leaders Section - Exact Reference Layout */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Authorized <span className="text-purple-600">Training Partners</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We partner with leading organizations to deliver globally recognized certifications and training programs
-            </p>
-          </div>
+          <div className="max-w-7xl mx-auto relative min-h-[600px]">
+            {/* All images positioned absolutely to match reference */}
 
-          {/* Scrolling Brand Logos */}
-          <div className="relative">
-            <div className="flex overflow-hidden">
-              {/* First set of logos */}
-              <div className="flex animate-scroll">
-                {[
-                  { name: "Coursera", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Udemy", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
-                  { name: "edX", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Khan Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
-                  { name: "LinkedIn Learning", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Pluralsight", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Skillshare", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Udacity", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
-                  { name: "FutureLearn", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Codecademy", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
-                  { name: "MasterClass", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Domestika", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
-                  { name: "CreativeLive", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Treehouse", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
-                  { name: "DataCamp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
-                  { name: "HubSpot Academy", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Google Digital Garage", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Microsoft Learn", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
-                  { name: "IBM Skills", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Cisco Networking Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" }
-                ].map((partner, index) => (
-                  <div key={index} className="flex-shrink-0 mx-8">
-                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-                ))}
+            {/* LEFT COLUMN - 4 images */}
+            {/* Image 1 - Top left (man with glasses) */}
+            <div className="absolute left-8 top-0 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=140&h=140&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-32 h-32 object-cover"
+              />
+            </div>
+
+            {/* Image 2 - Left, slightly lower (man in suit) */}
+            <div className="absolute left-44 top-12 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=160&h=160&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-36 h-36 object-cover"
+              />
+            </div>
+
+            {/* Image 3 - Left middle (man smiling) */}
+            <div className="absolute left-16 top-48 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=180&h=180&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-40 h-40 object-cover"
+              />
+            </div>
+
+            {/* Image 4 - Bottom left (woman with wine glass) */}
+            <div className="absolute left-8 bottom-16 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-34 h-34 object-cover"
+              />
+            </div>
+
+            {/* TOP CENTER - 4 images in a row */}
+            {/* Image 5 - Top center left (man with glasses) */}
+            <div className="absolute left-1/2 -translate-x-64 top-4 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=170&h=170&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-38 h-38 object-cover"
+              />
+            </div>
+
+            {/* Image 6 - Top center middle (man in blue shirt) */}
+            <div className="absolute left-1/2 -translate-x-32 top-0 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=180&h=180&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-40 h-40 object-cover"
+              />
+            </div>
+
+            {/* Image 7 - Top center (man in dark suit) */}
+            <div className="absolute left-1/2 translate-x-0 top-8 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=160&h=160&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-36 h-36 object-cover"
+              />
+            </div>
+
+            {/* Image 8 - Top center right (woman smiling) */}
+            <div className="absolute left-1/2 translate-x-32 top-0 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=170&h=170&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-38 h-38 object-cover"
+              />
+            </div>
+
+            {/* RIGHT COLUMN - 4 images */}
+            {/* Image 9 - Top right (woman at desk) */}
+            <div className="absolute right-48 top-16 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=170&h=170&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-38 h-38 object-cover"
+              />
+            </div>
+
+            {/* Image 10 - Right, slightly lower (man smiling) */}
+            <div className="absolute right-8 top-8 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=180&h=180&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-40 h-40 object-cover"
+              />
+            </div>
+
+            {/* Image 11 - Right middle (woman in business attire) */}
+            <div className="absolute right-16 top-52 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=180&h=180&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-40 h-40 object-cover"
+              />
+            </div>
+
+            {/* Image 12 - Bottom right (woman with curly hair) */}
+            <div className="absolute right-8 bottom-20 hidden lg:block">
+              <img
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=160&h=160&fit=crop"
+                alt="Professional"
+                className="rounded-2xl shadow-lg w-36 h-36 object-cover"
+              />
+            </div>
+
+            {/* CENTER CONTENT */}
+            <div className="relative z-10 text-center py-40 px-4">
+              <div className="inline-block px-4 py-2 bg-purple-100 rounded-full mb-6">
+                <span className="text-sm font-semibold text-purple-700">Testimonials</span>
               </div>
-              {/* Duplicate set for seamless scrolling */}
-              <div className="flex animate-scroll">
-                {[
-                  { name: "Coursera", logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Udemy", logo: "https://images.unsplash.com/photo-1557829029-5da6f3e4c2b6?w=240&h=120&fit=crop&bg=white" },
-                  { name: "edX", logo: "https://images.unsplash.com/photo-1573164713714-d95e437ab0d6?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Khan Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" },
-                  { name: "LinkedIn Learning", logo: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Pluralsight", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Skillshare", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Udacity", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
-                  { name: "FutureLearn", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Codecademy", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
-                  { name: "MasterClass", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Domestika", logo: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop&bg=white" },
-                  { name: "CreativeLive", logo: "https://images.unsplash.com/photo-1559028012-c72e70b79c5e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Treehouse", logo: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=240&h=120&fit=crop&bg=white" },
-                  { name: "DataCamp", logo: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=240&h=120&fit=crop&bg=white" },
-                  { name: "HubSpot Academy", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Google Digital Garage", logo: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Microsoft Learn", logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=240&h=120&fit=crop&bg=white" },
-                  { name: "IBM Skills", logo: "https://images.unsplash.com/photo-1633265486074-08a646ba2c7e?w=240&h=120&fit=crop&bg=white" },
-                  { name: "Cisco Networking Academy", logo: "https://images.unsplash.com/photo-1558804112-8de2214812c4?w=240&h=120&fit=crop&bg=white" }
-                ].map((partner, index) => (
-                  <div key={`duplicate-${index}`} className="flex-shrink-0 mx-8">
-                    <div className="w-48 h-24 md:w-56 md:h-28 bg-white rounded-lg shadow-sm border border-gray-200 flex items-center justify-center p-2 hover:shadow-md transition-shadow">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
+
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Trusted by leaders<br />
+                <span className="text-gray-400">from various industries</span>
+              </h2>
+
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                Learn why professionals trust our solutions to<br />
+                complete their customer journeys.
+              </p>
+
+              <Button
+                asChild
+                className="bg-black hover:bg-gray-800 text-white font-semibold px-8 py-6 text-base rounded-full shadow-lg hover:shadow-xl transition-all"
+              >
+                <Link to="/contact">
+                  Read Success Stories →
+                </Link>
+              </Button>
             </div>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {/* Stats Section */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-bold text-purple-600 mb-2">20+</div>
               <div className="text-sm text-gray-600">Global Partners</div>
@@ -401,6 +460,9 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-br from-purple-50 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-300 text-sm font-semibold text-purple-700 mb-4">
+              ⚡ Launch Your Career in 8-12 Weeks
+            </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
               Featured <span className="text-primary">Courses</span>
             </h2>
@@ -411,7 +473,9 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {featuredCourses.map((course, index) => (
-              <CourseCard key={index} {...course} />
+              <div key={index}>
+                <CourseCard {...course} />
+              </div>
             ))}
           </div>
 
@@ -452,13 +516,13 @@ const Home = () => {
                 <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-100 transition-colors">
                   <Users className="w-8 h-8" />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Corporate Training</h3>
-                
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Customized security awareness and technical training programs designed to elevate your organization's cybersecurity posture and protect against evolving threats.
                 </p>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3"></div>
@@ -473,7 +537,7 @@ const Home = () => {
                     Custom Curriculum Design
                   </div>
                 </div>
-                
+
                 <div className="mt-auto pt-6 border-t border-purple-100">
                   <Link to="/services/corporate-training" className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors">
                     Learn More
@@ -489,13 +553,13 @@ const Home = () => {
                 <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-100 transition-colors">
                   <Award className="w-8 h-8" />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-4">College Workshops</h3>
-                
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Interactive cybersecurity workshops and training programs tailored for educational institutions, helping students build practical skills and career readiness.
                 </p>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3"></div>
@@ -510,7 +574,7 @@ const Home = () => {
                     Certification Preparation
                   </div>
                 </div>
-                
+
                 <div className="mt-auto pt-6 border-t border-purple-100">
                   <Link to="/services/college-workshops" className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors">
                     Learn More
@@ -526,13 +590,13 @@ const Home = () => {
                 <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-100 transition-colors">
                   <Shield className="w-8 h-8" />
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Device Security & Repairs</h3>
-                
+
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Professional laptop and device repair services, malware removal, and comprehensive security hardening to protect your digital assets and ensure optimal performance.
                 </p>
-                
+
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center text-sm text-gray-600">
                     <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mr-3"></div>
@@ -547,7 +611,7 @@ const Home = () => {
                     Security Audit & Hardening
                   </div>
                 </div>
-                
+
                 <div className="mt-auto pt-6 border-t border-purple-100">
                   <Link to="/services/device-security" className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors">
                     Learn More
@@ -631,83 +695,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Trusted Leaders Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100 overflow-hidden relative">
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Image Grid - Real Images (Larger) */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-60">
-            <div className="relative w-full h-full max-w-6xl mx-auto">
-              {/* Top Row */}
-              <div className="absolute top-8 left-[20%] w-28 h-28 rounded-lg shadow-md transform -rotate-6 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-4 left-[35%] w-32 h-32 rounded-xl shadow-lg transform rotate-3 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-10 right-[25%] w-28 h-28 rounded-full shadow-md transform rotate-12 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-0 right-[30%] w-36 h-36 rounded-lg shadow-lg transform -rotate-3 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              
-              {/* Middle Row */}
-              <div className="absolute top-1/3 left-[10%] w-36 h-36 rounded-xl shadow-lg transform rotate-5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-1/2 left-[33%] w-28 h-28 rounded-full shadow-md transform -rotate-8 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-1/3 right-[15%] w-32 h-32 rounded-lg shadow-md transform -rotate-10 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute top-1/2 right-[5%] w-36 h-36 rounded-xl shadow-lg transform rotate-7 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              
-              {/* Bottom Row */}
-              <div className="absolute bottom-8 left-[25%] w-32 h-32 rounded-lg shadow-md transform rotate-4 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-4 left-[40%] w-28 h-28 rounded-full shadow-lg transform -rotate-5 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-10 right-[20%] w-36 h-36 rounded-xl shadow-lg transform rotate-8 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute bottom-0 right-[35%] w-28 h-28 rounded-lg shadow-md transform -rotate-6 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face" alt="Professional" className="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-
-          {/* Central Content */}
-          <div className="text-center relative z-20 max-w-4xl mx-auto">
-            <div className="mb-4">
-              <span className="text-sm font-medium text-purple-600 uppercase tracking-wider">Testimonials</span>
-            </div>
-            
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Trusted by leaders from<br />various industries
-            </h2>
-            
-            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Learn why professionals trust our solutions to complete their customer journeys.
-            </p>
-            
-            <Button
-              asChild
-              size="lg"
-              className="bg-black text-white hover:bg-gray-800 font-semibold px-8 py-4 text-base rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-            >
-              <Link to="/contact">
-                Get Started Today
-                <ChevronRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <TestimonialSection />
 
       {/* FAQ Section */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
@@ -726,15 +714,15 @@ const Home = () => {
               {/* Left Column */}
               <div className="space-y-6">
                 {/* FAQ 1 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(0)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">What are the prerequisites for your cybersecurity courses?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 0 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What are the prerequisites for your cybersecurity courses?</span>
+                    <ChevronRight className={expandedFaq === 0 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 0 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 0 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Most of our beginner courses require only basic computer skills. For advanced courses, we recommend having some IT background or completing our foundational courses first.
                     </p>
@@ -742,15 +730,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 3 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(2)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Are your certifications industry-recognized?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 2 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Are your certifications industry-recognized?</span>
+                    <ChevronRight className={expandedFaq === 2 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 2 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 2 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Absolutely! Our certifications are recognized by leading organizations and align with industry standards like CEH, CompTIA Security+, and other globally recognized cybersecurity certifications.
                     </p>
@@ -758,15 +746,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 5 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(4)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Do you offer corporate training programs?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 4 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you offer corporate training programs?</span>
+                    <ChevronRight className={expandedFaq === 4 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 4 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 4 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Yes, we provide customized corporate training programs tailored to your organization's specific needs. Our trainers can conduct sessions at your premises or online.
                     </p>
@@ -774,15 +762,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 7 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(6)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Do you provide course materials and recordings?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 6 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you provide course materials and recordings?</span>
+                    <ChevronRight className={expandedFaq === 6 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 6 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 6 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Yes, all students get access to comprehensive course materials, lab guides, and session recordings. These resources are available for lifetime access even after course completion.
                     </p>
@@ -790,15 +778,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 9 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(8)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">What kind of lab access do students get?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 8 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What kind of lab access do students get?</span>
+                    <ChevronRight className={expandedFaq === 8 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 8 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 8 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Students get 24/7 access to our virtual lab environment with real-world scenarios, tools, and vulnerabilities. This includes access to penetration testing labs, SIEM platforms, and cloud environments.
                     </p>
@@ -809,15 +797,15 @@ const Home = () => {
               {/* Right Column */}
               <div className="space-y-6">
                 {/* FAQ 2 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(1)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Do you provide job placement assistance?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 1 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you provide job placement assistance?</span>
+                    <ChevronRight className={expandedFaq === 1 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 1 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 1 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Yes, we offer comprehensive career support including resume building, interview preparation, and connections with our network of hiring partners in the cybersecurity industry.
                     </p>
@@ -825,15 +813,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 4 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(3)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">What is the duration of your courses?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 3 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What is the duration of your courses?</span>
+                    <ChevronRight className={expandedFaq === 3 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 3 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 3 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Course durations vary from 8 weeks for foundational courses to 12 weeks for advanced programs. We also offer flexible weekend batches and self-paced learning options.
                     </p>
@@ -841,15 +829,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 6 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(5)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">What payment options are available?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 5 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What payment options are available?</span>
+                    <ChevronRight className={expandedFaq === 5 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 5 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 5 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       We offer flexible payment options including one-time payment, EMI options, and installment plans. We also accept major credit cards, debit cards, and online banking transfers.
                     </p>
@@ -857,15 +845,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 8 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(7)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Can I attend classes from outside India?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 7 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Can I attend classes from outside India?</span>
+                    <ChevronRight className={expandedFaq === 7 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 7 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 7 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       Absolutely! Our online courses are accessible globally. We have students from various countries attending live sessions and accessing our learning platform from anywhere in the world.
                     </p>
@@ -873,15 +861,15 @@ const Home = () => {
                 </div>
 
                 {/* FAQ 10 */}
-                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm">
-                  <button 
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
                     onClick={() => toggleFaq(9)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors"
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
                   >
-                    <span className="font-semibold text-gray-900">Do you offer refunds if I'm not satisfied?</span>
-                    <ChevronRight className={`w-5 h-5 text-purple-400 transition-transform duration-300 ${expandedFaq === 9 ? 'rotate-180' : 'rotate-90'}`} />
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you offer refunds if I'm not satisfied?</span>
+                    <ChevronRight className={expandedFaq === 9 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
                   </button>
-                  <div className={`px-6 transition-all duration-300 ${expandedFaq === 9 ? 'py-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <div className={expandedFaq === 9 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
                     <p className="text-gray-600">
                       We offer a 7-day money-back guarantee for most courses. If you're not satisfied within the first week, you can request a full refund. Certain specialized courses may have different policies.
                     </p>

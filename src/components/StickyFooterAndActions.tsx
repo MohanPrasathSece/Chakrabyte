@@ -26,13 +26,13 @@ const StickyFooterAndActions = () => {
                     </svg>
                 </a>
 
-                {/* Call Button - Purple */}
+                {/* Email Button - Purple */}
                 <a
-                    href="tel:+919876543210"
+                    href="mailto:info@chakrabyte.com"
                     className="w-14 h-14 md:w-16 md:h-16 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
-                    aria-label="Call us"
+                    aria-label="Email us"
                 >
-                    <Phone className="w-6 h-6 md:w-7 md:h-7" />
+                    <Mail className="w-6 h-6 md:w-7 md:h-7" />
                 </a>
             </div>
 

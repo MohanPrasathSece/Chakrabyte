@@ -117,7 +117,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-gray-200/50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -159,7 +159,7 @@ const Header = () => {
               </button>
               {coursesDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={handleCoursesMouseEnter}
                   onMouseLeave={handleCoursesMouseLeave}
                 >
@@ -202,7 +202,7 @@ const Header = () => {
               </button>
               {servicesDropdownOpen && (
                 <div
-                  className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={handleServicesMouseEnter}
                   onMouseLeave={handleServicesMouseLeave}
                 >
@@ -405,7 +405,7 @@ const Header = () => {
 
         {/* Mobile Navigation - Compact Dropdown Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-lg z-50">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
             <div className="container mx-auto px-4 py-3">
               <nav className="flex flex-col space-y-1">
                 {navigation.map((item) => (

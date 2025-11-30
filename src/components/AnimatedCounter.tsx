@@ -7,15 +7,17 @@ interface AnimatedCounterProps {
     duration?: number;
     suffix?: string;
     className?: string;
+    trigger?: boolean;
 }
 
-const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "", className = "" }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "", className = "", trigger }: AnimatedCounterProps) => {
     const [count, setCount] = useState(from);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+    const shouldAnimate = trigger !== undefined ? trigger : isInView;
 
     useEffect(() => {
-        if (isInView) {
+        if (shouldAnimate) {
             let startTime: number;
             let animationFrame: number;
 
@@ -37,7 +39,7 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "", className = 
 
             return () => cancelAnimationFrame(animationFrame);
         }
-    }, [isInView, from, to, duration]);
+    }, [shouldAnimate, from, to, duration]);
 
     return (
         <span ref={ref} className={className}>
