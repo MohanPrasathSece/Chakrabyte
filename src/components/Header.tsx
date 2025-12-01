@@ -81,16 +81,13 @@ const Header = () => {
   ];
 
   const courses = [
-    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
-    { name: "SOC Analyst", path: "/courses/soc-analyst" },
-    { name: "Cyber Forensics", path: "/courses/cyber-forensics" },
-    { name: "Network Security", path: "/courses/network-security" },
-    { name: "Web App Security", path: "/courses/web-app-security" },
+    { name: "CySA+", path: "/courses/cySA-plus" },
+    { name: "Security+", path: "/courses/security-plus" },
     { name: "Cloud Security", path: "/courses/cloud-security" },
-    { name: "Malware Analysis", path: "/courses/malware-analysis" },
-    { name: "Red Team", path: "/courses/red-team" },
-    { name: "Blue Team", path: "/courses/blue-team" },
-    { name: "Cybersecurity Basics", path: "/courses/cybersecurity-basics" },
+    { name: "Azure Sentinel", path: "/courses/azure-sentinel" },
+    { name: "Microsoft Defender", path: "/courses/microsoft-defender" },
+    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
+    { name: "Penetration Testing", path: "/courses/penetration-testing" },
   ];
 
   const services = [

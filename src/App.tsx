@@ -18,15 +18,12 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import EthicalHacking from "./pages/courses/EthicalHacking";
-import SOCAnalyst from "./pages/courses/SOCAnalyst";
-import CyberForensics from "./pages/courses/CyberForensics";
-import NetworkSecurity from "./pages/courses/NetworkSecurity";
-import WebAppSecurity from "./pages/courses/WebAppSecurity";
 import CloudSecurity from "./pages/courses/CloudSecurity";
-import MalwareAnalysis from "./pages/courses/MalwareAnalysis";
-import RedTeam from "./pages/courses/RedTeam";
-import BlueTeam from "./pages/courses/BlueTeam";
-import CybersecurityBasics from "./pages/courses/CybersecurityBasics";
+import CySAPlus from "./pages/courses/CySAPlus";
+import SecurityPlus from "./pages/courses/SecurityPlus";
+import AzureSentinel from "./pages/courses/AzureSentinel";
+import MicrosoftDefender from "./pages/courses/MicrosoftDefender";
+import PenetrationTesting from "./pages/courses/PenetrationTesting";
 import CorporateTraining from "./pages/services/CorporateTraining";
 import DeviceSecurity from "./pages/services/DeviceSecurity";
 import CollegeWorkshops from "./pages/services/CollegeWorkshops";
@@ -180,15 +177,12 @@ const AppContent = () => {
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/ethical-hacking" element={<EthicalHacking />} />
-            <Route path="/courses/soc-analyst" element={<SOCAnalyst />} />
-            <Route path="/courses/cyber-forensics" element={<CyberForensics />} />
-            <Route path="/courses/network-security" element={<NetworkSecurity />} />
-            <Route path="/courses/web-app-security" element={<WebAppSecurity />} />
             <Route path="/courses/cloud-security" element={<CloudSecurity />} />
-            <Route path="/courses/malware-analysis" element={<MalwareAnalysis />} />
-            <Route path="/courses/red-team" element={<RedTeam />} />
-            <Route path="/courses/blue-team" element={<BlueTeam />} />
-            <Route path="/courses/cybersecurity-basics" element={<CybersecurityBasics />} />
+            <Route path="/courses/cySA-plus" element={<CySAPlus />} />
+            <Route path="/courses/security-plus" element={<SecurityPlus />} />
+            <Route path="/courses/azure-sentinel" element={<AzureSentinel />} />
+            <Route path="/courses/microsoft-defender" element={<MicrosoftDefender />} />
+            <Route path="/courses/penetration-testing" element={<PenetrationTesting />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/corporate-training" element={<CorporateTraining />} />
             <Route path="/services/device-security" element={<DeviceSecurity />} />

@@ -10,94 +10,67 @@ import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 const Courses = () => {
   const courses = [
     {
-      title: "Ethical Hacking & Penetration Testing",
-      description: "Master ethical hacking, penetration testing, and vulnerability assessment techniques",
-      duration: "12 Weeks",
-      level: "Intermediate",
-      students: "1500+",
+      title: "CySA+",
+      description: "Course focussed on individuals on who have basic understanding in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.",
+      duration: "8 Weeks",
+      level: "Beginner",
+      students: "800+",
       image: ethicalHackingImg,
-      link: "/courses/ethical-hacking",
+      link: "/courses/cySA-plus",
     },
     {
-      title: "SOC Analyst (Level 1 & 2)",
-      description: "Comprehensive Security Operations Center training for threat detection and response",
+      title: "Security+",
+      description: "Comprehensive security certification covering essential skills for network security and risk management",
       duration: "10 Weeks",
-      level: "Beginner to Advanced",
+      level: "Beginner",
       students: "1200+",
       image: socAnalystImg,
-      link: "/courses/soc-analyst",
+      link: "/courses/security-plus",
     },
     {
-      title: "Cyber Forensics & Investigation",
-      description: "Learn digital forensics, evidence collection, and incident investigation",
-      duration: "8 Weeks",
-      level: "Intermediate",
-      students: "800+",
-      image: forensicsImg,
-      link: "/courses/cyber-forensics",
-    },
-    {
-      title: "Network Security",
-      description: "Secure networks against attacks with firewalls, IDS/IPS, and VPN technologies",
-      duration: "8 Weeks",
-      level: "Intermediate",
-      students: "900+",
-      image: ethicalHackingImg,
-      link: "/courses/network-security",
-    },
-    {
-      title: "Web Application Security",
-      description: "Master OWASP Top 10, API security, and secure coding practices",
-      duration: "10 Weeks",
-      level: "Intermediate",
-      students: "1100+",
-      image: socAnalystImg,
-      link: "/courses/web-app-security",
-    },
-    {
-      title: "Cloud Security (AWS + Azure)",
+      title: "Cloud Security",
       description: "Secure cloud infrastructure and applications on AWS and Azure platforms",
       duration: "12 Weeks",
-      level: "Advanced",
+      level: "Intermediate",
       students: "700+",
       image: forensicsImg,
       link: "/courses/cloud-security",
     },
     {
-      title: "Malware Analysis & Reverse Engineering",
-      description: "Analyze malware behavior and learn reverse engineering fundamentals",
-      duration: "10 Weeks",
-      level: "Advanced",
-      students: "600+",
-      image: ethicalHackingImg,
-      link: "/courses/malware-analysis",
-    },
-    {
-      title: "Red Team Operations",
-      description: "Advanced adversary simulation and offensive security techniques",
-      duration: "14 Weeks",
+      title: "Azure Sentinel",
+      description: "Master Microsoft's cloud-native SIEM and security orchestration platform",
+      duration: "12 Weeks",
       level: "Advanced",
       students: "500+",
-      image: socAnalystImg,
-      link: "/courses/red-team",
+      image: ethicalHackingImg,
+      link: "/courses/azure-sentinel",
     },
     {
-      title: "Blue Team Defense",
-      description: "SOC operations, SIEM management, and incident response strategies",
+      title: "Microsoft Defender",
+      description: "Master Microsoft's comprehensive security suite covering endpoint, cloud, and identity protection",
+      duration: "12 Weeks",
+      level: "Advanced",
+      students: "450+",
+      image: socAnalystImg,
+      link: "/courses/microsoft-defender",
+    },
+    {
+      title: "Ethical Hacking",
+      description: "Master ethical hacking, penetration testing, and vulnerability assessment techniques",
       duration: "12 Weeks",
       level: "Intermediate",
-      students: "950+",
+      students: "1500+",
       image: forensicsImg,
-      link: "/courses/blue-team",
+      link: "/courses/ethical-hacking",
     },
     {
-      title: "Cybersecurity for Beginners",
-      description: "Fundamental cybersecurity awareness and basic security concepts",
-      duration: "6 Weeks",
-      level: "Beginner",
-      students: "2000+",
+      title: "Penetration Testing",
+      description: "Advanced penetration testing course covering comprehensive methodologies and exploitation techniques",
+      duration: "14 Weeks",
+      level: "Advanced",
+      students: "400+",
       image: ethicalHackingImg,
-      link: "/courses/cybersecurity-basics",
+      link: "/courses/penetration-testing",
     },
   ];
 
@@ -113,7 +86,7 @@ const Courses = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">10 Industry-Ready Courses</span>
+              <span className="text-sm font-medium">7 Industry-Ready Courses</span>
             </div>
 
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
@@ -129,7 +102,7 @@ const Courses = () => {
               <div className="flex items-center gap-6 text-white/80">
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-medium">10,000+ Students</span>
+                  <span className="font-medium">7,000+ Students</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5" />

@@ -166,3 +166,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(270 60% 30%);
 }
+
+/* Hide scrollbar utility class */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
