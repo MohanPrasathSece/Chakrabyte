@@ -189,7 +189,7 @@ const CySAPlus = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
@@ -199,11 +199,11 @@ const CySAPlus = () => {
               Join thousands of professionals who have advanced their careers with our comprehensive training
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                <Link to="/contact">Get Started Today</Link>
+              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                <span className="text-white">Get Started Today</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
-                <Link to="/courses">View All Courses</Link>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-8 py-3">
+                <span className="text-white">View All Courses</span>
               </Button>
             </div>
           </div>

@@ -12,7 +12,7 @@ const StickyFooterAndActions = () => {
     return (
         <>
             {/* Floating Action Buttons */}
-            <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+            <div className="fixed bottom-20 right-6 flex flex-col gap-4 z-50">
                 {/* WhatsApp Button */}
                 <a
                     href="https://wa.me/919876543210?text=Hi!%20I'm%20interested%20in%20your%20cybersecurity%20courses"

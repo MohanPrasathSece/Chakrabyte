@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare } from "lucide-react";
+import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare, ArrowRight, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -123,7 +123,7 @@ const Home = () => {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 text-sm font-medium animate-pulse">
                 <Shield className="w-4 h-4 text-green-300" />
-                <span className="text-green-100">🚀 Become SOC Ready in 90 Days</span>
+                <span className="text-green-100">Become SOC Ready in 90 Days</span>
               </div>
 
               {/* Headings */}
@@ -332,11 +332,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Section - Detailed Cards */}
-      <section className="py-20 bg-gradient-to-br from-purple-800 to-purple-900 overflow-x-hidden">
-        <div className="container mx-auto px-3 sm:px-4">
+      {/* Services Section - Glassy Cards on Dark Purple */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 to-purple-800">
+        <div className="container mx-auto px-6">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-white">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
               Our <span className="text-purple-200">Services</span>
             </h2>
             <p className="text-lg text-purple-100 max-w-2xl mx-auto">
@@ -344,115 +345,205 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto overflow-x-hidden">
-            {/* Service 1 - Corporate Training */}
+          {/* Glassy Service Grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Service 1 */}
             <div className="group">
-              <div className="bg-purple-700/50 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 hover:border-purple-300/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                <div className="w-16 h-16 bg-purple-600 text-white rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 transition-colors">
-                  <Users className="w-8 h-8" />
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Users className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-
-                <h3 className="text-xl font-bold text-white mb-4">Corporate Training</h3>
-
-                <p className="text-purple-100 leading-relaxed mb-6">
-                  Customized security awareness and technical training programs designed to elevate your organization's cybersecurity posture and protect against evolving threats.
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">Corporate Training</h3>
+                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                  Customized security training programs for enterprise teams
                 </p>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Security Awareness Programs
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Technical Skill Development
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Custom Curriculum Design
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-purple-600/50">
-                  <Link to="/services/corporate-training" className="inline-flex items-center text-white font-semibold hover:text-purple-200 transition-colors">
-                    Learn More
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <div className="text-center">
+                  <Link to="/services/corporate-training" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Service 2 - College Workshops */}
+            {/* Service 2 */}
             <div className="group">
-              <div className="bg-purple-700/50 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 hover:border-purple-300/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                <div className="w-16 h-16 bg-purple-600 text-white rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 transition-colors">
-                  <Award className="w-8 h-8" />
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <GraduationCap className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-
-                <h3 className="text-xl font-bold text-white mb-4">College Workshops</h3>
-
-                <p className="text-purple-100 leading-relaxed mb-6">
-                  Interactive cybersecurity workshops and training programs tailored for educational institutions, helping students build practical skills and career readiness.
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">College Workshops</h3>
+                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                  Interactive cybersecurity workshops for educational institutions
                 </p>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Hands-on Lab Sessions
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Career Guidance Programs
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Certification Preparation
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-purple-600/50">
-                  <Link to="/services/college-workshops" className="inline-flex items-center text-white font-semibold hover:text-purple-200 transition-colors">
-                    Learn More
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <div className="text-center">
+                  <Link to="/services/college-workshops" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Service 3 - Device Security */}
+            {/* Service 3 */}
             <div className="group">
-              <div className="bg-purple-700/50 backdrop-blur-sm p-8 rounded-2xl border border-purple-400/30 hover:border-purple-300/50 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-                <div className="w-16 h-16 bg-purple-600 text-white rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 transition-colors">
-                  <Shield className="w-8 h-8" />
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Shield className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-
-                <h3 className="text-xl font-bold text-white mb-4">Device Security & Repairs</h3>
-
-                <p className="text-purple-100 leading-relaxed mb-6">
-                  Professional laptop and device repair services, malware removal, and comprehensive security hardening to protect your digital assets and ensure optimal performance.
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">Device Security</h3>
+                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                  Professional device security and repair services
                 </p>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Virus & Malware Removal
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Hardware Repair Services
-                  </div>
-                  <div className="flex items-center text-sm text-purple-100">
-                    <div className="w-1.5 h-1.5 bg-purple-300 rounded-full mr-3"></div>
-                    Security Audit & Hardening
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-purple-600/50">
-                  <Link to="/services/device-security" className="inline-flex items-center text-white font-semibold hover:text-purple-200 transition-colors">
-                    Learn More
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <div className="text-center">
+                  <Link to="/services/device-security" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners & Certifications Section - Scrolling Large Images */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Trusted by <span className="text-purple-600">Industry Leaders</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our partnerships, certifications, and recognitions demonstrate our commitment to excellence
+            </p>
+          </div>
+
+          {/* Partners Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-6 bg-purple-600"></div>
+              <h3 className="text-2xl font-bold text-gray-900">Our Partners</h3>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll gap-8">
+                {[
+                  { name: "Microsoft", image: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=300&h=200&fit=crop" },
+                  { name: "AWS", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&h=200&fit=crop" },
+                  { name: "Google Cloud", image: "https://images.unsplash.com/photo-1544197150-b89a45e2856d?w=300&h=200&fit=crop" },
+                  { name: "Cisco", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" },
+                  { name: "IBM", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
+                  { name: "Oracle", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=200&fit=crop" },
+                ].map((partner, index) => (
+                  <div key={`partner-${index}`} className="flex-shrink-0 group">
+                    <div className="relative w-80 h-48 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                      <img src={partner.image} alt={partner.name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4">
+                          <h4 className="text-white font-bold text-lg">{partner.name}</h4>
+                          <p className="text-white/80 text-sm">Official Partner</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Certifications Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-6 bg-purple-600"></div>
+              <h3 className="text-2xl font-bold text-gray-900">Certifications</h3>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll-reverse gap-8">
+                {[
+                  { name: "CompTIA Security+", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&h=200&fit=crop" },
+                  { name: "CEH Certified", image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop" },
+                  { name: "CISSP", image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&h=200&fit=crop" },
+                  { name: "ISO 27001", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop" },
+                  { name: "AWS Security", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&h=200&fit=crop" },
+                  { name: "Azure Security", image: "https://images.unsplash.com/photo-1558494949-ef010cbcc31c?w=300&h=200&fit=crop" },
+                ].map((cert, index) => (
+                  <div key={`cert-${index}`} className="flex-shrink-0 group">
+                    <div className="relative w-80 h-48 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                      <img src={cert.image} alt={cert.name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4">
+                          <h4 className="text-white font-bold text-lg">{cert.name}</h4>
+                          <p className="text-white/80 text-sm">Industry Certification</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Recognitions Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-6 bg-purple-600"></div>
+              <h3 className="text-2xl font-bold text-gray-900">Recognitions</h3>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll gap-8">
+                {[
+                  { name: "Best Cybersecurity Training 2024", image: "https://images.unsplash.com/photo-1499364617124-9e3fe6f1e2c6?w=300&h=200&fit=crop" },
+                  { name: "Excellence in Security Education", image: "https://images.unsplash.com/photo-1559028006-4a665770a764?w=300&h=200&fit=crop" },
+                  { name: "Top Training Provider Award", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=300&h=200&fit=crop" },
+                  { name: "Innovation in Cybersecurity", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
+                  { name: "Industry Leadership Award", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=200&fit=crop" },
+                  { name: "Student Choice Award", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" },
+                ].map((recognition, index) => (
+                  <div key={`recognition-${index}`} className="flex-shrink-0 group">
+                    <div className="relative w-80 h-48 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                      <img src={recognition.image} alt={recognition.name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4">
+                          <h4 className="text-white font-bold text-lg">{recognition.name}</h4>
+                          <p className="text-white/80 text-sm">Industry Recognition</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Support Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-6 bg-purple-600"></div>
+              <h3 className="text-2xl font-bold text-gray-900">Support Partners</h3>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll-reverse gap-8">
+                {[
+                  { name: "Cybersecurity Ventures", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=300&h=200&fit=crop" },
+                  { name: "ISC2", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop" },
+                  { name: "SANS Institute", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
+                  { name: "OWASP Foundation", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=200&fit=crop" },
+                  { name: "NIST", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=300&h=200&fit=crop" },
+                  { name: "CERT Coordination Center", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&h=200&fit=crop" },
+                ].map((support, index) => (
+                  <div key={`support-${index}`} className="flex-shrink-0 group">
+                    <div className="relative w-80 h-48 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                      <img src={support.image} alt={support.name} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4">
+                          <h4 className="text-white font-bold text-lg">{support.name}</h4>
+                          <p className="text-white/80 text-sm">Support Partner</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -88,11 +88,11 @@ const SecurityPlus = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                Enroll Now
+              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                <span className="text-white">Enroll Now</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
-                Download Syllabus
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-8 py-3">
+                <span className="text-white">Download Syllabus</span>
               </Button>
             </div>
           </div>
@@ -200,11 +200,11 @@ const SecurityPlus = () => {
               Security+ is the foundational certification for any cybersecurity professional
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                <Link to="/contact">Get Started Today</Link>
+              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                <span className="text-white">Get Started Today</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
-                <Link to="/courses">View All Courses</Link>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold px-8 py-3">
+                <span className="text-white">View All Courses</span>
               </Button>
             </div>
           </div>

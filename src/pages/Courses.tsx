@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import { Button } from "@/components/ui/button";
 import { Shield, Users, Award, Clock, Search, Filter } from "lucide-react";
@@ -8,6 +9,10 @@ import forensicsImg from "@/assets/course-forensics.jpg";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("All Levels");
+  const [showFilter, setShowFilter] = useState(false);
+
   const courses = [
     {
       title: "CySA+",
@@ -74,10 +79,20 @@ const Courses = () => {
     },
   ];
 
+  // Filter courses based on search term and selected level
+  const filteredCourses = courses.filter(course => {
+    const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         course.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesLevel = selectedLevel === "All Levels" || course.level === selectedLevel;
+    return matchesSearch && matchesLevel;
+  });
+
+  const levels = ["All Levels", "Beginner", "Intermediate", "Advanced"];
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary via-primary/90 to-accent text-white overflow-hidden">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -119,46 +134,128 @@ const Courses = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-3 md:py-4 bg-light-section/80 backdrop-blur sticky top-16 z-40 border-b">
+      <section className="py-3 md:py-4 bg-gray-50 backdrop-blur sticky top-16 z-40 border-b">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Search courses..."
-                  className="pl-10 pr-4 py-1.5 md:py-2 border rounded-lg bg-background w-56 md:w-64 focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 pr-4 py-1.5 md:py-2 border border-gray-300 rounded-lg bg-white w-56 md:w-64 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
                 />
               </div>
-              <Button variant="outline" size="sm" className="gap-2 px-4 h-10 text-sm">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 px-4 h-10 text-sm border-purple-300 text-purple-600 hover:bg-purple-50"
+                onClick={() => setShowFilter(!showFilter)}
+              >
                 <Filter className="w-4 h-4" />
                 Filter
               </Button>
             </div>
             <div className="flex gap-2 text-sm">
-              <Button variant="ghost" size="sm" className="rounded-full px-4 h-9">All Levels</Button>
-              <Button variant="ghost" size="sm" className="rounded-full px-4 h-9">Beginner</Button>
-              <Button variant="ghost" size="sm" className="rounded-full px-4 h-9">Intermediate</Button>
-              <Button variant="ghost" size="sm" className="rounded-full px-4 h-9">Advanced</Button>
+              {levels.map((level) => (
+                <Button 
+                  key={level}
+                  variant={selectedLevel === level ? "default" : "ghost"} 
+                  size="sm" 
+                  className={`rounded-full px-4 h-9 ${
+                    selectedLevel === level 
+                      ? "bg-purple-600 text-white hover:bg-purple-700" 
+                      : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
+                  }`}
+                  onClick={() => setSelectedLevel(level)}
+                >
+                  {level}
+                </Button>
+              ))}
             </div>
           </div>
+          
+          {/* Additional Filter Options (shown when filter is clicked) */}
+          {showFilter && (
+            <div className="mt-4 p-4 bg-white rounded-lg border border-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
+                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <option>All Durations</option>
+                    <option>0-8 Weeks</option>
+                    <option>9-12 Weeks</option>
+                    <option>13+ Weeks</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Students</label>
+                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <option>All Sizes</option>
+                    <option>Small (0-500)</option>
+                    <option>Medium (501-1000)</option>
+                    <option>Large (1000+)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
+                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <option>Most Popular</option>
+                    <option>Newest</option>
+                    <option>Duration</option>
+                    <option>Level</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Courses Grid - Updated to max 3 columns */}
+      {/* Courses Grid */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {courses.map((course, index) => (
-              <CourseCard key={index} {...course} />
-            ))}
+          {/* Results count */}
+          <div className="mb-6">
+            <p className="text-gray-600">
+              Showing <span className="font-semibold text-purple-600">{filteredCourses.length}</span> of{" "}
+              <span className="font-semibold">{courses.length}</span> courses
+            </p>
           </div>
+          
+          {filteredCourses.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {filteredCourses.map((course, index) => (
+                <CourseCard key={index} {...course} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <div className="mb-6">
+                <Search className="w-16 h-16 text-gray-300 mx-auto" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No courses found</h3>
+              <p className="text-gray-600 mb-4">
+                Try adjusting your search or filters to find what you're looking for.
+              </p>
+              <Button 
+                onClick={() => {
+                  setSearchTerm("");
+                  setSelectedLevel("All Levels");
+                }}
+                className="bg-purple-600 text-white hover:bg-purple-700"
+              >
+                Clear Filters
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-white/20">
@@ -169,10 +266,10 @@ const Courses = () => {
                 Our career counselors can help you select the perfect course based on your goals and experience level
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+                <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
                   <Link to="/contact">Talk to an Advisor</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
                   <Link to="/contact">Download Brochure</Link>
                 </Button>
               </div>
