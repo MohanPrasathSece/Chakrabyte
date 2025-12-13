@@ -6,88 +6,132 @@ import { Shield, Users, Award, Clock, Search, Filter } from "lucide-react";
 import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
 import socAnalystImg from "@/assets/course-soc-analyst.jpg";
 import forensicsImg from "@/assets/course-forensics.jpg";
+import foundationImg from "@/assets/course-ethical-hacking.jpg";
+import cloudSecurityImg from "@/assets/course-soc-analyst.jpg";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("All Levels");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [showFilter, setShowFilter] = useState(false);
 
   const courses = [
-    {
-      title: "CySA+",
-      description: "Course focussed on individuals on who have basic understanding in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.",
-      duration: "8 Weeks",
-      level: "Beginner",
-      students: "800+",
-      image: ethicalHackingImg,
-      link: "/courses/cySA-plus",
-    },
+    // BEGINNER COURSES
     {
       title: "Security+",
-      description: "Comprehensive security certification covering essential skills for network security and risk management",
-      duration: "10 Weeks",
-      level: "Beginner",
+      description: "Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.",
+      duration: "8 Weeks",
+      level: "Level 1",
+      category: "Beginner",
       students: "1200+",
+      image: foundationImg,
+      link: "/courses/security-plus",
+    },
+    {
+      title: "Ethical Hacking",
+      description: "An introductory course for beginners that teaches the foundational knowledge of cybersecurity, helps understand attacker's mindset. Includes basic training on tools, exploits, vulnerabilities and ethical boundaries.",
+      duration: "6 Weeks",
+      level: "Level 1",
+      category: "Beginner",
+      students: "800+",
+      image: ethicalHackingImg,
+      link: "/courses/ethical-hacking",
+    },
+    // INTERMEDIATE COURSES
+    {
+      title: "CySA+",
+      description: "Course focussed on security analysts on who have basic understanding and experience in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.",
+      duration: "10 Weeks",
+      level: "Level 2",
+      category: "Intermediate",
+      students: "600+",
+      image: socAnalystImg,
+      link: "/courses/cysa-plus",
+    },
+    {
+      title: "Security Plus",
+      description: "Intermediate level security course for professionals looking to advance their cybersecurity knowledge and skills.",
+      duration: "12 Weeks",
+      level: "Level 2",
+      category: "Intermediate",
+      students: "500+",
       image: socAnalystImg,
       link: "/courses/security-plus",
     },
     {
       title: "Cloud Security",
-      description: "Secure cloud infrastructure and applications on AWS and Azure platforms",
-      duration: "12 Weeks",
-      level: "Intermediate",
+      description: "Course for security professionals who want to learn about securing data within the cloud environment. The course covers architectures, security best practices and unique challenges and situations in different cloud environment.",
+      duration: "8 Weeks",
+      level: "Level 2",
+      category: "Intermediate",
       students: "700+",
-      image: forensicsImg,
+      image: cloudSecurityImg,
       link: "/courses/cloud-security",
     },
     {
-      title: "Azure Sentinel",
-      description: "Master Microsoft's cloud-native SIEM and security orchestration platform",
-      duration: "12 Weeks",
-      level: "Advanced",
-      students: "500+",
-      image: ethicalHackingImg,
-      link: "/courses/azure-sentinel",
-    },
-    {
-      title: "Microsoft Defender",
-      description: "Master Microsoft's comprehensive security suite covering endpoint, cloud, and identity protection",
-      duration: "12 Weeks",
-      level: "Advanced",
-      students: "450+",
-      image: socAnalystImg,
-      link: "/courses/microsoft-defender",
-    },
-    {
-      title: "Ethical Hacking",
-      description: "Master ethical hacking, penetration testing, and vulnerability assessment techniques",
-      duration: "12 Weeks",
-      level: "Intermediate",
-      students: "1500+",
-      image: forensicsImg,
-      link: "/courses/ethical-hacking",
-    },
-    {
       title: "Penetration Testing",
-      description: "Advanced penetration testing course covering comprehensive methodologies and exploitation techniques",
+      description: "Hands-on, practical training for individuals who want to develop the real-world skills to systematically test and exploit networks, applications, and systems, mimicking a real cyberattack.",
       duration: "14 Weeks",
-      level: "Advanced",
+      level: "Level 2",
+      category: "Intermediate",
       students: "400+",
       image: ethicalHackingImg,
       link: "/courses/penetration-testing",
     },
+    {
+      title: "IAM - CyberArk",
+      description: "Intermediate course focused on Identity and Access Management using CyberArk for enterprise security.",
+      duration: "10 Weeks",
+      level: "Level 2",
+      category: "Intermediate",
+      students: "300+",
+      image: socAnalystImg,
+      link: "/courses/iam-cyberark",
+    },
+    // ADVANCED COURSES
+    {
+      title: "Security Pro",
+      description: "Advanced security course for experienced professionals seeking expert-level cybersecurity knowledge and leadership skills.",
+      duration: "16 Weeks",
+      level: "Level 3",
+      category: "Advanced",
+      students: "200+",
+      image: socAnalystImg,
+      link: "/courses/security-pro",
+    },
+    {
+      title: "Azure Sentinel",
+      description: "A specialized course in Azure Sentinel for seasoned security analysts looking to master using this cloud-native SIEM platform to ingest data, hunt threats, create playbooks, use cases and automate responses in Azure.",
+      duration: "12 Weeks",
+      level: "Level 3",
+      category: "Advanced",
+      students: "350+",
+      image: cloudSecurityImg,
+      link: "/courses/azure-sentinel",
+    },
+    {
+      title: "Microsoft Defender",
+      description: "Course for professionals interested in learning hands-on skills to deploy and manage the full suite of Microsoft Defender's centralized protection across endpoints, identity, and email.",
+      duration: "10 Weeks",
+      level: "Level 3",
+      category: "Advanced",
+      students: "400+",
+      image: cloudSecurityImg,
+      link: "/courses/microsoft-defender",
+    },
   ];
 
-  // Filter courses based on search term and selected level
+  const categories = ["all", "Beginner", "Intermediate", "Advanced"];
+  const levels = ["all", "Level 1", "Level 2", "Level 3"];
+
   const filteredCourses = courses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         course.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesLevel = selectedLevel === "All Levels" || course.level === selectedLevel;
-    return matchesSearch && matchesLevel;
+                          course.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "all" || course.category === selectedCategory;
+    const matchesLevel = selectedLevel === "all" || course.level === selectedLevel;
+    return matchesSearch && matchesCategory && matchesLevel;
   });
-
-  const levels = ["All Levels", "Beginner", "Intermediate", "Advanced"];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -101,7 +145,7 @@ const Courses = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">7 Industry-Ready Courses</span>
+              <span className="text-sm font-medium">12 Industry-Ready Courses</span>
             </div>
 
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
@@ -117,7 +161,7 @@ const Courses = () => {
               <div className="flex items-center gap-6 text-white/80">
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-medium">7,000+ Students</span>
+                  <span className="font-medium">8,000+ Students</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5" />
@@ -158,7 +202,22 @@ const Courses = () => {
                 Filter
               </Button>
             </div>
-            <div className="flex gap-2 text-sm">
+            <div className="flex flex-wrap gap-2 text-sm">
+              {categories.map((category) => (
+                <Button 
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "ghost"} 
+                  size="sm" 
+                  className={`rounded-full px-4 h-9 ${
+                    selectedCategory === category 
+                      ? "bg-purple-600 text-white hover:bg-purple-700" 
+                      : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              ))}
               {levels.map((level) => (
                 <Button 
                   key={level}
@@ -184,10 +243,10 @@ const Courses = () => {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <option>All Durations</option>
-                    <option>0-8 Weeks</option>
-                    <option>9-12 Weeks</option>
-                    <option>13+ Weeks</option>
+                    <option>All Levels</option>
+                    <option>Level 1-3 (Foundation)</option>
+                    <option>Level 4 (Intermediate)</option>
+                    <option>Level 5-6 (Advanced)</option>
                   </select>
                 </div>
                 <div>
@@ -218,10 +277,10 @@ const Courses = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Results count */}
-          <div className="mb-6">
-            <p className="text-gray-600">
-              Showing <span className="font-semibold text-purple-600">{filteredCourses.length}</span> of{" "}
-              <span className="font-semibold">{courses.length}</span> courses
+          <div className="text-center mb-12">
+            <p className="text-gray-600 text-lg">
+              Found <span className="font-semibold text-purple-600">{filteredCourses.length}</span> courses
+              <span className="text-gray-500"> for {selectedCategory === "all" ? "all levels" : selectedCategory}</span>
             </p>
           </div>
           
@@ -244,6 +303,7 @@ const Courses = () => {
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedLevel("All Levels");
+                  setSelectedCategory("All Categories");
                 }}
                 className="bg-purple-600 text-white hover:bg-purple-700"
               >

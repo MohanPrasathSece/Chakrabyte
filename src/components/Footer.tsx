@@ -4,13 +4,13 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const courses = [
-    { name: "CySA+", path: "/courses/cySA-plus" },
-    { name: "Security+", path: "/courses/security-plus" },
-    { name: "Cloud Security", path: "/courses/cloud-security" },
-    { name: "Azure Sentinel", path: "/courses/azure-sentinel" },
-    { name: "Microsoft Defender", path: "/courses/microsoft-defender" },
-    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
-    { name: "Penetration Testing", path: "/courses/penetration-testing" },
+    { name: "CompTIA IT Fundamentals", path: "/courses/comptia-it-fundamentals" },
+    { name: "CompTIA Network+", path: "/courses/comptia-network-plus" },
+    { name: "CompTIA Security+", path: "/courses/comptia-security-plus" },
+    { name: "CompTIA CySA+", path: "/courses/comptia-cysa-plus" },
+    { name: "AZ-900 Azure Fundamentals", path: "/courses/az-900-azure-fundamentals" },
+    { name: "Certified Ethical Hacker", path: "/courses/certified-ethical-hacker" },
+    { name: "OSCP", path: "/courses/oscp" },
   ];
 
   const services = [
@@ -37,7 +37,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/109433547/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"

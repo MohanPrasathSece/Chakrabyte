@@ -17,13 +17,15 @@ import Courses from "./pages/Courses";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import SecurityPlus from "./pages/courses/SecurityPlus";
+import CySAPlus from "./pages/courses/CySAPlus";
 import EthicalHacking from "./pages/courses/EthicalHacking";
 import CloudSecurity from "./pages/courses/CloudSecurity";
-import CySAPlus from "./pages/courses/CySAPlus";
-import SecurityPlus from "./pages/courses/SecurityPlus";
+import PenetrationTesting from "./pages/courses/PenetrationTesting";
+import IAMCyberArk from "./pages/courses/IAMCyberArk";
+import SecurityPro from "./pages/courses/SecurityPro";
 import AzureSentinel from "./pages/courses/AzureSentinel";
 import MicrosoftDefender from "./pages/courses/MicrosoftDefender";
-import PenetrationTesting from "./pages/courses/PenetrationTesting";
 import CorporateTraining from "./pages/services/CorporateTraining";
 import DeviceSecurity from "./pages/services/DeviceSecurity";
 import CollegeWorkshops from "./pages/services/CollegeWorkshops";
@@ -176,13 +178,16 @@ const AppContent = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/courses/ethical-hacking" element={<EthicalHacking />} />
-            <Route path="/courses/cloud-security" element={<CloudSecurity />} />
-            <Route path="/courses/cySA-plus" element={<CySAPlus />} />
             <Route path="/courses/security-plus" element={<SecurityPlus />} />
+            <Route path="/courses/ethical-hacking" element={<EthicalHacking />} />
+            <Route path="/courses/cysa-plus" element={<CySAPlus />} />
+            <Route path="/courses/security-plus-intermediate" element={<SecurityPlus />} />
+            <Route path="/courses/cloud-security" element={<CloudSecurity />} />
+            <Route path="/courses/penetration-testing" element={<PenetrationTesting />} />
+            <Route path="/courses/iam-cyberark" element={<IAMCyberArk />} />
+            <Route path="/courses/security-pro" element={<SecurityPro />} />
             <Route path="/courses/azure-sentinel" element={<AzureSentinel />} />
             <Route path="/courses/microsoft-defender" element={<MicrosoftDefender />} />
-            <Route path="/courses/penetration-testing" element={<PenetrationTesting />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/corporate-training" element={<CorporateTraining />} />
             <Route path="/services/device-security" element={<DeviceSecurity />} />

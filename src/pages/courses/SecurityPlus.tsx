@@ -60,30 +60,29 @@ const SecurityPlus = () => {
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">Beginner Level</span>
+              <span className="text-sm font-medium">Beginner</span>
             </div>
 
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
-              Security+ Certification
+              Security+
             </h1>
 
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Comprehensive security certification covering essential skills for network security, 
-              risk management, and incident response. Perfect for beginners entering cybersecurity.
+              Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.
             </p>
 
             <div className="flex flex-wrap gap-6 text-white/80 mb-8">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5" />
-                <span className="font-medium">10 Weeks</span>
+                <span className="font-medium">8 Weeks</span>
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5" />
-                <span className="font-medium">Beginner Friendly</span>
+                <span className="font-medium">1200+ Students</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="w-5 h-5" />
-                <span className="font-medium">Industry Standard</span>
+                <span className="font-medium">Beginner Friendly</span>
               </div>
             </div>
 
@@ -107,6 +106,10 @@ const SecurityPlus = () => {
               Course Overview
             </h2>
             
+            <p className="text-lg text-gray-600 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+              Security+ is the perfect starting point for anyone looking to build a career in cybersecurity. This comprehensive beginner course covers the fundamental knowledge and core understanding required to handle basic information security job roles. You'll learn essential security concepts, risk management, network security, and much more.
+            </p>
+            
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-card rounded-xl p-6 border">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -114,7 +117,16 @@ const SecurityPlus = () => {
                   What You'll Learn
                 </h3>
                 <ul className="space-y-3">
-                  {outcomes.map((outcome, index) => (
+                  {[
+                    "Fundamental security concepts and principles",
+                    "Network security and protocols",
+                    "Threats, attacks, and vulnerabilities",
+                    "Risk management and mitigation strategies",
+                    "Identity and access management",
+                    "Security assessment and testing",
+                    "Security operations and monitoring",
+                    "Cryptography and data protection"
+                  ].map((outcome, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">{outcome}</span>
@@ -126,29 +138,25 @@ const SecurityPlus = () => {
               <div className="bg-card rounded-xl p-6 border">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <Award className="w-5 h-5 text-primary" />
-                  Certification Details
+                  Career Opportunities
                 </h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Exam Title:</span>
-                    <span className="font-medium">{certification.title}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Duration:</span>
-                    <span className="font-medium">{certification.duration}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Questions:</span>
-                    <span className="font-medium">{certification.questions}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Passing Score:</span>
-                    <span className="font-medium">{certification.passingScore}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    {certification.description}
-                  </p>
-                </div>
+                <ul className="space-y-3">
+                  {[
+                    "Security Analyst",
+                    "Systems Administrator",
+                    "Network Administrator",
+                    "Security Consultant",
+                    "IT Support Specialist",
+                    "Junior Security Engineer",
+                    "Information Security Officer",
+                    "Cybersecurity Technician"
+                  ].map((job, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">{job}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
