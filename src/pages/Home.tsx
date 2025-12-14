@@ -121,10 +121,10 @@ const Home = () => {
             <div className="text-left space-y-8">
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 text-sm font-medium animate-pulse">
+              <Link to="/courses/azure-sentinel" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-green-400/30 text-sm font-medium">
                 <Shield className="w-4 h-4 text-green-300" />
                 <span className="text-green-100">Become SOC Ready in 90 Days</span>
-              </div>
+              </Link>
 
               {/* Headings */}
               <div className="space-y-4">
