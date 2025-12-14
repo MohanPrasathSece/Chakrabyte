@@ -346,8 +346,27 @@ const Home = () => {
           </div>
 
           {/* Glassy Service Grid */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Service 1 */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Gap Assessment Service */}
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Target className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">Gap Assessment</h3>
+                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                  Comprehensive security gap analysis to identify vulnerabilities in your infrastructure
+                </p>
+                <div className="text-center">
+                  <Link to="/services/gap-assessment" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Corporate Training Service */}
             <div className="group">
               <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
@@ -355,7 +374,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3 text-center">Corporate Training</h3>
                 <p className="text-purple-100 mb-6 text-center leading-relaxed">
-                  Customized security training programs for enterprise teams
+                  Customized security training programs for enterprise teams and organizations
                 </p>
                 <div className="text-center">
                   <Link to="/services/corporate-training" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
@@ -366,18 +385,18 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Service 2 */}
+            {/* VAPT Services */}
             <div className="group">
               <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <GraduationCap className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+                  <Shield className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">College Workshops</h3>
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">VAPT Services</h3>
                 <p className="text-purple-100 mb-6 text-center leading-relaxed">
-                  Interactive cybersecurity workshops for educational institutions
+                  Vulnerability Assessment and Penetration Testing to secure your applications
                 </p>
                 <div className="text-center">
-                  <Link to="/services/college-workshops" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                  <Link to="/services/vapt" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -385,18 +404,37 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Service 3 */}
+            {/* Security Consulting */}
             <div className="group">
               <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Shield className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+                  <Award className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">Device Security</h3>
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">Security Consulting</h3>
                 <p className="text-purple-100 mb-6 text-center leading-relaxed">
-                  Professional device security and repair services
+                  Expert security consulting to strengthen your cybersecurity posture
                 </p>
                 <div className="text-center">
-                  <Link to="/services/device-security" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                  <Link to="/services/security-consulting" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Consulting */}
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Target className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">Career Consulting</h3>
+                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                  Professional career guidance and consulting for cybersecurity professionals
+                </p>
+                <div className="text-center">
+                  <Link to="/services/career-consulting" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -431,23 +469,6 @@ const Home = () => {
 
           {/* Modern Certification Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
-            {/* CySA+ Certification */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
-                <h3 className="font-bold text-white text-lg mb-1">CySA+</h3>
-                <p className="text-white/70 text-sm mb-3">Cybersecurity Analyst+</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>High Demand</span>
-                </div>
-              </div>
-            </div>
-
             {/* Security+ Certification */}
             <div className="group relative">
               <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
@@ -460,7 +481,41 @@ const Home = () => {
                 <p className="text-white/70 text-sm mb-3">Security Fundamentals</p>
                 <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Industry Standard</span>
+                  <span>Our Course</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Ethical Hacking Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">EC-Council</div>
+                <h3 className="font-bold text-white text-lg mb-1">Ethical Hacking</h3>
+                <p className="text-white/70 text-sm mb-3">CEH Preparation</p>
+                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
+                  <CheckCircle className="w-3 h-3" />
+                  <span>Our Course</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CySA+ Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
+                <h3 className="font-bold text-white text-lg mb-1">CySA+</h3>
+                <p className="text-white/70 text-sm mb-3">Cybersecurity Analyst+</p>
+                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
+                  <CheckCircle className="w-3 h-3" />
+                  <span>Our Course</span>
                 </div>
               </div>
             </div>
@@ -475,9 +530,43 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Cloud</div>
                 <h3 className="font-bold text-white text-lg mb-1">Cloud Security</h3>
                 <p className="text-white/70 text-sm mb-3">AWS & Azure Security</p>
-                <div className="flex items-center gap-2 text-yellow-400 text-xs font-medium">
+                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Advanced Level</span>
+                  <span>Our Course</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Penetration Testing Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Advanced</div>
+                <h3 className="font-bold text-white text-lg mb-1">Penetration Testing</h3>
+                <p className="text-white/70 text-sm mb-3">Advanced Pentesting</p>
+                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
+                  <CheckCircle className="w-3 h-3" />
+                  <span>Our Course</span>
+                </div>
+              </div>
+            </div>
+
+            {/* IAM CyberArk Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Identity</div>
+                <h3 className="font-bold text-white text-lg mb-1">IAM - CyberArk</h3>
+                <p className="text-white/70 text-sm mb-3">Identity Management</p>
+                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
+                  <CheckCircle className="w-3 h-3" />
+                  <span>Our Course</span>
                 </div>
               </div>
             </div>
@@ -494,7 +583,7 @@ const Home = () => {
                 <p className="text-white/70 text-sm mb-3">SIEM & Security Ops</p>
                 <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Microsoft Certified</span>
+                  <span>Our Course</span>
                 </div>
               </div>
             </div>
@@ -511,29 +600,12 @@ const Home = () => {
                 <p className="text-white/70 text-sm mb-3">Endpoint Security</p>
                 <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Comprehensive</span>
+                  <span>Our Course</span>
                 </div>
               </div>
             </div>
 
-            {/* Ethical Hacking Certification */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">EC-Council</div>
-                <h3 className="font-bold text-white text-lg mb-1">Ethical Hacking</h3>
-                <p className="text-white/70 text-sm mb-3">CEH Certification</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Global Recognition</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Penetration Testing Certification */}
+            {/* Security Pro Certification */}
             <div className="group relative">
               <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
               <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
@@ -541,28 +613,11 @@ const Home = () => {
                   <Award className="w-8 h-8 text-white" />
                 </div>
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Advanced</div>
-                <h3 className="font-bold text-white text-lg mb-1">Penetration Testing</h3>
-                <p className="text-white/70 text-sm mb-3">Advanced Pentesting</p>
-                <div className="flex items-center gap-2 text-yellow-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Expert Level</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Network Security Certification */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Network</div>
-                <h3 className="font-bold text-white text-lg mb-1">Network Security</h3>
-                <p className="text-white/70 text-sm mb-3">Infrastructure Protection</p>
+                <h3 className="font-bold text-white text-lg mb-1">Security Pro</h3>
+                <p className="text-white/70 text-sm mb-3">Expert Security</p>
                 <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Essential Skills</span>
+                  <span>Our Course</span>
                 </div>
               </div>
             </div>

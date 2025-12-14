@@ -1,4 +1,4 @@
-import { Building2, GraduationCap, Laptop, ShieldCheck, FileSearch, CheckCircle, Wrench, HardDrive } from "lucide-react";
+import { Building2, Target, Shield, Award, Users, Search, CheckCircle, Wrench, HardDrive } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";

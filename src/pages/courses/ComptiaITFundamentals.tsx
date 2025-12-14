@@ -30,7 +30,7 @@ const ComptiaITFundamentals = () => {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Level 1
+                    Beginner
                   </span>
                   <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
                     Foundation Programs

@@ -12,8 +12,11 @@ import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedLevel, setSelectedLevel] = useState("All Levels");
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedLevel, setSelectedLevel] = useState("all");
+  const [selectedDuration, setSelectedDuration] = useState("all");
+  const [selectedStudents, setSelectedStudents] = useState("all");
+  const [sortBy, setSortBy] = useState("popular");
   const [showFilter, setShowFilter] = useState(false);
 
   const courses = [
@@ -22,7 +25,7 @@ const Courses = () => {
       title: "Security+",
       description: "Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.",
       duration: "8 Weeks",
-      level: "Level 1",
+      level: "Beginner",
       category: "Beginner",
       students: "1200+",
       image: foundationImg,
@@ -32,7 +35,7 @@ const Courses = () => {
       title: "Ethical Hacking",
       description: "An introductory course for beginners that teaches the foundational knowledge of cybersecurity, helps understand attacker's mindset. Includes basic training on tools, exploits, vulnerabilities and ethical boundaries.",
       duration: "6 Weeks",
-      level: "Level 1",
+      level: "Beginner",
       category: "Beginner",
       students: "800+",
       image: ethicalHackingImg,
@@ -43,7 +46,7 @@ const Courses = () => {
       title: "CySA+",
       description: "Course focussed on security analysts on who have basic understanding and experience in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.",
       duration: "10 Weeks",
-      level: "Level 2",
+      level: "Intermediate",
       category: "Intermediate",
       students: "600+",
       image: socAnalystImg,
@@ -53,7 +56,7 @@ const Courses = () => {
       title: "Security Plus",
       description: "Intermediate level security course for professionals looking to advance their cybersecurity knowledge and skills.",
       duration: "12 Weeks",
-      level: "Level 2",
+      level: "Intermediate",
       category: "Intermediate",
       students: "500+",
       image: socAnalystImg,
@@ -63,7 +66,7 @@ const Courses = () => {
       title: "Cloud Security",
       description: "Course for security professionals who want to learn about securing data within the cloud environment. The course covers architectures, security best practices and unique challenges and situations in different cloud environment.",
       duration: "8 Weeks",
-      level: "Level 2",
+      level: "Intermediate",
       category: "Intermediate",
       students: "700+",
       image: cloudSecurityImg,
@@ -73,7 +76,7 @@ const Courses = () => {
       title: "Penetration Testing",
       description: "Hands-on, practical training for individuals who want to develop the real-world skills to systematically test and exploit networks, applications, and systems, mimicking a real cyberattack.",
       duration: "14 Weeks",
-      level: "Level 2",
+      level: "Intermediate",
       category: "Intermediate",
       students: "400+",
       image: ethicalHackingImg,
@@ -83,7 +86,7 @@ const Courses = () => {
       title: "IAM - CyberArk",
       description: "Intermediate course focused on Identity and Access Management using CyberArk for enterprise security.",
       duration: "10 Weeks",
-      level: "Level 2",
+      level: "Intermediate",
       category: "Intermediate",
       students: "300+",
       image: socAnalystImg,
@@ -94,7 +97,7 @@ const Courses = () => {
       title: "Security Pro",
       description: "Advanced security course for experienced professionals seeking expert-level cybersecurity knowledge and leadership skills.",
       duration: "16 Weeks",
-      level: "Level 3",
+      level: "Advanced",
       category: "Advanced",
       students: "200+",
       image: socAnalystImg,
@@ -104,7 +107,7 @@ const Courses = () => {
       title: "Azure Sentinel",
       description: "A specialized course in Azure Sentinel for seasoned security analysts looking to master using this cloud-native SIEM platform to ingest data, hunt threats, create playbooks, use cases and automate responses in Azure.",
       duration: "12 Weeks",
-      level: "Level 3",
+      level: "Advanced",
       category: "Advanced",
       students: "350+",
       image: cloudSecurityImg,
@@ -114,7 +117,7 @@ const Courses = () => {
       title: "Microsoft Defender",
       description: "Course for professionals interested in learning hands-on skills to deploy and manage the full suite of Microsoft Defender's centralized protection across endpoints, identity, and email.",
       duration: "10 Weeks",
-      level: "Level 3",
+      level: "Advanced",
       category: "Advanced",
       students: "400+",
       image: cloudSecurityImg,
@@ -123,15 +126,48 @@ const Courses = () => {
   ];
 
   const categories = ["all", "Beginner", "Intermediate", "Advanced"];
-  const levels = ["all", "Level 1", "Level 2", "Level 3"];
+  const levels = ["all", "Beginner", "Intermediate", "Advanced"];
 
-  const filteredCourses = courses.filter(course => {
-    const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          course.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || course.category === selectedCategory;
-    const matchesLevel = selectedLevel === "all" || course.level === selectedLevel;
-    return matchesSearch && matchesCategory && matchesLevel;
-  });
+  const filteredAndSortedCourses = courses
+    .filter(course => {
+      const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            course.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === "all" || course.category === selectedCategory;
+      const matchesLevel = selectedLevel === "all" || course.level === selectedLevel;
+      
+      // Duration filter
+      const durationNum = parseInt(course.duration);
+      let matchesDuration = selectedDuration === "all";
+      if (selectedDuration === "short") matchesDuration = durationNum <= 8;
+      else if (selectedDuration === "medium") matchesDuration = durationNum > 8 && durationNum <= 12;
+      else if (selectedDuration === "long") matchesDuration = durationNum > 12;
+      
+      // Students filter
+      const studentsNum = parseInt(course.students.replace(/\D/g, ''));
+      let matchesStudents = selectedStudents === "all";
+      if (selectedStudents === "small") matchesStudents = studentsNum <= 500;
+      else if (selectedStudents === "medium") matchesStudents = studentsNum > 500 && studentsNum <= 1000;
+      else if (selectedStudents === "large") matchesStudents = studentsNum > 1000;
+      
+      return matchesSearch && matchesCategory && matchesLevel && matchesDuration && matchesStudents;
+    })
+    .sort((a, b) => {
+      if (sortBy === "popular") {
+        const aStudents = parseInt(a.students.replace(/\D/g, ''));
+        const bStudents = parseInt(b.students.replace(/\D/g, ''));
+        return bStudents - aStudents;
+      } else if (sortBy === "newest") {
+        return 0; // Could add date logic if available
+      } else if (sortBy === "duration") {
+        const aDuration = parseInt(a.duration);
+        const bDuration = parseInt(b.duration);
+        return aDuration - bDuration;
+      } else if (sortBy === "level") {
+        const levelOrder = { "Beginner": 1, "Intermediate": 2, "Advanced": 3 };
+        return levelOrder[a.level] - levelOrder[b.level];
+      }
+      return 0;
+    });
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -242,29 +278,41 @@ const Courses = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <option>All Levels</option>
-                    <option>Level 1-3 (Foundation)</option>
-                    <option>Level 4 (Intermediate)</option>
-                    <option>Level 5-6 (Advanced)</option>
+                  <select 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    value={selectedDuration}
+                    onChange={(e) => setSelectedDuration(e.target.value)}
+                  >
+                    <option value="all">All Durations</option>
+                    <option value="short">Short (&le;8 weeks)</option>
+                    <option value="medium">Medium (9-12 weeks)</option>
+                    <option value="long">Long (&gt;12 weeks)</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Students</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <option>All Sizes</option>
-                    <option>Small (0-500)</option>
-                    <option>Medium (501-1000)</option>
-                    <option>Large (1000+)</option>
+                  <select 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    value={selectedStudents}
+                    onChange={(e) => setSelectedStudents(e.target.value)}
+                  >
+                    <option value="all">All Sizes</option>
+                    <option value="small">Small (0-500)</option>
+                    <option value="medium">Medium (501-1000)</option>
+                    <option value="large">Large (1000+)</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
-                    <option>Most Popular</option>
-                    <option>Newest</option>
-                    <option>Duration</option>
-                    <option>Level</option>
+                  <select 
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                  >
+                    <option value="popular">Most Popular</option>
+                    <option value="newest">Newest</option>
+                    <option value="duration">Duration</option>
+                    <option value="level">Level</option>
                   </select>
                 </div>
               </div>
@@ -279,36 +327,32 @@ const Courses = () => {
           {/* Results count */}
           <div className="text-center mb-12">
             <p className="text-gray-600 text-lg">
-              Found <span className="font-semibold text-purple-600">{filteredCourses.length}</span> courses
-              <span className="text-gray-500"> for {selectedCategory === "all" ? "all levels" : selectedCategory}</span>
+              Showing {filteredAndSortedCourses.length} of {courses.length} courses
             </p>
           </div>
           
-          {filteredCourses.length > 0 ? (
+          {filteredAndSortedCourses.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {filteredCourses.map((course, index) => (
+              {filteredAndSortedCourses.map((course, index) => (
                 <CourseCard key={index} {...course} />
               ))}
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="mb-6">
-                <Search className="w-16 h-16 text-gray-300 mx-auto" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No courses found</h3>
-              <p className="text-gray-600 mb-4">
-                Try adjusting your search or filters to find what you're looking for.
-              </p>
-              <Button 
+              <p className="text-gray-500 text-lg">No courses found matching your criteria.</p>
+              <button 
                 onClick={() => {
                   setSearchTerm("");
-                  setSelectedLevel("All Levels");
-                  setSelectedCategory("All Categories");
+                  setSelectedCategory("all");
+                  setSelectedLevel("all");
+                  setSelectedDuration("all");
+                  setSelectedStudents("all");
+                  setSortBy("popular");
                 }}
-                className="bg-purple-600 text-white hover:bg-purple-700"
+                className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
               >
                 Clear Filters
-              </Button>
+              </button>
             </div>
           )}
         </div>
