@@ -27,10 +27,10 @@ import SecurityPro from "./pages/courses/SecurityPro";
 import AzureSentinel from "./pages/courses/AzureSentinel";
 import MicrosoftDefender from "./pages/courses/MicrosoftDefender";
 import CorporateTraining from "./pages/services/CorporateTraining";
-import DeviceSecurity from "./pages/services/DeviceSecurity";
-import CollegeWorkshops from "./pages/services/CollegeWorkshops";
 import VAPT from "./pages/services/VAPT";
-import Consultation from "./pages/services/Consultation";
+import GapAssessment from "./pages/services/GapAssessment";
+import SecurityConsulting from "./pages/services/SecurityConsulting";
+import CareerConsulting from "./pages/services/CareerConsulting";
 import NotFound from "./pages/NotFound";
 
 // Initialize performance monitoring
@@ -189,11 +189,11 @@ const AppContent = () => {
             <Route path="/courses/azure-sentinel" element={<AzureSentinel />} />
             <Route path="/courses/microsoft-defender" element={<MicrosoftDefender />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/gap-assessment" element={<GapAssessment />} />
             <Route path="/services/corporate-training" element={<CorporateTraining />} />
-            <Route path="/services/device-security" element={<DeviceSecurity />} />
-            <Route path="/services/college-workshops" element={<CollegeWorkshops />} />
             <Route path="/services/vapt" element={<VAPT />} />
-            <Route path="/services/consultation" element={<Consultation />} />
+            <Route path="/services/security-consulting" element={<SecurityConsulting />} />
+            <Route path="/services/career-consulting" element={<CareerConsulting />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

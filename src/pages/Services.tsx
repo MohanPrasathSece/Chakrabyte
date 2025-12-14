@@ -1,4 +1,4 @@
-import { Building2, Target, Shield, Award, Users, Search, CheckCircle, Wrench, HardDrive } from "lucide-react";
+import { Building2, Target, Shield, Award, Users, Search, CheckCircle, Wrench, HardDrive, Laptop, GraduationCap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
@@ -8,34 +8,34 @@ import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 const Services = () => {
   const services = [
     {
-      title: "Corporate Cybersecurity Training",
-      description: "Customized security awareness programs and technical training for organizations of all sizes",
-      icon: Building2,
+      title: "Gap Assessment",
+      description: "Comprehensive security gap analysis to identify vulnerabilities in your infrastructure",
+      icon: Target,
+      link: "/services/gap-assessment",
+    },
+    {
+      title: "Corporate Training",
+      description: "Customized security training programs for enterprise teams and organizations",
+      icon: Users,
       link: "/services/corporate-training",
     },
     {
-      title: "College / Institution Workshops",
-      description: "Interactive cybersecurity workshops and certification programs for educational institutions",
-      icon: GraduationCap,
-      link: "/services/college-workshops",
-    },
-    {
-      title: "Device Security & Repairs",
-      description: "Professional laptop repair, malware removal, SSD upgrades, and security hardening services",
-      icon: Laptop,
-      link: "/services/device-security",
-    },
-    {
       title: "VAPT Services",
-      description: "Professional Vulnerability Assessment and Penetration Testing for web, network, and cloud",
-      icon: ShieldCheck,
+      description: "Vulnerability Assessment and Penetration Testing to secure your applications",
+      icon: Shield,
       link: "/services/vapt",
     },
     {
-      title: "Cybersecurity Consultation",
-      description: "Expert consultation on security strategy, risk assessment, and compliance requirements",
-      icon: FileSearch,
-      link: "/services/consultation",
+      title: "Security Consulting",
+      description: "Expert security consulting to strengthen your cybersecurity posture",
+      icon: Award,
+      link: "/services/security-consulting",
+    },
+    {
+      title: "Career Consulting",
+      description: "Professional career guidance and consulting for cybersecurity professionals",
+      icon: Search,
+      link: "/services/career-consulting",
     },
   ];
 
@@ -44,7 +44,7 @@ const Services = () => {
       <PageBanner
         title="Our Services"
         subtitle="Comprehensive cybersecurity solutions tailored to your organization's needs"
-        icon={ShieldCheck}
+        icon={Shield}
       />
 
       <section className="py-20">

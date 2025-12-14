@@ -91,11 +91,11 @@ const Header = () => {
   ];
 
   const services = [
+    { name: "Gap Assessment", path: "/services/gap-assessment" },
     { name: "Corporate Training", path: "/services/corporate-training" },
-    { name: "Device Security", path: "/services/device-security" },
-    { name: "College Workshops", path: "/services/college-workshops" },
     { name: "VAPT Services", path: "/services/vapt" },
-    { name: "Consultation", path: "/services/consultation" },
+    { name: "Security Consulting", path: "/services/security-consulting" },
+    { name: "Career Consulting", path: "/services/career-consulting" },
   ];
 
   const handleNavigation = (path: string) => {

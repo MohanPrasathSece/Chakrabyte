@@ -1,16 +1,16 @@
-import { Shield, CheckCircle, Target, Users, Award, Clock, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowLeft, Target, Shield, CheckCircle, Clock, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageBanner from "@/components/PageBanner";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
-const VAPT = () => {
+const GapAssessment = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <PageBanner
-        title="VAPT Services"
-        subtitle="Vulnerability Assessment and Penetration Testing to secure your applications"
-        icon={Shield}
+        title="Gap Assessment"
+        subtitle="Comprehensive security gap analysis to identify vulnerabilities in your infrastructure"
+        icon={Target}
       />
 
       <section className="py-16">
@@ -30,37 +30,37 @@ const VAPT = () => {
               {/* Overview */}
               <div>
                 <h2 className="font-heading text-3xl font-bold mb-4 text-gray-900">
-                  Identify Vulnerabilities Before Attackers Do
+                  Identify Security Gaps Before They Become Breaches
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Our comprehensive VAPT (Vulnerability Assessment and Penetration Testing) services 
-                  help organizations identify and fix security weaknesses in their web applications, 
-                  networks, and cloud infrastructure before malicious actors can exploit them.
+                  Our comprehensive Gap Assessment service helps organizations identify vulnerabilities, 
+                  security weaknesses, and compliance gaps in their current security posture. We provide 
+                  detailed analysis and actionable recommendations to strengthen your cybersecurity defenses.
                 </p>
               </div>
 
-              {/* Testing Types */}
+              {/* What We Assess */}
               <div>
                 <h3 className="font-heading text-2xl font-bold mb-6 text-gray-900">
-                  Our Testing Services
+                  What We Assess
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Target className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Web Application Testing</h4>
-                      <p className="text-gray-600">OWASP Top 10, business logic flaws, and custom application vulnerabilities</p>
-                    </div>
-                  </div>
                   <div className="flex gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Shield className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Network Penetration Testing</h4>
-                      <p className="text-gray-600">Internal and external network security assessment</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Network Security</h4>
+                      <p className="text-gray-600">Firewall configurations, network segmentation, and access controls</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Target className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Application Security</h4>
+                      <p className="text-gray-600">Code review, vulnerability scanning, and security testing</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -68,8 +68,8 @@ const VAPT = () => {
                       <Users className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Social Engineering</h4>
-                      <p className="text-gray-600">Phishing simulations and employee security awareness testing</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Access Management</h4>
+                      <p className="text-gray-600">User permissions, authentication, and authorization controls</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -77,8 +77,8 @@ const VAPT = () => {
                       <Award className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Cloud Security Testing</h4>
-                      <p className="text-gray-600">AWS, Azure, and Google Cloud platform security assessment</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Compliance</h4>
+                      <p className="text-gray-600">Regulatory compliance and industry standards adherence</p>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ const VAPT = () => {
               {/* Process */}
               <div>
                 <h3 className="font-heading text-2xl font-bold mb-6 text-gray-900">
-                  Our Testing Methodology
+                  Our Assessment Process
                 </h3>
                 <div className="space-y-4">
                   <div className="flex gap-4 p-6 bg-gray-50 rounded-lg">
@@ -95,8 +95,8 @@ const VAPT = () => {
                       1
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Reconnaissance</h4>
-                      <p className="text-gray-600">Information gathering and attack surface analysis</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Discovery & Scoping</h4>
+                      <p className="text-gray-600">Understanding your infrastructure, business requirements, and security objectives</p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-6 bg-gray-50 rounded-lg">
@@ -104,8 +104,8 @@ const VAPT = () => {
                       2
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Vulnerability Identification</h4>
-                      <p className="text-gray-600">Systematic scanning and manual testing for security weaknesses</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Assessment & Analysis</h4>
+                      <p className="text-gray-600">Comprehensive evaluation of security controls, policies, and procedures</p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-6 bg-gray-50 rounded-lg">
@@ -113,8 +113,8 @@ const VAPT = () => {
                       3
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Exploitation</h4>
-                      <p className="text-gray-600">Controlled exploitation to demonstrate impact and risk</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Reporting & Recommendations</h4>
+                      <p className="text-gray-600">Detailed gap analysis report with prioritized remediation recommendations</p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-6 bg-gray-50 rounded-lg">
@@ -122,8 +122,8 @@ const VAPT = () => {
                       4
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">Reporting & Remediation</h4>
-                      <p className="text-gray-600">Detailed findings report with prioritized remediation recommendations</p>
+                      <h4 className="font-semibold text-gray-900 mb-2">Remediation Support</h4>
+                      <p className="text-gray-600">Guidance and support for implementing security improvements</p>
                     </div>
                   </div>
                 </div>
@@ -140,23 +140,23 @@ const VAPT = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Comprehensive testing methodology</span>
+                    <span className="text-gray-700">Comprehensive security analysis</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Industry-standard tools and techniques</span>
+                    <span className="text-gray-700">Industry-standard frameworks</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Detailed vulnerability reports</span>
+                    <span className="text-gray-700">Actionable recommendations</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Risk-based prioritization</span>
+                    <span className="text-gray-700">Compliance mapping</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600" />
-                    <span className="text-gray-700">Remediation guidance</span>
+                    <span className="text-gray-700">Risk prioritization</span>
                   </li>
                 </ul>
               </div>
@@ -164,13 +164,13 @@ const VAPT = () => {
               {/* CTA */}
               <div className="bg-gradient-to-br from-purple-600 to-purple-700 rounded-2xl p-6 text-white">
                 <h3 className="font-heading text-xl font-bold mb-4">
-                  Secure Your Applications Today
+                  Ready to Secure Your Infrastructure?
                 </h3>
                 <p className="text-purple-100 mb-6">
-                  Don't wait for a breach. Identify and fix vulnerabilities before attackers exploit them.
+                  Get a comprehensive security gap assessment to identify and address vulnerabilities before they impact your business.
                 </p>
                 <Button asChild size="lg" className="w-full bg-white text-purple-600 hover:bg-gray-100">
-                  <Link to="/contact">Schedule VAPT</Link>
+                  <Link to="/contact">Schedule Assessment</Link>
                 </Button>
               </div>
             </div>
@@ -183,4 +183,4 @@ const VAPT = () => {
   );
 };
 
-export default VAPT;
+export default GapAssessment;

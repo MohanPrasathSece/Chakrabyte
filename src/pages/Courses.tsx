@@ -12,8 +12,8 @@ import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedLevel, setSelectedLevel] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedLevel, setSelectedLevel] = useState("All");
   const [selectedDuration, setSelectedDuration] = useState("all");
   const [selectedStudents, setSelectedStudents] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
@@ -125,15 +125,14 @@ const Courses = () => {
     },
   ];
 
-  const categories = ["all", "Beginner", "Intermediate", "Advanced"];
-  const levels = ["all", "Beginner", "Intermediate", "Advanced"];
+  const filterOptions = ["All", "Beginner", "Intermediate", "Advanced"];
 
   const filteredAndSortedCourses = courses
     .filter(course => {
       const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                             course.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === "all" || course.category === selectedCategory;
-      const matchesLevel = selectedLevel === "all" || course.level === selectedLevel;
+      const matchesCategory = selectedCategory === "All" || course.category === selectedCategory;
+      const matchesLevel = selectedLevel === "All" || course.level === selectedLevel;
       
       // Duration filter
       const durationNum = parseInt(course.duration);
@@ -239,34 +238,19 @@ const Courses = () => {
               </Button>
             </div>
             <div className="flex flex-wrap gap-2 text-sm">
-              {categories.map((category) => (
+              {filterOptions.map((option) => (
                 <Button 
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "ghost"} 
+                  key={`category-${option}`}
+                  variant={selectedCategory === option ? "default" : "ghost"} 
                   size="sm" 
                   className={`rounded-full px-4 h-9 ${
-                    selectedCategory === category 
+                    selectedCategory === option 
                       ? "bg-purple-600 text-white hover:bg-purple-700" 
                       : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
                   }`}
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => setSelectedCategory(option)}
                 >
-                  {category}
-                </Button>
-              ))}
-              {levels.map((level) => (
-                <Button 
-                  key={level}
-                  variant={selectedLevel === level ? "default" : "ghost"} 
-                  size="sm" 
-                  className={`rounded-full px-4 h-9 ${
-                    selectedLevel === level 
-                      ? "bg-purple-600 text-white hover:bg-purple-700" 
-                      : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
-                  }`}
-                  onClick={() => setSelectedLevel(level)}
-                >
-                  {level}
+                  {option}
                 </Button>
               ))}
             </div>
@@ -343,8 +327,8 @@ const Courses = () => {
               <button 
                 onClick={() => {
                   setSearchTerm("");
-                  setSelectedCategory("all");
-                  setSelectedLevel("all");
+                  setSelectedCategory("All");
+                  setSelectedLevel("All");
                   setSelectedDuration("all");
                   setSelectedStudents("all");
                   setSortBy("popular");
