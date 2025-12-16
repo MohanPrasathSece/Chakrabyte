@@ -177,7 +177,11 @@ const Header = () => {
                         handleNavigation(course.path);
                         setCoursesDropdownOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
+                        isActivePath(course.path)
+                          ? "text-purple-600 bg-purple-50 font-medium"
+                          : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
+                      }`}
                     >
                       {course.name}
                     </button>
@@ -220,7 +224,11 @@ const Header = () => {
                         handleNavigation(service.path);
                         setServicesDropdownOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-purple-600 hover:bg-purple-50 transition-colors"
+                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
+                        isActivePath(service.path)
+                          ? "text-purple-600 bg-purple-50 font-medium"
+                          : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
+                      }`}
                     >
                       {service.name}
                     </button>
@@ -448,7 +456,11 @@ const Header = () => {
                             handleNavigation(course.path);
                             setMobileCoursesOpen(false);
                           }}
-                          className="block text-sm text-gray-600 hover:text-purple-600 transition-colors py-1.5 px-3 rounded w-full text-left"
+                          className={`block text-sm transition-colors py-1.5 px-3 rounded w-full text-left ${
+                            isActivePath(course.path)
+                              ? "text-purple-600 bg-purple-50 font-medium"
+                              : "text-gray-600 hover:text-purple-600"
+                          }`}
                         >
                           {course.name}
                         </button>

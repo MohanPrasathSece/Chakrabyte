@@ -58,7 +58,7 @@ const CloudSecurity = () => {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Custom Hero Section for Course */}
       <section
-        className="py-24 relative overflow-hidden"
+        className="py-20 lg:py-32 relative overflow-hidden min-h-[80vh] flex items-center"
         style={{
           backgroundImage: `linear-gradient(135deg, rgba(76, 29, 149, 0.95), rgba(124, 58, 237, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop')`,
           backgroundSize: "cover",
@@ -107,7 +107,7 @@ const CloudSecurity = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-white text-purple-700 hover:bg-gray-100 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+              <Button asChild size="lg" className="relative bg-white text-purple-700 hover:from-purple-100 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
                 <Link to="/contact?course=cloud-security">
                   Enroll Now
                 </Link>
@@ -310,7 +310,7 @@ const CloudSecurity = () => {
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Join hundreds of students and become a cloud security expert
           </p>
-          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 h-12">
+          <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold px-8 h-12">
             <Link to="/contact?course=cloud-security">Enroll Now</Link>
           </Button>
         </div>

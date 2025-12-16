@@ -61,10 +61,10 @@ const OSCP = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
+                  <Button size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
                     Enroll Now
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                     Download Brochure
                   </Button>
                 </div>
@@ -246,7 +246,7 @@ const OSCP = () => {
                 <h2 className="font-heading text-3xl font-bold mb-6">Certification Details</h2>
                 
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
-                  <h3 className="font-heading text-xl font-semibold mb-4 text-purple-800">
+                  <h3 className="font-heading text-xl font-semibold mb-4 text-purple-900">
                     Offensive Security Certified Professional (OSCP)
                   </h3>
                   <div className="space-y-4">
@@ -414,10 +414,10 @@ const OSCP = () => {
                 Join the elite group of OSCP certified penetration testers worldwide
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
+                <Button size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
                   Enroll Now
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                   Talk to an Advisor
                 </Button>
               </div>

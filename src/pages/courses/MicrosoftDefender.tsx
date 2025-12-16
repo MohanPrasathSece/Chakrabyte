@@ -95,7 +95,7 @@ const MicrosoftDefender = () => {
               <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
                 Enroll Now
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                 Download Syllabus
               </Button>
             </div>
@@ -207,7 +207,7 @@ const MicrosoftDefender = () => {
               <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
                 <Link to="/contact">Get Started Today</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                 <Link to="/courses">View All Courses</Link>
               </Button>
             </div>
