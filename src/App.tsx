@@ -23,6 +23,7 @@ import EthicalHacking from "./pages/courses/EthicalHacking";
 import CloudSecurity from "./pages/courses/CloudSecurity";
 import PenetrationTesting from "./pages/courses/PenetrationTesting";
 import IAMCyberArk from "./pages/courses/IAMCyberArk";
+import CBSecPlus from "./pages/courses/CBSecPlus";
 import SecurityPro from "./pages/courses/SecurityPro";
 import AzureSentinel from "./pages/courses/AzureSentinel";
 import MicrosoftDefender from "./pages/courses/MicrosoftDefender";
@@ -181,10 +182,11 @@ const AppContent = () => {
             <Route path="/courses/security-plus" element={<SecurityPlus />} />
             <Route path="/courses/ethical-hacking" element={<EthicalHacking />} />
             <Route path="/courses/cysa-plus" element={<CySAPlus />} />
-            <Route path="/courses/security-plus-intermediate" element={<SecurityPlus />} />
             <Route path="/courses/cloud-security" element={<CloudSecurity />} />
             <Route path="/courses/penetration-testing" element={<PenetrationTesting />} />
+            <Route path="/courses/cb-sec-plus" element={<CBSecPlus />} />
             <Route path="/courses/iam-cyberark" element={<IAMCyberArk />} />
+            <Route path="/courses/cb-sec-pro" element={<SecurityPro />} />
             <Route path="/courses/security-pro" element={<SecurityPro />} />
             <Route path="/courses/azure-sentinel" element={<AzureSentinel />} />
             <Route path="/courses/microsoft-defender" element={<MicrosoftDefender />} />

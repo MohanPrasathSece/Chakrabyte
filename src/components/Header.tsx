@@ -81,13 +81,16 @@ const Header = () => {
   ];
 
   const courses = [
-    { name: "CySA+", path: "/courses/cySA-plus" },
     { name: "Security+", path: "/courses/security-plus" },
+    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
+    { name: "CySA+", path: "/courses/cysa-plus" },
     { name: "Cloud Security", path: "/courses/cloud-security" },
+    { name: "Penetration Testing", path: "/courses/penetration-testing" },
+    { name: "CB Sec. Plus", path: "/courses/cb-sec-plus" },
+    { name: "IAM - CyberArk", path: "/courses/iam-cyberark" },
+    { name: "CB Sec. Pro", path: "/courses/cb-sec-pro" },
     { name: "Azure Sentinel", path: "/courses/azure-sentinel" },
     { name: "Microsoft Defender", path: "/courses/microsoft-defender" },
-    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
-    { name: "Penetration Testing", path: "/courses/penetration-testing" },
   ];
 
   const services = [
@@ -177,11 +180,10 @@ const Header = () => {
                         handleNavigation(course.path);
                         setCoursesDropdownOpen(false);
                       }}
-                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
-                        isActivePath(course.path)
+                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${isActivePath(course.path)
                           ? "text-purple-600 bg-purple-50 font-medium"
                           : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
-                      }`}
+                        }`}
                     >
                       {course.name}
                     </button>
@@ -224,11 +226,10 @@ const Header = () => {
                         handleNavigation(service.path);
                         setServicesDropdownOpen(false);
                       }}
-                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${
-                        isActivePath(service.path)
+                      className={`block w-full text-left px-4 py-2 text-sm transition-colors ${isActivePath(service.path)
                           ? "text-purple-600 bg-purple-50 font-medium"
                           : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
-                      }`}
+                        }`}
                     >
                       {service.name}
                     </button>
@@ -456,11 +457,10 @@ const Header = () => {
                             handleNavigation(course.path);
                             setMobileCoursesOpen(false);
                           }}
-                          className={`block text-sm transition-colors py-1.5 px-3 rounded w-full text-left ${
-                            isActivePath(course.path)
+                          className={`block text-sm transition-colors py-1.5 px-3 rounded w-full text-left ${isActivePath(course.path)
                               ? "text-purple-600 bg-purple-50 font-medium"
                               : "text-gray-600 hover:text-purple-600"
-                          }`}
+                            }`}
                         >
                           {course.name}
                         </button>

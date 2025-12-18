@@ -4,13 +4,16 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const courses = [
-    { name: "CompTIA IT Fundamentals", path: "/courses/comptia-it-fundamentals" },
-    { name: "CompTIA Network+", path: "/courses/comptia-network-plus" },
-    { name: "CompTIA Security+", path: "/courses/comptia-security-plus" },
-    { name: "CompTIA CySA+", path: "/courses/comptia-cysa-plus" },
-    { name: "AZ-900 Azure Fundamentals", path: "/courses/az-900-azure-fundamentals" },
-    { name: "Certified Ethical Hacker", path: "/courses/certified-ethical-hacker" },
-    { name: "OSCP", path: "/courses/oscp" },
+    { name: "Security+", path: "/courses/security-plus" },
+    { name: "Ethical Hacking", path: "/courses/ethical-hacking" },
+    { name: "CySA+", path: "/courses/cysa-plus" },
+    { name: "Cloud Security", path: "/courses/cloud-security" },
+    { name: "Penetration Testing", path: "/courses/penetration-testing" },
+    { name: "CB Sec. Plus", path: "/courses/cb-sec-plus" },
+    { name: "IAM - CyberArk", path: "/courses/iam-cyberark" },
+    { name: "CB Sec. Pro", path: "/courses/cb-sec-pro" },
+    { name: "Azure Sentinel", path: "/courses/azure-sentinel" },
+    { name: "Microsoft Defender", path: "/courses/microsoft-defender" },
   ];
 
   const services = [

@@ -18,8 +18,8 @@ const SecurityPro = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/courses" 
+            <Link
+              to="/courses"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -30,19 +30,16 @@ const SecurityPro = () => {
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Beginner
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
                     Advanced
                   </span>
                 </div>
 
                 <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  Security Pro
+                  CB Sec. Pro
                 </h1>
 
                 <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                  Advanced security course for experienced professionals seeking expert-level cybersecurity knowledge and leadership skills.
+                  Course designed for experienced professional ready to take there next step decoding the path to your career. Includes Security Analyst & IR, Domain Specialisation, Leadership Seminar.
                 </p>
 
                 <div className="flex flex-wrap gap-6 text-white/80 mb-8">
@@ -93,11 +90,10 @@ const SecurityPro = () => {
                 key={tab}
                 variant={activeTab === tab ? "default" : "ghost"}
                 size="sm"
-                className={`rounded-full px-6 h-10 capitalize ${
-                  activeTab === tab
-                    ? "bg-purple-600 text-white hover:bg-purple-700"
-                    : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
-                }`}
+                className={`rounded-full px-6 h-10 capitalize ${activeTab === tab
+                  ? "bg-purple-600 text-white hover:bg-purple-700"
+                  : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
+                  }`}
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
@@ -175,7 +171,7 @@ const SecurityPro = () => {
             {activeTab === "curriculum" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Course Curriculum</h2>
-                
+
                 <div className="space-y-6">
                   {[
                     {
@@ -190,7 +186,7 @@ const SecurityPro = () => {
                       ]
                     },
                     {
-                      week: "Week 5-8", 
+                      week: "Week 5-8",
                       title: "Threat Intelligence and Advanced Defense",
                       topics: [
                         "Advanced threat hunting techniques",
@@ -244,7 +240,7 @@ const SecurityPro = () => {
             {activeTab === "certification" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Certification Details</h2>
-                
+
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
                   <h3 className="font-heading text-xl font-semibold mb-4 text-purple-900">
                     Security Pro Certification
@@ -304,7 +300,7 @@ const SecurityPro = () => {
             {activeTab === "requirements" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Course Requirements</h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-heading text-xl font-semibold mb-4">Prerequisites</h3>
@@ -366,7 +362,7 @@ const SecurityPro = () => {
             {activeTab === "faq" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-                
+
                 <div className="space-y-4">
                   {[
                     {

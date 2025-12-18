@@ -23,7 +23,7 @@ const Courses = () => {
     // BEGINNER COURSES
     {
       title: "Security+",
-      description: "Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.",
+      description: "Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles",
       duration: "8 Weeks",
       level: "Beginner",
       category: "Beginner",
@@ -53,16 +53,6 @@ const Courses = () => {
       link: "/courses/cysa-plus",
     },
     {
-      title: "Security Plus",
-      description: "Intermediate level security course for professionals looking to advance their cybersecurity knowledge and skills.",
-      duration: "12 Weeks",
-      level: "Intermediate",
-      category: "Intermediate",
-      students: "500+",
-      image: socAnalystImg,
-      link: "/courses/security-plus",
-    },
-    {
       title: "Cloud Security",
       description: "Course for security professionals who want to learn about securing data within the cloud environment. The course covers architectures, security best practices and unique challenges and situations in different cloud environment.",
       duration: "8 Weeks",
@@ -83,8 +73,18 @@ const Courses = () => {
       link: "/courses/penetration-testing",
     },
     {
+      title: "CB Sec. Plus",
+      description: "Course designed for Starting your career in Cybersecurity. Includes Security Analyst Training, Tool based learning & role specific knowledge.",
+      duration: "12 Weeks",
+      level: "Intermediate",
+      category: "Intermediate",
+      students: "500+",
+      image: socAnalystImg,
+      link: "/courses/cb-sec-plus",
+    },
+    {
       title: "IAM - CyberArk",
-      description: "Intermediate course focused on Identity and Access Management using CyberArk for enterprise security.",
+      description: "Focuses on advanced operational skills, troubleshooting, integration, and maintenance of the Privileged Access Security (PAS) solution components like CyberARK.",
       duration: "10 Weeks",
       level: "Intermediate",
       category: "Intermediate",
@@ -94,18 +94,18 @@ const Courses = () => {
     },
     // ADVANCED COURSES
     {
-      title: "Security Pro",
-      description: "Advanced security course for experienced professionals seeking expert-level cybersecurity knowledge and leadership skills.",
+      title: "CB Sec. Pro",
+      description: "Course designed for experienced professional ready to take there next step decoding the path to your career. Includes Security Analyst & IR, Domain Specialisation, Leadership Seminar.",
       duration: "16 Weeks",
       level: "Advanced",
       category: "Advanced",
       students: "200+",
       image: socAnalystImg,
-      link: "/courses/security-pro",
+      link: "/courses/cb-sec-pro",
     },
     {
       title: "Azure Sentinel",
-      description: "A specialized course in Azure Sentinel for seasoned security analysts looking to master using this cloud-native SIEM platform to ingest data, hunt threats, create playbooks, use cases and automate responses in Azure.",
+      description: "A specialized course in Azure Sentinel for seasoned security analysts looking to master using this cloud-native SIEM platform to Ingest data, hunt threats, create playbooks, use cases and automate responses in Azure.",
       duration: "12 Weeks",
       level: "Advanced",
       category: "Advanced",
@@ -130,24 +130,24 @@ const Courses = () => {
   const filteredAndSortedCourses = courses
     .filter(course => {
       const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            course.description.toLowerCase().includes(searchTerm.toLowerCase());
+        course.description.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === "All" || course.category === selectedCategory;
       const matchesLevel = selectedLevel === "All" || course.level === selectedLevel;
-      
+
       // Duration filter
       const durationNum = parseInt(course.duration);
       let matchesDuration = selectedDuration === "all";
       if (selectedDuration === "short") matchesDuration = durationNum <= 8;
       else if (selectedDuration === "medium") matchesDuration = durationNum > 8 && durationNum <= 12;
       else if (selectedDuration === "long") matchesDuration = durationNum > 12;
-      
+
       // Students filter
       const studentsNum = parseInt(course.students.replace(/\D/g, ''));
       let matchesStudents = selectedStudents === "all";
       if (selectedStudents === "small") matchesStudents = studentsNum <= 500;
       else if (selectedStudents === "medium") matchesStudents = studentsNum > 500 && studentsNum <= 1000;
       else if (selectedStudents === "large") matchesStudents = studentsNum > 1000;
-      
+
       return matchesSearch && matchesCategory && matchesLevel && matchesDuration && matchesStudents;
     })
     .sort((a, b) => {
@@ -180,7 +180,7 @@ const Courses = () => {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">12 Industry-Ready Courses</span>
+              <span className="text-sm font-medium">10 Industry-Ready Courses</span>
             </div>
 
             <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
@@ -227,9 +227,9 @@ const Courses = () => {
                   className="pl-10 pr-4 py-1.5 md:py-2 border border-gray-300 rounded-lg bg-white w-56 md:w-64 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
                 />
               </div>
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 className="gap-2 px-4 h-10 text-sm border-purple-300 text-purple-600 hover:bg-purple-50"
                 onClick={() => setShowFilter(!showFilter)}
               >
@@ -239,15 +239,14 @@ const Courses = () => {
             </div>
             <div className="flex flex-wrap gap-2 text-sm">
               {filterOptions.map((option) => (
-                <Button 
+                <Button
                   key={`category-${option}`}
-                  variant={selectedCategory === option ? "default" : "ghost"} 
-                  size="sm" 
-                  className={`rounded-full px-4 h-9 ${
-                    selectedCategory === option 
-                      ? "bg-purple-600 text-white hover:bg-purple-700" 
+                  variant={selectedCategory === option ? "default" : "ghost"}
+                  size="sm"
+                  className={`rounded-full px-4 h-9 ${selectedCategory === option
+                      ? "bg-purple-600 text-white hover:bg-purple-700"
                       : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
-                  }`}
+                    }`}
                   onClick={() => setSelectedCategory(option)}
                 >
                   {option}
@@ -255,14 +254,14 @@ const Courses = () => {
               ))}
             </div>
           </div>
-          
+
           {/* Additional Filter Options (shown when filter is clicked) */}
           {showFilter && (
             <div className="mt-4 p-4 bg-white rounded-lg border border-gray-200">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
-                  <select 
+                  <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                     value={selectedDuration}
                     onChange={(e) => setSelectedDuration(e.target.value)}
@@ -275,7 +274,7 @@ const Courses = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Students</label>
-                  <select 
+                  <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                     value={selectedStudents}
                     onChange={(e) => setSelectedStudents(e.target.value)}
@@ -288,7 +287,7 @@ const Courses = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
-                  <select 
+                  <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
@@ -314,7 +313,7 @@ const Courses = () => {
               Showing {filteredAndSortedCourses.length} of {courses.length} courses
             </p>
           </div>
-          
+
           {filteredAndSortedCourses.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {filteredAndSortedCourses.map((course, index) => (
@@ -324,7 +323,7 @@ const Courses = () => {
           ) : (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">No courses found matching your criteria.</p>
-              <button 
+              <button
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedCategory("All");
