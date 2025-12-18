@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap } from "lucide-react";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
+import courseImage from "@/assets/course/Security+.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const SecurityPlus = () => {
@@ -57,42 +57,52 @@ const SecurityPlus = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">Beginner</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <Shield className="w-4 h-4" />
+                <span className="text-sm font-medium">Beginner</span>
+              </div>
+
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
+                Security+
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.
+              </p>
+
+              <div className="flex flex-wrap gap-6 text-white/80 mb-8">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-medium">8 Weeks</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  <span className="font-medium">1200+ Students</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  <span className="font-medium">Beginner Friendly</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                  <span className="text-white">Enroll Now</span>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
+                  <span className="text-white">Download Syllabus</span>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
-              Security+
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.
-            </p>
-
-            <div className="flex flex-wrap gap-6 text-white/80 mb-8">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span className="font-medium">8 Weeks</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
-                <span className="font-medium">1200+ Students</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5" />
-                <span className="font-medium">Beginner Friendly</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                <span className="text-white">Enroll Now</span>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                <span className="text-white">Download Syllabus</span>
-              </Button>
+            <div className="hidden lg:block">
+              <img
+                src={courseImage}
+                alt="Security+ Course"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              />
             </div>
           </div>
         </div>
@@ -105,11 +115,11 @@ const SecurityPlus = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-8 text-center">
               Course Overview
             </h2>
-            
+
             <p className="text-lg text-gray-600 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
               Security+ is the perfect starting point for anyone looking to build a career in cybersecurity. This comprehensive beginner course covers the fundamental knowledge and core understanding required to handle basic information security job roles. You'll learn essential security concepts, risk management, network security, and much more.
             </p>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-card rounded-xl p-6 border">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">

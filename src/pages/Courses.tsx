@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import CourseCard from "@/components/CourseCard";
 import { Button } from "@/components/ui/button";
 import { Shield, Users, Award, Clock, Search, Filter } from "lucide-react";
-import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
-import forensicsImg from "@/assets/course-forensics.jpg";
-import foundationImg from "@/assets/course-ethical-hacking.jpg";
-import cloudSecurityImg from "@/assets/course-soc-analyst.jpg";
+import securityPlusImg from "@/assets/course/Security+.png";
+import ethicalHackingImg from "@/assets/course/CEH.png";
+import cysaPlusImg from "@/assets/course/CYSA+.png";
+import cloudSecurityImg from "@/assets/course/CloudSecurity.png";
+import penetrationTestingImg from "@/assets/course/PT.png";
+import cbSecPlusImg from "@/assets/course/CBSecPlus.png";
+import cbSecProImg from "@/assets/course/CBSecPro.png";
+import azureSentinelImg from "@/assets/course/AzureSentinel.png";
+import msDefenderImg from "@/assets/course/MSDefender.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
@@ -18,6 +22,35 @@ const Courses = () => {
   const [selectedStudents, setSelectedStudents] = useState("all");
   const [sortBy, setSortBy] = useState("popular");
   const [showFilter, setShowFilter] = useState(false);
+  const coursesRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to results when filters change
+  useEffect(() => {
+    // Only scroll if we are not at the top already and a filter was actually changed
+    // We exclude searchTerm to avoid scrolling while typing
+    if (coursesRef.current) {
+      const offset = coursesRef.current.offsetTop - 100;
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth"
+      });
+    }
+  }, [selectedCategory, selectedLevel, selectedDuration, selectedStudents, sortBy]);
+
+  const isFiltered = searchTerm !== "" ||
+    selectedCategory !== "All" ||
+    selectedLevel !== "All" ||
+    selectedDuration !== "all" ||
+    selectedStudents !== "all";
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedCategory("All");
+    setSelectedLevel("All");
+    setSelectedDuration("all");
+    setSelectedStudents("all");
+    setSortBy("popular");
+  };
 
   const courses = [
     // BEGINNER COURSES
@@ -28,7 +61,7 @@ const Courses = () => {
       level: "Beginner",
       category: "Beginner",
       students: "1200+",
-      image: foundationImg,
+      image: securityPlusImg,
       link: "/courses/security-plus",
     },
     {
@@ -49,7 +82,7 @@ const Courses = () => {
       level: "Intermediate",
       category: "Intermediate",
       students: "600+",
-      image: socAnalystImg,
+      image: cysaPlusImg,
       link: "/courses/cysa-plus",
     },
     {
@@ -69,7 +102,7 @@ const Courses = () => {
       level: "Intermediate",
       category: "Intermediate",
       students: "400+",
-      image: ethicalHackingImg,
+      image: penetrationTestingImg,
       link: "/courses/penetration-testing",
     },
     {
@@ -79,7 +112,7 @@ const Courses = () => {
       level: "Intermediate",
       category: "Intermediate",
       students: "500+",
-      image: socAnalystImg,
+      image: cbSecPlusImg,
       link: "/courses/cb-sec-plus",
     },
     {
@@ -89,7 +122,7 @@ const Courses = () => {
       level: "Intermediate",
       category: "Intermediate",
       students: "300+",
-      image: socAnalystImg,
+      image: cloudSecurityImg,
       link: "/courses/iam-cyberark",
     },
     // ADVANCED COURSES
@@ -100,7 +133,7 @@ const Courses = () => {
       level: "Advanced",
       category: "Advanced",
       students: "200+",
-      image: socAnalystImg,
+      image: cbSecProImg,
       link: "/courses/cb-sec-pro",
     },
     {
@@ -110,7 +143,7 @@ const Courses = () => {
       level: "Advanced",
       category: "Advanced",
       students: "350+",
-      image: cloudSecurityImg,
+      image: azureSentinelImg,
       link: "/courses/azure-sentinel",
     },
     {
@@ -120,7 +153,7 @@ const Courses = () => {
       level: "Advanced",
       category: "Advanced",
       students: "400+",
-      image: cloudSecurityImg,
+      image: msDefenderImg,
       link: "/courses/microsoft-defender",
     },
   ];
@@ -236,6 +269,16 @@ const Courses = () => {
                 <Filter className="w-4 h-4" />
                 Filter
               </Button>
+              {isFiltered && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-red-500 hover:text-red-600 hover:bg-red-50 px-2 h-10 text-sm"
+                  onClick={resetFilters}
+                >
+                  Clear All
+                </Button>
+              )}
             </div>
             <div className="flex flex-wrap gap-2 text-sm">
               {filterOptions.map((option) => (
@@ -244,8 +287,8 @@ const Courses = () => {
                   variant={selectedCategory === option ? "default" : "ghost"}
                   size="sm"
                   className={`rounded-full px-4 h-9 ${selectedCategory === option
-                      ? "bg-purple-600 text-white hover:bg-purple-700"
-                      : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
+                    ? "bg-purple-600 text-white hover:bg-purple-700"
+                    : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
                     }`}
                   onClick={() => setSelectedCategory(option)}
                 >
@@ -305,7 +348,7 @@ const Courses = () => {
       </section>
 
       {/* Courses Grid */}
-      <section className="py-16">
+      <section className="py-16" ref={coursesRef}>
         <div className="container mx-auto px-4">
           {/* Results count */}
           <div className="text-center mb-12">

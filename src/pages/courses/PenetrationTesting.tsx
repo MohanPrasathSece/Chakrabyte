@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap, Bug } from "lucide-react";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
+import courseImage from "@/assets/course/PT.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const PenetrationTesting = () => {
@@ -61,43 +61,53 @@ const PenetrationTesting = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <Bug className="w-4 h-4" />
-              <span className="text-sm font-medium">Advanced Level</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <Bug className="w-4 h-4" />
+                <span className="text-sm font-medium">Advanced Level</span>
+              </div>
+
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
+                Penetration Testing
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Advanced penetration testing course covering comprehensive methodologies,
+                exploitation techniques, and professional reporting. Master the art of ethical hacking.
+              </p>
+
+              <div className="flex flex-wrap gap-6 text-white/80 mb-8">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-medium">14 Weeks</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  <span className="font-medium">Advanced</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  <span className="font-medium">Hands-on Training</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                  <span className="text-white">Enroll Now</span>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
+                  <span className="text-white">Download Syllabus</span>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
-              Penetration Testing
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Advanced penetration testing course covering comprehensive methodologies, 
-              exploitation techniques, and professional reporting. Master the art of ethical hacking.
-            </p>
-
-            <div className="flex flex-wrap gap-6 text-white/80 mb-8">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span className="font-medium">14 Weeks</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
-                <span className="font-medium">Advanced</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5" />
-                <span className="font-medium">Hands-on Training</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                <span className="text-white">Enroll Now</span>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                <span className="text-white">Download Syllabus</span>
-              </Button>
+            <div className="hidden lg:block">
+              <img
+                src={courseImage}
+                alt="Penetration Testing Course"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              />
             </div>
           </div>
         </div>
@@ -110,7 +120,7 @@ const PenetrationTesting = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-8 text-center">
               Course Overview
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-card rounded-xl p-6 border">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">

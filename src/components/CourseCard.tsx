@@ -31,16 +31,23 @@ const CourseCard = ({
           </svg>
         </div>
       </div>
-      
+
       <div className="aspect-video overflow-hidden relative">
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${title === "Security+" ||
+              title === "Cloud Security" ||
+              title === "CySA+" ||
+              title === "Ethical Hacking" ||
+              title === "Azure Sentinel"
+              ? "object-[center_0%]"
+              : "object-center"
+            }`}
         />
       </div>
-      
+
       <CardContent className="p-6 flex-1 flex flex-col group-hover:bg-gradient-to-b group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500">
         <div className="flex items-center gap-2 mb-3">
           <span className="inline-flex items-center px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">
@@ -48,15 +55,15 @@ const CourseCard = ({
           </span>
           <span className="text-xs text-muted-foreground">{duration}</span>
         </div>
-        
+
         <h3 className="font-heading text-xl font-semibold mb-3 min-h-[3.5rem] group-hover:text-primary transition-colors duration-300 line-clamp-2">
           {title}
         </h3>
-        
+
         <p className="text-sm text-muted-foreground mb-4 flex-1 line-clamp-3 group-hover:text-foreground transition-colors duration-300">
           {description}
         </p>
-        
+
         <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
           <div className="flex items-center gap-1 group-hover:text-primary transition-colors duration-300">
             <Users size={16} className="group-hover:animate-bounce" />
@@ -72,7 +79,7 @@ const CourseCard = ({
           </div>
         </div>
       </CardContent>
-      
+
       <CardFooter className="p-6 pt-0">
         <Button asChild className="w-full group-hover:shadow-xl group-hover:shadow-primary/25 transition-all duration-300">
           <Link to={link}>

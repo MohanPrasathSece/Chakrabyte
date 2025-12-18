@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap } from "lucide-react";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
+import courseImage from "@/assets/course/CBSecPlus.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const CBSecPlus = () => {
@@ -57,42 +57,52 @@ const CBSecPlus = () => {
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="max-w-4xl mx-auto">
-                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                            <Shield className="w-4 h-4" />
-                            <span className="text-sm font-medium">Intermediate</span>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                        <div>
+                            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                                <Shield className="w-4 h-4" />
+                                <span className="text-sm font-medium">Intermediate</span>
+                            </div>
+
+                            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
+                                CB Sec. Plus
+                            </h1>
+
+                            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                                Course designed for Starting your career in Cybersecurity. Includes Security Analyst Training, Tool based learning & role specific knowledge.
+                            </p>
+
+                            <div className="flex flex-wrap gap-6 text-white/80 mb-8">
+                                <div className="flex items-center gap-2">
+                                    <Clock className="w-5 h-5" />
+                                    <span className="font-medium">12 Weeks</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Users className="w-5 h-5" />
+                                    <span className="font-medium">500+ Students</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Award className="w-5 h-5" />
+                                    <span className="font-medium">Intermediate Level</span>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white font-semibold px-8 h-12 border-2 border-purple-200 shadow-lg">
+                                    <Link to="/contact?course=cb-sec-plus">Enroll Now</Link>
+                                </Button>
+                                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                                    <Link to="/contact">Download Syllabus</Link>
+                                </Button>
+                            </div>
                         </div>
 
-                        <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
-                            CB Sec. Plus
-                        </h1>
-
-                        <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-                            Course designed for Starting your career in Cybersecurity. Includes Security Analyst Training, Tool based learning & role specific knowledge.
-                        </p>
-
-                        <div className="flex flex-wrap gap-6 text-white/80 mb-8">
-                            <div className="flex items-center gap-2">
-                                <Clock className="w-5 h-5" />
-                                <span className="font-medium">12 Weeks</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Users className="w-5 h-5" />
-                                <span className="font-medium">500+ Students</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Award className="w-5 h-5" />
-                                <span className="font-medium">Intermediate Level</span>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white font-semibold px-8 h-12 border-2 border-purple-200 shadow-lg">
-                                <Link to="/contact?course=cb-sec-plus">Enroll Now</Link>
-                            </Button>
-                            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                                <Link to="/contact">Download Syllabus</Link>
-                            </Button>
+                        <div className="hidden lg:block">
+                            <img
+                                src={courseImage}
+                                alt="CB Sec Plus Course"
+                                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+                            />
                         </div>
                     </div>
                 </div>

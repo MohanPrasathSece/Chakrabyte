@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, CheckCircle, Target, Shield, BookOpen, ChevronRight } from "lucide-react";
+import courseImage from "@/assets/course/CloudSecurity.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const CloudSecurity = () => {
@@ -58,65 +59,70 @@ const CloudSecurity = () => {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Custom Hero Section for Course */}
       <section
-        className="py-20 lg:py-32 relative overflow-hidden min-h-[80vh] flex items-center"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(76, 29, 149, 0.95), rgba(124, 58, 237, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="py-20 lg:py-32 relative overflow-hidden min-h-[80vh] flex items-center bg-gradient-to-br from-primary via-primary/90 to-accent"
       >
         <div className="absolute inset-0 bg-black/20"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-white/30 text-white">
-              <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">Cloud Security Certification</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-white/30 text-white">
+                <Shield className="w-4 h-4" />
+                <span className="text-sm font-medium">Cloud Security Certification</span>
+              </div>
+
+              <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                Cloud Security & <br />Infrastructure Protection
+              </h1>
+
+              <p className="text-xl text-purple-100 mb-8 max-w-2xl leading-relaxed font-light">
+                Master cloud security for AWS, Azure, and Google Cloud platforms with comprehensive hands-on training.
+              </p>
+
+              <div className="flex flex-wrap gap-6 text-white mb-10">
+                <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
+                  <Clock className="text-purple-300" size={24} />
+                  <div>
+                    <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Duration</p>
+                    <p className="font-bold text-lg">10 Weeks</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
+                  <Award className="text-purple-300" size={24} />
+                  <div>
+                    <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Level</p>
+                    <p className="font-bold text-lg">Intermediate</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
+                  <Users className="text-purple-300" size={24} />
+                  <div>
+                    <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Students</p>
+                    <p className="font-bold text-lg">1200+</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="relative bg-white text-purple-700 hover:from-purple-100 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
+                  <Link to="/contact?course=cloud-security">
+                    Enroll Now
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="relative bg-transparent backdrop-blur-md text-white hover:bg-white/10 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/50 group overflow-hidden">
+                  <Link to="/contact">
+                    Download Syllabus
+                  </Link>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Cloud Security & <br />Infrastructure Protection
-            </h1>
-
-            <p className="text-xl text-purple-100 mb-8 max-w-2xl leading-relaxed font-light">
-              Master cloud security for AWS, Azure, and Google Cloud platforms with comprehensive hands-on training.
-            </p>
-
-            <div className="flex flex-wrap gap-6 text-white mb-10">
-              <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
-                <Clock className="text-purple-300" size={24} />
-                <div>
-                  <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Duration</p>
-                  <p className="font-bold text-lg">10 Weeks</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
-                <Award className="text-purple-300" size={24} />
-                <div>
-                  <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Level</p>
-                  <p className="font-bold text-lg">Intermediate</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-black/20 rounded-lg px-5 py-3 border border-white/10">
-                <Users className="text-purple-300" size={24} />
-                <div>
-                  <p className="text-xs text-purple-200 uppercase tracking-wider font-semibold">Students</p>
-                  <p className="font-bold text-lg">1200+</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="relative bg-white text-purple-700 hover:from-purple-100 hover:to-white font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-gray-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-300/50 group overflow-hidden">
-                <Link to="/contact?course=cloud-security">
-                  Enroll Now
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="relative bg-transparent backdrop-blur-md text-white hover:bg-white/10 font-bold px-10 py-4 text-lg shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/50 group overflow-hidden">
-                <Link to="/contact">
-                  Download Syllabus
-                </Link>
-              </Button>
+            <div className="hidden lg:block">
+              <img
+                src={courseImage}
+                alt="Cloud Security Course"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              />
             </div>
           </div>
         </div>

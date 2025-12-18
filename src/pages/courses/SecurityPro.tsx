@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Clock, Users, Award, BookOpen, Target, Shield, CheckCircle, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
+import courseImage from "@/assets/course/CBSecPro.png";
 
 const SecurityPro = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -68,9 +68,9 @@ const SecurityPro = () => {
               </div>
 
               <div className="w-full md:w-96">
-                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
                   <img
-                    src={socAnalystImg}
+                    src={courseImage}
                     alt="Security Pro Course"
                     className="w-full h-full object-cover"
                   />

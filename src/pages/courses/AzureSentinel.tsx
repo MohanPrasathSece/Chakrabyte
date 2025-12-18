@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Award, Users, BookOpen, CheckCircle, ChevronRight, Shield, Target, Zap, Cloud } from "lucide-react";
-import forensicsImg from "@/assets/course-forensics.jpg";
+import courseImage from "@/assets/course/AzureSentinel.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const AzureSentinel = () => {
@@ -61,43 +61,53 @@ const AzureSentinel = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <Cloud className="w-4 h-4" />
-              <span className="text-sm font-medium">Advanced Level</span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <Cloud className="w-4 h-4" />
+                <span className="text-sm font-medium">Advanced Level</span>
+              </div>
+
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
+                Azure Sentinel
+              </h1>
+
+              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                Master Microsoft's cloud-native SIEM and security orchestration platform.
+                Learn advanced threat detection, incident response, and security automation.
+              </p>
+
+              <div className="flex flex-wrap gap-6 text-white/80 mb-8">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-medium">12 Weeks</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  <span className="font-medium">Advanced</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  <span className="font-medium">Microsoft Certified</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+                  Enroll Now
+                </Button>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                  Download Syllabus
+                </Button>
+              </div>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
-              Azure Sentinel
-            </h1>
-
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Master Microsoft's cloud-native SIEM and security orchestration platform. 
-              Learn advanced threat detection, incident response, and security automation.
-            </p>
-
-            <div className="flex flex-wrap gap-6 text-white/80 mb-8">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span className="font-medium">12 Weeks</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
-                <span className="font-medium">Advanced</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5" />
-                <span className="font-medium">Microsoft Certified</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                Enroll Now
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                Download Syllabus
-              </Button>
+            <div className="hidden lg:block">
+              <img
+                src={courseImage}
+                alt="Azure Sentinel Course"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              />
             </div>
           </div>
         </div>
@@ -110,7 +120,7 @@ const AzureSentinel = () => {
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-8 text-center">
               Course Overview
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               <div className="bg-card rounded-xl p-6 border">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">

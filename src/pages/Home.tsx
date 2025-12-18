@@ -6,9 +6,9 @@ import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import TestimonialSection from "@/components/TestimonialSection";
 import heroImage from "@/assets/hero-image.jpg";
-import ethicalHackingImg from "@/assets/course-ethical-hacking.jpg";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
-import forensicsImg from "@/assets/course-forensics.jpg";
+import cysaPlusImg from "@/assets/course/CYSA+.png";
+import securityPlusImg from "@/assets/course/Security+.png";
+import cloudSecurityImg from "@/assets/course/CloudSecurity.png";
 
 // Add CSS for continuous scrolling animation
 const style = document.createElement('style');
@@ -57,7 +57,7 @@ const Home = () => {
       duration: "8 Weeks",
       level: "Beginner",
       students: "800+",
-      image: ethicalHackingImg,
+      image: cysaPlusImg,
       link: "/courses/cysa-plus",
     },
     {
@@ -66,7 +66,7 @@ const Home = () => {
       duration: "10 Weeks",
       level: "Beginner",
       students: "1200+",
-      image: socAnalystImg,
+      image: securityPlusImg,
       link: "/courses/security-plus",
     },
     {
@@ -75,7 +75,7 @@ const Home = () => {
       duration: "12 Weeks",
       level: "Intermediate",
       students: "700+",
-      image: forensicsImg,
+      image: cloudSecurityImg,
       link: "/courses/cloud-security",
     },
   ];
