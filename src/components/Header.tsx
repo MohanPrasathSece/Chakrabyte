@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Search, ChevronDown, BookOpen, Briefcase } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/header_logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

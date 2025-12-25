@@ -33,7 +33,7 @@ const SEO: React.FC<SEOProps> = ({
       '@type': 'Organization',
       name: 'Chakrabyte Security',
       url: 'https://chakrabyte.com',
-      logo: 'https://chakrabyte.com/logo.png',
+      logo: 'https://chakrabyte.com/BCLogo.png',
       description: 'Professional cybersecurity training and consulting services',
       address: {
         '@type': 'PostalAddress',
