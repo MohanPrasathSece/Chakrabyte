@@ -397,10 +397,10 @@ const Courses = () => {
                 Our career counselors can help you select the perfect course based on your goals and experience level
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
+                <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold">
                   <Link to="/contact">Talk to an Advisor</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-700 font-semibold">
+                <Button asChild size="lg" variant="outline" className="border-white text-purple-600 hover:bg-white hover:text-purple-700 font-semibold">
                   <Link to="/contact">Download Brochure</Link>
                 </Button>
               </div>
