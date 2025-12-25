@@ -12,6 +12,7 @@ import cbSecPlusImg from "@/assets/course/CBSecPlus.png";
 import cbSecProImg from "@/assets/course/CBSecPro.png";
 import azureSentinelImg from "@/assets/course/AzureSentinel.png";
 import msDefenderImg from "@/assets/course/MSDefender.png";
+import iamImg from "@/assets/course/IAm.png";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
 
 const Courses = () => {
@@ -122,7 +123,7 @@ const Courses = () => {
       level: "Intermediate",
       category: "Intermediate",
       students: "300+",
-      image: cloudSecurityImg,
+      image: iamImg,
       link: "/courses/iam-cyberark",
     },
     // ADVANCED COURSES

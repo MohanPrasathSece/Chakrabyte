@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Clock, Users, Award, BookOpen, Target, Shield, CheckCircle, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import StickyFooterAndActions from "@/components/StickyFooterAndActions";
-import socAnalystImg from "@/assets/course-soc-analyst.jpg";
+import iamImg from "@/assets/course/IAm.png";
 
 const IAMCyberArk = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -73,7 +73,7 @@ const IAMCyberArk = () => {
               <div className="w-full md:w-96">
                 <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src={socAnalystImg}
+                    src={iamImg}
                     alt="IAM - CyberArk Course"
                     className="w-full h-full object-cover"
                   />
