@@ -28,7 +28,7 @@ const CollegeWorkshops = () => {
                 From 1-day awareness seminars to week-long bootcamps, we offer flexible formats to suit your institution's schedule and requirements.
               </p>
               <div className="flex gap-4">
-                <Button asChild size="lg" className="bg-purple-600 hover:bg-purple-700 text-white">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact">Schedule a Workshop</Link>
                 </Button>
               </div>
@@ -101,7 +101,7 @@ const CollegeWorkshops = () => {
           <Button
             asChild
             size="lg"
-            className="bg-white text-primary hover:bg-gray-100 font-bold px-10 py-6 text-lg"
+            className="bg-white text-primary hover:bg-white/90 font-bold px-10 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none"
           >
             <Link to="/contact">
               Contact Us

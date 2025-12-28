@@ -38,12 +38,12 @@ const CourseCard = ({
           src={image}
           alt={title}
           className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${title === "Security+" ||
-              title === "Cloud Security" ||
-              title === "CySA+" ||
-              title === "Ethical Hacking" ||
-              title === "Azure Sentinel"
-              ? "object-[center_0%]"
-              : "object-center"
+            title === "Cloud Security" ||
+            title === "CySA+" ||
+            title === "Ethical Hacking" ||
+            title === "Azure Sentinel"
+            ? "object-[center_0%]"
+            : "object-center"
             }`}
         />
       </div>
@@ -81,8 +81,8 @@ const CourseCard = ({
       </CardContent>
 
       <CardFooter className="p-6 pt-0">
-        <Button asChild className="w-full group-hover:shadow-xl group-hover:shadow-primary/25 transition-all duration-300">
-          <Link to={link}>
+        <Button asChild className="w-full bg-primary text-white hover:bg-primary/90 font-bold h-12 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none group">
+          <Link to={link} className="flex items-center justify-center gap-2">
             <span className="group-hover:mr-2 transition-all duration-300">View Course Details</span>
             <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 -mr-4 group-hover:mr-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />

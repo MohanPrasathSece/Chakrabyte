@@ -16,8 +16,8 @@ const GapAssessment = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Back Navigation */}
-          <Link 
-            to="/services" 
+          <Link
+            to="/services"
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -33,8 +33,8 @@ const GapAssessment = () => {
                   Identify Security Gaps Before They Become Breaches
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Our comprehensive Gap Assessment service helps organizations identify vulnerabilities, 
-                  security weaknesses, and compliance gaps in their current security posture. We provide 
+                  Our comprehensive Gap Assessment service helps organizations identify vulnerabilities,
+                  security weaknesses, and compliance gaps in their current security posture. We provide
                   detailed analysis and actionable recommendations to strengthen your cybersecurity defenses.
                 </p>
               </div>
@@ -169,7 +169,7 @@ const GapAssessment = () => {
                 <p className="text-purple-100 mb-6">
                   Get a comprehensive security gap assessment to identify and address vulnerabilities before they impact your business.
                 </p>
-                <Button asChild size="lg" className="w-full bg-white text-purple-600 hover:bg-gray-100">
+                <Button asChild size="lg" className="w-full bg-white text-primary hover:bg-white/90 font-bold h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact">Schedule Assessment</Link>
                 </Button>
               </div>

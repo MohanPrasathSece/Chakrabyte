@@ -202,7 +202,7 @@ const About = () => {
 
             <div className="relative">
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-purple-200"></div>
-              
+
               {[
                 {
                   title: "Foundation Building",
@@ -297,12 +297,12 @@ const About = () => {
             <p className="text-xl text-gray-600 mb-8">
               Join thousands of professionals who have transformed their careers with our expert-led training programs
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
                 size="lg"
-                className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8"
+                className="bg-primary text-white hover:bg-primary/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none"
               >
                 <Link to="/contact" className="flex items-center gap-2">
                   Start Your Journey
@@ -313,7 +313,7 @@ const About = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-semibold px-8"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <Link to="/courses">Explore Programs</Link>
               </Button>

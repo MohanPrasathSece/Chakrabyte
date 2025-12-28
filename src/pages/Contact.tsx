@@ -152,7 +152,7 @@ const Contact = () => {
                       {formData.course ? "Course Enquiry" : "Send Us a Message"}
                     </h2>
                     <p className="text-gray-600">
-                      {formData.course 
+                      {formData.course
                         ? "Fill out the form below and our course counselor will contact you shortly."
                         : "Fill out the form below and we'll respond shortly."
                       }
@@ -215,7 +215,7 @@ const Contact = () => {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-semibold h-14 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-bold h-14 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed !bg-none border-none"
                     >
                       {isSubmitting ? (
                         <>

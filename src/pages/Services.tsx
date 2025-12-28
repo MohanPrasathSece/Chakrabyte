@@ -57,7 +57,7 @@ const Services = () => {
         </div>
       </section>
 
-      
+
       <section className="py-24 bg-primary text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
@@ -69,7 +69,7 @@ const Services = () => {
           <Button
             asChild
             size="lg"
-            className="bg-white text-purple-600 hover:bg-gray-100 font-bold px-10 py-6 text-lg"
+            className="bg-white text-primary hover:bg-white/90 font-bold px-10 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none"
           >
             <Link to="/contact">
               Request a Consultation

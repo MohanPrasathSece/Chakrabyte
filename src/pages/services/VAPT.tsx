@@ -16,8 +16,8 @@ const VAPT = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Back Navigation */}
-          <Link 
-            to="/services" 
+          <Link
+            to="/services"
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -33,8 +33,8 @@ const VAPT = () => {
                   Identify Vulnerabilities Before Attackers Do
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Our comprehensive VAPT (Vulnerability Assessment and Penetration Testing) services 
-                  help organizations identify and fix security weaknesses in their web applications, 
+                  Our comprehensive VAPT (Vulnerability Assessment and Penetration Testing) services
+                  help organizations identify and fix security weaknesses in their web applications,
                   networks, and cloud infrastructure before malicious actors can exploit them.
                 </p>
               </div>
@@ -169,7 +169,7 @@ const VAPT = () => {
                 <p className="text-purple-100 mb-6">
                   Don't wait for a breach. Identify and fix vulnerabilities before attackers exploit them.
                 </p>
-                <Button asChild size="lg" className="w-full bg-white text-purple-600 hover:bg-gray-100">
+                <Button asChild size="lg" className="w-full bg-white text-primary hover:bg-white/90 font-bold h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact">Schedule VAPT</Link>
                 </Button>
               </div>

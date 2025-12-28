@@ -16,8 +16,8 @@ const CareerConsulting = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {/* Back Navigation */}
-          <Link 
-            to="/services" 
+          <Link
+            to="/services"
             className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -33,8 +33,8 @@ const CareerConsulting = () => {
                   Navigate Your Cybersecurity Career with Expert Guidance
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Our career consulting services help cybersecurity professionals at all levels navigate their 
-                  career paths, from entry-level positions to executive roles. We provide personalized guidance 
+                  Our career consulting services help cybersecurity professionals at all levels navigate their
+                  career paths, from entry-level positions to executive roles. We provide personalized guidance
                   based on your skills, experience, and career aspirations in the dynamic cybersecurity field.
                 </p>
               </div>
@@ -169,7 +169,7 @@ const CareerConsulting = () => {
                 <p className="text-purple-100 mb-6">
                   Get expert career guidance to achieve your professional goals in cybersecurity.
                 </p>
-                <Button asChild size="lg" className="w-full bg-white text-purple-600 hover:bg-gray-100">
+                <Button asChild size="lg" className="w-full bg-white text-primary hover:bg-white/90 font-bold h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact">Schedule Career Session</Link>
                 </Button>
               </div>
