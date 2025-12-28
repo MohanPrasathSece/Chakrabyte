@@ -25,7 +25,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-background border-t border-border text-foreground">
+    <footer className="bg-black border-t border-white/10 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -35,7 +35,7 @@ const Footer = () => {
                 CHAKRABYTE
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Professional cybersecurity training for students, colleges, and corporates. Building secure digital futures.
             </p>
             <div className="flex space-x-4">
@@ -43,7 +43,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/109433547/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-gray-400 hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -52,13 +52,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Top Courses</h3>
+            <h3 className="font-heading font-semibold mb-4 text-white">Top Courses</h3>
             <ul className="space-y-2">
               {courses.map((course) => (
                 <li key={course.path}>
                   <Link
                     to={course.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     {course.name}
                   </Link>
@@ -68,13 +68,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Our Services</h3>
+            <h3 className="font-heading font-semibold mb-4 text-white">Our Services</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.path}>
                   <Link
                     to={service.path}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     {service.name}
                   </Link>
@@ -84,13 +84,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold mb-4">Contact Us</h3>
+            <h3 className="font-heading font-semibold mb-4 text-white">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-2">
                 <Mail size={16} className="text-primary mt-1" />
                 <a
                   href="mailto:info@chakrabyte.com"
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="text-sm text-gray-400 hover:text-white"
                 >
                   info@chakrabyte.com
                 </a>
@@ -99,14 +99,14 @@ const Footer = () => {
                 <Phone size={16} className="text-primary mt-1" />
                 <a
                   href="tel:+911234567890"
-                  className="text-sm text-muted-foreground hover:text-primary"
+                  className="text-sm text-gray-400 hover:text-white"
                 >
                   +91 123 456 7890
                 </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="text-primary mt-1" />
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-gray-400">
                   Cyber Hub, Tech Park, Bangalore, India
                 </span>
               </li>
@@ -114,8 +114,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border text-center pb-8">
-          <p className="text-sm text-muted-foreground mb-4">
+        <div className="mt-8 pt-8 border-t border-white/10 text-center pb-8">
+          <p className="text-sm text-gray-400 mb-4">
             © {new Date().getFullYear()} chakrabyte security. All rights reserved.
           </p>
         </div>
