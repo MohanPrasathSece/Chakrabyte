@@ -72,7 +72,7 @@ const AzureSentinel = () => {
                 Azure Sentinel
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Master Microsoft's cloud-native SIEM and security orchestration platform.
                 Learn advanced threat detection, incident response, and security automation.
               </p>
@@ -84,7 +84,7 @@ const AzureSentinel = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-medium">Advanced</span>
+                  <span className="font-medium">500+ Students</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5" />
@@ -93,12 +93,12 @@ const AzureSentinel = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact?course=azure-sentinel">
                     Enroll Now
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                   <Link to="/contact">
                     Download Syllabus
                   </Link>
@@ -218,12 +218,12 @@ const AzureSentinel = () => {
               Become an expert in Microsoft's leading cloud security platform
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                 <Link to="/contact?course=azure-sentinel">
                   Get Started Today
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+              <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                 <Link to="/courses">View All Courses</Link>
               </Button>
             </div>

@@ -68,7 +68,7 @@ const CySAPlus = () => {
                 CySA+ Certification
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Course focussed on individuals on who have basic understanding in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.
               </p>
 
@@ -79,21 +79,21 @@ const CySAPlus = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-medium">Beginner Friendly</span>
+                  <span className="font-medium">900+ Students</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5" />
-                  <span className="font-medium">Industry Recognized</span>
+                  <span className="font-medium">Beginner Friendly</span>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact?course=cysa-plus">
                     Enroll Now
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                   <Link to="/contact">
                     Download Syllabus
                   </Link>
@@ -213,13 +213,13 @@ const CySAPlus = () => {
               Join thousands of professionals who have advanced their careers with our comprehensive training
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                 <Link to="/contact?course=cysa-plus">
-                  <span className="text-white">Get Started Today</span>
+                  Get Started Today
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                <span className="text-white">View All Courses</span>
+              <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                <Link to="/courses">View All Courses</Link>
               </Button>
             </div>
           </div>

@@ -72,7 +72,7 @@ const MicrosoftDefender = () => {
                 Microsoft Defender
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Master Microsoft's comprehensive security suite covering endpoint, cloud, identity,
                 and productivity protection. Learn advanced threat detection and response.
               </p>
@@ -84,7 +84,7 @@ const MicrosoftDefender = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  <span className="font-medium">Advanced</span>
+                  <span className="font-medium">600+ Students</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-5 h-5" />
@@ -93,14 +93,16 @@ const MicrosoftDefender = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                  <Link to="/contact?course=microsoft-defender">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                  <Link to="/contact?course=microsoft-defender" className="flex items-center gap-2">
                     Enroll Now
+                    <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                  <Link to="/contact">
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Link to="/contact" className="flex items-center gap-2">
                     Download Syllabus
+                    <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
               </div>
@@ -183,7 +185,7 @@ const MicrosoftDefender = () => {
 
             <div className="space-y-6">
               {modules.map((module, index) => (
-                <div key={index} className="bg-card rounded-xl p-6 border hover:shadow-lg transition-shadow">
+                <div key={index} className="bg-card rounded-xl p-6 border hover:rounded-full transition-shadow">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold flex-shrink-0">
                       {index + 1}
@@ -218,12 +220,12 @@ const MicrosoftDefender = () => {
               Become an expert in Microsoft's comprehensive security ecosystem
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                 <Link to="/contact?course=microsoft-defender">
                   Get Started Today
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+              <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                 <Link to="/courses">View All Courses</Link>
               </Button>
             </div>

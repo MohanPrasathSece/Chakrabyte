@@ -68,7 +68,7 @@ const SecurityPlus = () => {
                 Security+
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                 Fundamental course for freshers or individuals looking establish a foundation for a career in cybersecurity and want to get core knowledge and understanding required to handle basic infosec job roles.
               </p>
 
@@ -88,14 +88,16 @@ const SecurityPlus = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                  <Link to="/contact?course=security-plus">
-                    <span className="text-white">Enroll Now</span>
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                  <Link to="/contact?course=security-plus" className="flex items-center gap-2">
+                    Enroll Now
+                    <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                  <Link to="/contact">
-                    <span className="text-white">Download Syllabus</span>
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Link to="/contact" className="flex items-center gap-2">
+                    Download Syllabus
+                    <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
               </div>
@@ -222,15 +224,14 @@ const SecurityPlus = () => {
               Security+ is the foundational certification for any cybersecurity professional
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                <Link to="/contact?course=security-plus">
-                  <span className="text-white">Get Started Today</span>
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                <Link to="/contact?course=security-plus" className="flex items-center gap-2">
+                  Get Started Today
+                  <ChevronRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                <Link to="/courses">
-                  <span className="text-white">View All Courses</span>
-                </Link>
+              <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                <Link to="/courses">View All Courses</Link>
               </Button>
             </div>
           </div>

@@ -11,78 +11,62 @@ const IAMCyberArk = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 text-white overflow-hidden">
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-primary via-primary/90 to-accent text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/courses" 
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Courses
-            </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <Shield className="w-4 h-4" />
+                <span className="text-sm font-medium">Intermediate</span>
+              </div>
 
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                    Beginner
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm">
-                    Intermediate
-                  </span>
+              <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 animate-float">
+                IAM - CyberArk
+              </h1>
+
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                Intermediate course focused on Identity and Access Management using CyberArk for enterprise security.
+              </p>
+
+              <div className="flex flex-wrap gap-6 text-white/80 mb-8">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-medium">10 Weeks</span>
                 </div>
-
-                <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-                  IAM - CyberArk
-                </h1>
-
-                <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                  Intermediate course focused on Identity and Access Management using CyberArk for enterprise security.
-                </p>
-
-                <div className="flex flex-wrap gap-6 text-white/80 mb-8">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5" />
-                    <span className="font-medium">10 Weeks</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5" />
-                    <span className="font-medium">300+ Students</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-5 h-5" />
-                    <span className="font-medium">Intermediate Level</span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  <span className="font-medium">300+ Students</span>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
-                    <Link to="/contact?course=iam-cyberark">
-                      Enroll Now
-                    </Link>
-                  </Button>
-                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                    <Link to="/contact">
-                      Download Syllabus
-                    </Link>
-                  </Button>
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  <span className="font-medium">Intermediate Level</span>
                 </div>
               </div>
 
-              <div className="w-full md:w-96">
-                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src={iamImg}
-                    alt="IAM - CyberArk Course"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                  <Link to="/contact?course=iam-cyberark">
+                    Enroll Now
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Link to="/contact">
+                    Download Syllabus
+                  </Link>
+                </Button>
               </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <img
+                src={iamImg}
+                alt="IAM - CyberArk Course"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white/20"
+              />
             </div>
           </div>
         </div>
@@ -97,11 +81,10 @@ const IAMCyberArk = () => {
                 key={tab}
                 variant={activeTab === tab ? "default" : "ghost"}
                 size="sm"
-                className={`rounded-full px-6 h-10 capitalize ${
-                  activeTab === tab
-                    ? "bg-purple-600 text-white hover:bg-purple-700"
-                    : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
-                }`}
+                className={`rounded-full px-6 h-10 capitalize ${activeTab === tab
+                  ? "bg-purple-600 text-white hover:bg-purple-700"
+                  : "hover:bg-purple-50 text-gray-700 hover:text-purple-600"
+                  }`}
                 onClick={() => setActiveTab(tab)}
               >
                 {tab}
@@ -179,7 +162,7 @@ const IAMCyberArk = () => {
             {activeTab === "curriculum" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Course Curriculum</h2>
-                
+
                 <div className="space-y-6">
                   {[
                     {
@@ -194,7 +177,7 @@ const IAMCyberArk = () => {
                       ]
                     },
                     {
-                      week: "Week 3-4", 
+                      week: "Week 3-4",
                       title: "Privileged Account Management",
                       topics: [
                         "Onboarding privileged accounts",
@@ -248,7 +231,7 @@ const IAMCyberArk = () => {
             {activeTab === "certification" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Certification Details</h2>
-                
+
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-6">
                   <h3 className="font-heading text-xl font-semibold mb-4 text-purple-900">
                     CyberArk Certification Path
@@ -308,7 +291,7 @@ const IAMCyberArk = () => {
             {activeTab === "requirements" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Course Requirements</h2>
-                
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-heading text-xl font-semibold mb-4">Prerequisites</h3>
@@ -370,7 +353,7 @@ const IAMCyberArk = () => {
             {activeTab === "faq" && (
               <div className="space-y-8">
                 <h2 className="font-heading text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-                
+
                 <div className="space-y-4">
                   {[
                     {
@@ -418,13 +401,13 @@ const IAMCyberArk = () => {
                 Join the security professionals protecting enterprise privileged access with CyberArk
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
+                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact?course=iam-cyberark">
                     Enroll Now
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                  Talk to an Advisor
+                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                  <Link to="/contact">Talk to an Advisor</Link>
                 </Button>
               </div>
             </div>

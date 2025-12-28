@@ -68,7 +68,7 @@ const CBSecPlus = () => {
                                 CB Sec. Plus
                             </h1>
 
-                            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                            <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
                                 Course designed for Starting your career in Cybersecurity. Includes Security Analyst Training, Tool based learning & role specific knowledge.
                             </p>
 
@@ -88,11 +88,15 @@ const CBSecPlus = () => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white font-semibold px-8 h-12 border-2 border-purple-200 shadow-lg">
-                                    <Link to="/contact?course=cb-sec-plus">Enroll Now</Link>
+                                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                                    <Link to="/contact?course=cb-sec-plus">
+                                        Enroll Now
+                                    </Link>
                                 </Button>
-                                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                                    <Link to="/contact">Download Syllabus</Link>
+                                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                                    <Link to="/contact">
+                                        Download Syllabus
+                                    </Link>
                                 </Button>
                             </div>
                         </div>
@@ -257,10 +261,10 @@ const CBSecPlus = () => {
                             Join 500+ students who have launched their cybersecurity careers with CB Sec. Plus
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white font-semibold px-8 h-12 border-2 border-purple-200 shadow-lg">
+                            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                                 <Link to="/contact?course=cb-sec-plus">Get Started Today</Link>
                             </Button>
-                            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                            <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                                 <Link to="/courses">View All Courses</Link>
                             </Button>
                         </div>

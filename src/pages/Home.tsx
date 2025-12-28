@@ -141,27 +141,21 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <Button
                   asChild
-                  className="relative bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-3 sm:px-4 py-2 sm:py-3 text-base shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden h-10 sm:h-auto"
+                  className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none"
                 >
                   <Link to="/contact">
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      Get Started Today
-                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    Get Started Today
+                    <ChevronRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
 
                 <Button
                   asChild
-                  className="relative bg-white/10 backdrop-blur-md text-white hover:bg-white/20 font-bold px-3 sm:px-4 py-2 sm:py-3 text-base shadow-2xl hover:shadow-white/10 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-white/30 group overflow-hidden h-10 sm:h-auto"
+                  className="border-2 border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 hover:text-white font-bold px-8 h-14 rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95"
                 >
                   <Link to="/courses">
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      Explore Courses
-                      <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    Explore Courses
+                    <ChevronRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
               </div>

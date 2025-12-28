@@ -149,7 +149,10 @@ const Header = () => {
             {/* Courses Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center space-x-1 text-sm font-medium text-gray-700 hover:text-purple-600 transition-colors"
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors ${location.pathname.startsWith("/courses")
+                  ? "text-purple-600"
+                  : "text-gray-700 hover:text-purple-600"
+                  }`}
                 onMouseEnter={handleCoursesMouseEnter}
                 onMouseLeave={handleCoursesMouseLeave}
               >
@@ -431,7 +434,10 @@ const Header = () => {
                 <div>
                   <button
                     onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                    className="flex items-center justify-between w-full text-sm font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 transition-colors py-2 px-3 rounded-md"
+                    className={`flex items-center justify-between w-full text-sm font-medium transition-colors py-2 px-3 rounded-md ${location.pathname.startsWith("/courses")
+                      ? "text-purple-600 bg-purple-50"
+                      : "text-gray-700 hover:text-purple-600 hover:bg-gray-50"
+                      }`}
                   >
                     <div className="flex items-center">
                       <BookOpen className="h-4 w-4 mr-2" />
