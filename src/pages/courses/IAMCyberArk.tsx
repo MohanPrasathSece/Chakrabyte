@@ -61,11 +61,15 @@ const IAMCyberArk = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
-                    Enroll Now
+                  <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
+                    <Link to="/contact?course=iam-cyberark">
+                      Enroll Now
+                    </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                    Download Brochure
+                  <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                    <Link to="/contact">
+                      Download Syllabus
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -414,8 +418,10 @@ const IAMCyberArk = () => {
                 Join the security professionals protecting enterprise privileged access with CyberArk
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
-                  Enroll Now
+                <Button asChild size="lg" className="bg-gradient-to-r from-purple-50 to-white text-purple-900 hover:from-purple-100 hover:to-white border-2 border-purple-200 font-semibold">
+                  <Link to="/contact?course=iam-cyberark">
+                    Enroll Now
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                   Talk to an Advisor

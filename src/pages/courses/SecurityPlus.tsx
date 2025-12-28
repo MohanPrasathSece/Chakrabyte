@@ -88,11 +88,15 @@ const SecurityPlus = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                  <span className="text-white">Enroll Now</span>
+                <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                  <Link to="/contact?course=security-plus">
+                    <span className="text-white">Enroll Now</span>
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                  <span className="text-white">Download Syllabus</span>
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
+                  <Link to="/contact">
+                    <span className="text-white">Download Syllabus</span>
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -218,11 +222,15 @@ const SecurityPlus = () => {
               Security+ is the foundational certification for any cybersecurity professional
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
-                <span className="text-white">Get Started Today</span>
+              <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg">
+                <Link to="/contact?course=security-plus">
+                  <span className="text-white">Get Started Today</span>
+                </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
-                <span className="text-white">View All Courses</span>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold px-8 py-3">
+                <Link to="/courses">
+                  <span className="text-white">View All Courses</span>
+                </Link>
               </Button>
             </div>
           </div>

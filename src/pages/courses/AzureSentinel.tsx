@@ -93,11 +93,15 @@ const AzureSentinel = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                  Enroll Now
+                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+                  <Link to="/contact?course=azure-sentinel">
+                    Enroll Now
+                  </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
-                  Download Syllabus
+                <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
+                  <Link to="/contact">
+                    Download Syllabus
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -214,8 +218,10 @@ const AzureSentinel = () => {
               Become an expert in Microsoft's leading cloud security platform
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
-                <Link to="/contact">Get Started Today</Link>
+              <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-white/90 font-semibold">
+                <Link to="/contact?course=azure-sentinel">
+                  Get Started Today
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-950 bg-white/10 backdrop-blur-sm font-semibold">
                 <Link to="/courses">View All Courses</Link>

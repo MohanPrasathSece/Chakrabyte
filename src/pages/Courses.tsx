@@ -401,7 +401,7 @@ const Courses = () => {
                   <Link to="/contact">Talk to an Advisor</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-white text-purple-600 hover:bg-white hover:text-purple-700 font-semibold">
-                  <Link to="/contact">Download Brochure</Link>
+                  <Link to="/contact">Download Syllabus</Link>
                 </Button>
               </div>
             </div>
