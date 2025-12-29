@@ -88,13 +88,13 @@ const SecurityPlus = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-semibold px-8 py-3 shadow-lg rounded-full">
                   <Link to="/contact?course=security-plus" className="flex items-center gap-2">
-                    Enroll Now
+                    <span className="text-white">Enroll Now</span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                <Button asChild size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white bg-white/10 backdrop-blur-sm font-semibold px-8 py-3 rounded-full">
                   <Link to="/contact" className="flex items-center gap-2">
                     Download Syllabus
                     <ChevronRight className="w-4 h-4" />

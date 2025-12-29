@@ -88,12 +88,12 @@ const CBSecPlus = () => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                                <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                                     <Link to="/contact?course=cb-sec-plus">
                                         Enroll Now
                                     </Link>
                                 </Button>
-                                <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                                <Button asChild size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                                     <Link to="/contact">
                                         Download Syllabus
                                     </Link>
@@ -261,7 +261,7 @@ const CBSecPlus = () => {
                             Join 500+ students who have launched their cybersecurity careers with CB Sec. Plus
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+                            <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                                 <Link to="/contact?course=cb-sec-plus">Get Started Today</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline" className="border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
