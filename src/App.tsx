@@ -32,6 +32,9 @@ import VAPT from "./pages/services/VAPT";
 import GapAssessment from "./pages/services/GapAssessment";
 import SecurityConsulting from "./pages/services/SecurityConsulting";
 import CareerConsulting from "./pages/services/CareerConsulting";
+import CollegeWorkshops from "./pages/services/CollegeWorkshops";
+import DeviceSecurity from "./pages/services/DeviceSecurity";
+import Consultation from "./pages/services/Consultation";
 import NotFound from "./pages/NotFound";
 
 // Initialize performance monitoring
@@ -196,6 +199,9 @@ const AppContent = () => {
             <Route path="/services/vapt" element={<VAPT />} />
             <Route path="/services/security-consulting" element={<SecurityConsulting />} />
             <Route path="/services/career-consulting" element={<CareerConsulting />} />
+            <Route path="/services/college-workshops" element={<CollegeWorkshops />} />
+            <Route path="/services/device-security" element={<DeviceSecurity />} />
+            <Route path="/services/consultation" element={<Consultation />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

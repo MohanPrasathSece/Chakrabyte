@@ -1,6 +1,48 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/courses/soc-analyst",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/cyber-forensics",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/network-security",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/web-app-security",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/red-team",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/blue-team",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/malware-analysis",
+            "destination": "/courses",
+            "permanent": true
+        },
+        {
+            "source": "/courses/cybersecurity-basics",
+            "destination": "/courses",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/(.*)",
