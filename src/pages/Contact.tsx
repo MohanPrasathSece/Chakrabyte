@@ -192,7 +192,7 @@ const Contact = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 79768 95846 / +91 94824 76051"
                         required
                         className="h-12 border-gray-300 focus:border-primary focus:ring-primary/20"
                       />
@@ -253,8 +253,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-900 text-sm">Phone</p>
-                        <a href="tel:+911234567890" className="text-sm text-gray-600 hover:text-primary transition-colors">
-                          +91 123 456 7890
+                        <a href="tel:+917976895846" className="text-sm text-gray-600 hover:text-primary transition-colors">
+                          +91 79768 95846<br />+91 94824 76051
                         </a>
                       </div>
                     </div>

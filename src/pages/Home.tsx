@@ -473,10 +473,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
                 <h3 className="font-bold text-white text-lg mb-1">Security+</h3>
                 <p className="text-white/70 text-sm mb-3">Security Fundamentals</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -490,10 +486,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">EC-Council</div>
                 <h3 className="font-bold text-white text-lg mb-1">Ethical Hacking</h3>
                 <p className="text-white/70 text-sm mb-3">CEH Preparation</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -507,10 +499,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
                 <h3 className="font-bold text-white text-lg mb-1">CySA+</h3>
                 <p className="text-white/70 text-sm mb-3">Cybersecurity Analyst+</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -524,10 +512,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Cloud</div>
                 <h3 className="font-bold text-white text-lg mb-1">Cloud Security</h3>
                 <p className="text-white/70 text-sm mb-3">AWS & Azure Security</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -541,10 +525,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Advanced</div>
                 <h3 className="font-bold text-white text-lg mb-1">Penetration Testing</h3>
                 <p className="text-white/70 text-sm mb-3">Advanced Pentesting</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -558,10 +538,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Identity</div>
                 <h3 className="font-bold text-white text-lg mb-1">IAM - CyberArk</h3>
                 <p className="text-white/70 text-sm mb-3">Identity Management</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -575,10 +551,6 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Microsoft</div>
                 <h3 className="font-bold text-white text-lg mb-1">Azure Sentinel</h3>
                 <p className="text-white/70 text-sm mb-3">SIEM & Security Ops</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
@@ -592,29 +564,9 @@ const Home = () => {
                 <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Microsoft</div>
                 <h3 className="font-bold text-white text-lg mb-1">Microsoft Defender</h3>
                 <p className="text-white/70 text-sm mb-3">Endpoint Security</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
               </div>
             </div>
 
-            {/* Security Pro Certification */}
-            <div className="group relative">
-              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                  <Award className="w-8 h-8 text-white" />
-                </div>
-                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Advanced</div>
-                <h3 className="font-bold text-white text-lg mb-1">Security Pro</h3>
-                <p className="text-white/70 text-sm mb-3">Expert Security</p>
-                <div className="flex items-center gap-2 text-green-400 text-xs font-medium">
-                  <CheckCircle className="w-3 h-3" />
-                  <span>Our Course</span>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Stats Section */}

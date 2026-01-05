@@ -125,7 +125,7 @@ const CourseBookingForm = () => {
                   id="phone"
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 79768 95846 / +91 94824 76051"
                   required
                 />
               </div>

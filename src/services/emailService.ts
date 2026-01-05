@@ -10,7 +10,7 @@ const EMAIL_CONFIG = {
   FROM_EMAIL: import.meta.env.VITE_FROM_EMAIL || 'noreply@chakrabyte.com',
   FROM_NAME: import.meta.env.VITE_FROM_NAME || 'Chakrabyte Security',
   WEBSITE_URL: import.meta.env.VITE_WEBSITE_URL || 'https://chakrabyte.com',
-  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91-XXXXXXXXXX'
+  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91 79768 95846 / +91 94824 76051'
 };
 
 export interface EmailData {

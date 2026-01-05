@@ -29,6 +29,7 @@ import AzureSentinel from "./pages/courses/AzureSentinel";
 import MicrosoftDefender from "./pages/courses/MicrosoftDefender";
 import CorporateTraining from "./pages/services/CorporateTraining";
 import VAPT from "./pages/services/VAPT";
+import WhatsAppButton from "./components/WhatsAppButton";
 import GapAssessment from "./pages/services/GapAssessment";
 import SecurityConsulting from "./pages/services/SecurityConsulting";
 import CareerConsulting from "./pages/services/CareerConsulting";
@@ -210,6 +211,7 @@ const AppContent = () => {
         <Footer />
       </div>
       <StickyFooterAndActions />
+      <WhatsAppButton />
       <ExitIntentPopup isVisible={showPopup} onClose={closePopup} />
     </>
   );
