@@ -312,14 +312,14 @@ const Home = () => {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-purple-600 to-purple-700 text-white hover:from-purple-700 hover:to-purple-800 font-bold px-6 py-3 text-base shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-1 transition-all duration-300 rounded-2xl border-2 border-purple-500/30 group overflow-hidden"
+              className="bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 font-bold px-8 py-4 text-base md:text-lg shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 rounded-2xl border-2 border-white/20 hover:border-white/30 group overflow-hidden relative"
             >
               <Link to="/courses">
                 <span className="relative z-10 flex items-center gap-2">
                   Explore All Courses
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
             </Button>
           </div>
@@ -340,97 +340,116 @@ const Home = () => {
           </div>
 
           {/* Glassy Service Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {/* Gap Assessment Service */}
-            <div className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Target className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Target className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">Gap Assessment</h3>
-                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Gap Assessment</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
                   Comprehensive security gap analysis to identify vulnerabilities in your infrastructure
                 </p>
-                <div className="text-center">
-                  <Link to="/services/gap-assessment" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                <div className="text-center mt-2">
+                  <Link to="/services/gap-assessment" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Corporate Training Service */}
-            <div className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Users className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Users className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">Corporate Training</h3>
-                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Corporate Training</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
                   Customized security training programs for enterprise teams and organizations
                 </p>
-                <div className="text-center">
-                  <Link to="/services/corporate-training" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                <div className="text-center mt-2">
+                  <Link to="/services/corporate-training" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* VAPT Services */}
-            <div className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Shield className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Shield className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">VAPT Services</h3>
-                <p className="text-purple-100 mb-6 text-center leading-relaxed">
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">VAPT Services</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
                   Vulnerability Assessment and Penetration Testing to secure your applications
                 </p>
-                <div className="text-center">
-                  <Link to="/services/vapt" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                <div className="text-center mt-2">
+                  <Link to="/services/vapt" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Security Consulting */}
-            <div className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Award className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Award className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">Security Consulting</h3>
-                <p className="text-purple-100 mb-6 text-center leading-relaxed">
-                  Expert security consulting to strengthen your cybersecurity posture
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Security Consulting</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Expert guidance on security strategy, risk management, and compliance
                 </p>
-                <div className="text-center">
-                  <Link to="/services/security-consulting" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                <div className="text-center mt-2">
+                  <Link to="/services/security-consulting" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Career Consulting */}
-            <div className="group">
-              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-white/20">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
-                  <Target className="w-8 h-8 text-purple-200 group-hover:text-white transition-colors" />
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <GraduationCap className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3 text-center">Career Consulting</h3>
-                <p className="text-purple-100 mb-6 text-center leading-relaxed">
-                  Professional career guidance and consulting for cybersecurity professionals
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Career Consulting</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Personalized career guidance and mentorship in cybersecurity
                 </p>
-                <div className="text-center">
-                  <Link to="/services/career-consulting" className="inline-flex items-center gap-1 text-purple-200 font-medium hover:text-white transition-colors">
+                <div className="text-center mt-2">
+                  <Link to="/services/career-consulting" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* College Workshops */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Users className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">College Workshops</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Interactive workshops on cybersecurity fundamentals for students
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/college-workshops" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

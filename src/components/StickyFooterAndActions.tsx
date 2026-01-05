@@ -15,7 +15,7 @@ const StickyFooterAndActions = () => {
             <div className="fixed bottom-20 right-6 flex flex-col gap-4 z-50">
                 {/* WhatsApp Button */}
                 <a
-                    href="https://wa.me/919876543210?text=Hi!%20I'm%20interested%20in%20your%20cybersecurity%20courses"
+                    href="https://wa.me/919482476051?text=Hi!%20I'm%20interested%20in%20your%20cybersecurity%20courses"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-14 h-14 md:w-16 md:h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
