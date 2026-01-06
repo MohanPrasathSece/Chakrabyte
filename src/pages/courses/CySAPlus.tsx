@@ -93,7 +93,7 @@ const CySAPlus = () => {
                     Enroll Now
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
+                <Button asChild size="lg" variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-purple-600 font-bold px-8 h-14 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95">
                   <Link to="/contact">
                     Download Syllabus
                   </Link>
@@ -213,7 +213,7 @@ const CySAPlus = () => {
               Join thousands of professionals who have advanced their careers with our comprehensive training
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+              <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                 <Link to="/contact?course=cysa-plus">
                   Get Started Today
                 </Link>

@@ -94,7 +94,7 @@ const SecurityPlus = () => {
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white bg-white/10 backdrop-blur-sm font-semibold px-8 py-3 rounded-full">
+                <Button asChild size="lg" variant="outline" className="border-white text-white bg-transparent hover:bg-white hover:text-purple-600 font-bold px-8 py-3 rounded-full transaction-all duration-300 hover:scale-105 active:scale-95">
                   <Link to="/contact" className="flex items-center gap-2">
                     Download Syllabus
                     <ChevronRight className="w-4 h-4" />

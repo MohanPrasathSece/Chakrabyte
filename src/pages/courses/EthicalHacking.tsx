@@ -442,7 +442,7 @@ const EthicalHacking = () => {
           <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto font-light">
             Join 1500+ students who have transformed their careers with this course
           </p>
-          <Button asChild size="lg" className="bg-purple-600 text-white hover:bg-purple-700 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
+          <Button asChild size="lg" className="bg-white text-purple-600 hover:bg-white/90 font-bold px-8 h-14 rounded-xl shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
             <Link to="/contact?course=ethical-hacking">
               Enroll Now
             </Link>
