@@ -3,8 +3,47 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Shield, ChevronRight, Target, Award, GraduationCap } from 'lucide-react';
 
+// Add CSS animations to document head
+const addAnimationStyles = () => {
+  const existingStyle = document.getElementById('rotating-hero-animations');
+  if (existingStyle) return;
+
+  const style = document.createElement('style');
+  style.id = 'rotating-hero-animations';
+  style.textContent = `
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.8s ease-out;
+    }
+
+    .animate-fade-in-delay {
+      animation: fade-in 0.8s ease-out 0.2s both;
+    }
+
+    .animate-fade-in-delay-2 {
+      animation: fade-in 0.8s ease-out 0.4s both;
+    }
+  `;
+  document.head.appendChild(style);
+};
+
 const RotatingHero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Add animation styles on component mount
+  useEffect(() => {
+    addAnimationStyles();
+  }, []);
 
   const heroContent = [
     {
@@ -255,32 +294,6 @@ const RotatingHero = () => {
           />
         ))}
       </div>
-
-      {/* Add CSS for animations */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fade-in 0.8s ease-out;
-        }
-
-        .animate-fade-in-delay {
-          animation: fade-in 0.8s ease-out 0.2s both;
-        }
-
-        .animate-fade-in-delay-2 {
-          animation: fade-in 0.8s ease-out 0.4s both;
-        }
-      `}</style>
     </section>
   );
 };
