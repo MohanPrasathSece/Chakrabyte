@@ -49,7 +49,7 @@ const RotatingHero = () => {
     {
       id: 1,
       badge: {
-        text: "Become SOC Ready in 90 Days",
+        text: "AI-Powered Security",
         icon: Shield,
         link: "/courses/azure-sentinel"
       },
