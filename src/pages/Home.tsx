@@ -1,0 +1,695 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare, ArrowRight, GraduationCap } from "lucide-react";
+import { useState } from "react";
+import CourseCard from "@/components/CourseCard";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import TestimonialSection from "@/components/TestimonialSection";
+import RotatingHero from "@/components/RotatingHero";
+import heroImage from "@/assets/hero-image.jpg";
+import cysaPlusImg from "@/assets/course/CYSA+.png";
+import securityPlusImg from "@/assets/course/Security+.png";
+import cloudSecurityImg from "@/assets/course/CloudSecurity.png";
+
+// Add CSS for continuous scrolling animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+`;
+if (!document.head.contains(style)) {
+  document.head.appendChild(style);
+}
+
+const Home = () => {
+  const [expandedFaq, setExpandedFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
+  const features = [
+    "Industry-certified trainers with 10+ years experience",
+    "Hands-on labs with real-world scenarios",
+    "Flexible learning: Online live, at your college, or at your office",
+    "Job placement assistance and career guidance",
+    "Customized corporate and college programs",
+    "Latest tools and technologies",
+  ];
+
+  const featuredCourses = [
+    {
+      title: "CySA+",
+      description: "Course focussed on individuals on who have basic understanding in cyber security and want to get hands on few concepts and upskill from their current security concepts understanding.",
+      duration: "8 Weeks",
+      level: "Beginner",
+      students: "800+",
+      image: cysaPlusImg,
+      link: "/courses/cysa-plus",
+    },
+    {
+      title: "Security+",
+      description: "Comprehensive security certification covering essential skills for network security and risk management",
+      duration: "10 Weeks",
+      level: "Beginner",
+      students: "1200+",
+      image: securityPlusImg,
+      link: "/courses/security-plus",
+    },
+    {
+      title: "Cloud Security",
+      description: "Secure cloud infrastructure and applications on AWS and Azure platforms",
+      duration: "12 Weeks",
+      level: "Intermediate",
+      students: "700+",
+      image: cloudSecurityImg,
+      link: "/courses/cloud-security",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Rajesh Kumar",
+      role: "Security Analyst",
+      company: "Tech Mahindra",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80",
+      quote: "The practical labs and real attack simulations matched what I see daily in my job. I moved from desktop support to security analyst within months."
+    },
+    {
+      name: "Priya Sharma",
+      role: "SOC Analyst",
+      company: "Infosys",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80",
+      quote: "The trainers shared playbooks, sample alerts and incident reports. It felt like on-the-job training rather than a normal class."
+    },
+    {
+      name: "Amit Patel",
+      role: "Web Application Pentester",
+      company: "Freelance",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80",
+      quote: "I joined from a remote town and attended completely online. The projects from chakrabyte security helped me build a strong GitHub portfolio."
+    }
+  ];
+
+  return (
+    <div className="flex flex-col min-h-screen">
+
+      {/* Rotating Hero Section */}
+      <RotatingHero />
+
+      {/* Stats Section */}
+      <section className="py-12 bg-gradient-to-br from-purple-50 to-purple-100 border-b border-purple-200/50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
+              <div className="text-4xl font-bold text-primary mb-2 flex">
+                <AnimatedCounter to={2500} />+
+              </div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Students Trained</div>
+            </div>
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
+              <div className="text-4xl font-bold text-primary mb-2 flex">
+                <AnimatedCounter to={10} />+
+              </div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Expert Courses</div>
+            </div>
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
+              <div className="text-4xl font-bold text-primary mb-2 flex">
+                <AnimatedCounter to={100} />%
+              </div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Practical Labs</div>
+            </div>
+            <div className="flex flex-col items-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl hover:shadow-lg hover:bg-white transition-all border border-purple-200/50">
+              <div className="text-4xl font-bold text-primary mb-2 flex">
+                <AnimatedCounter to={4.9} duration={1.5} />
+              </div>
+              <div className="text-sm font-medium text-purple-700 uppercase tracking-wide">Student Rating</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-purple-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-purple-200 border border-purple-300 text-sm font-semibold text-purple-700 mb-4">
+              💼 100% Job-Ready Training
+            </div>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Why Choose <span className="text-primary">Chakrabyte Security?</span>
+            </h2>
+            <p className="text-lg text-gray-600">
+              We provide comprehensive cybersecurity training with real-world applications
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <div key={index} className="group flex items-start gap-4 p-6 bg-gradient-to-br from-white to-purple-50/50 rounded-xl border border-purple-100/50 hover:border-purple-300/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary/10 to-purple-600/10 group-hover:from-primary/20 group-hover:to-purple-600/20 flex items-center justify-center transition-colors border border-purple-200/50">
+                  <CheckCircle className="text-primary group-hover:scale-110 transition-transform" size={24} />
+                </div>
+                <p className="text-base leading-relaxed text-gray-700 font-medium pt-2">
+                  {feature}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* Featured Courses Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-white overflow-x-hidden">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 border border-purple-300 text-sm font-semibold text-purple-700 mb-4">
+              ⚡ Launch Your Career in 8-12 Weeks
+            </div>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              Featured <span className="text-primary">Courses</span>
+            </h2>
+            <p className="text-lg text-gray-600">
+              Industry-recognized certification programs designed by cybersecurity experts
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 overflow-x-hidden">
+            {featuredCourses.map((course, index) => (
+              <div key={index}>
+                <CourseCard {...course} />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 font-bold px-8 py-4 text-base md:text-lg shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all duration-300 rounded-2xl border-2 border-white/20 hover:border-white/30 group overflow-hidden relative"
+            >
+              <Link to="/courses">
+                <span className="relative z-10 flex items-center gap-2">
+                  Explore All Courses
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section - Glassy Cards on Dark Purple */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 to-purple-800">
+        <div className="container mx-auto px-6">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
+              Our <span className="text-purple-200">Services</span>
+            </h2>
+            <p className="text-lg text-purple-100 max-w-2xl mx-auto">
+              Comprehensive cybersecurity solutions tailored to your needs
+            </p>
+          </div>
+
+          {/* Glassy Service Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* Gap Assessment Service */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Target className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Gap Assessment</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Comprehensive security gap analysis to identify vulnerabilities in your infrastructure
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/gap-assessment" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Corporate Training Service */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Users className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Corporate Training</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Customized security training programs for enterprise teams and organizations
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/corporate-training" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* VAPT Services */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Shield className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">VAPT Services</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Vulnerability Assessment and Penetration Testing to secure your applications
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/vapt" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Security Consulting */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Award className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Security Consulting</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Expert guidance on security strategy, risk management, and compliance
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/security-consulting" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Consulting */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <GraduationCap className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Career Consulting</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Personalized career guidance and mentorship in cybersecurity
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/career-consulting" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* College Workshops */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Users className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">College Workshops</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Interactive workshops on cybersecurity fundamentals for students
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/college-workshops" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Certificate Showcase Section - Modern Redesign */}
+      <section className="py-20 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-400/30 text-sm font-semibold text-white mb-6">
+              <Award className="w-4 h-4" />
+              <span>Professional Certifications</span>
+            </div>
+            <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 text-white">
+              Industry <span className="text-purple-200">Recognized</span> Certifications
+            </h2>
+            <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
+              Validate your cybersecurity expertise with globally recognized certifications that open doors to top career opportunities
+            </p>
+          </div>
+
+          {/* Modern Certification Cards Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+            {/* Security+ Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
+                <h3 className="font-bold text-white text-lg mb-1">Security+</h3>
+                <p className="text-white/70 text-sm mb-3">Security Fundamentals</p>
+              </div>
+            </div>
+
+            {/* Ethical Hacking Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">EC-Council</div>
+                <h3 className="font-bold text-white text-lg mb-1">Ethical Hacking</h3>
+                <p className="text-white/70 text-sm mb-3">CEH Preparation</p>
+              </div>
+            </div>
+
+            {/* CySA+ Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">CompTIA</div>
+                <h3 className="font-bold text-white text-lg mb-1">CySA+</h3>
+                <p className="text-white/70 text-sm mb-3">Cybersecurity Analyst+</p>
+              </div>
+            </div>
+
+            {/* Cloud Security Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Cloud</div>
+                <h3 className="font-bold text-white text-lg mb-1">Cloud Security</h3>
+                <p className="text-white/70 text-sm mb-3">AWS & Azure Security</p>
+              </div>
+            </div>
+
+            {/* Penetration Testing Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Award className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Advanced</div>
+                <h3 className="font-bold text-white text-lg mb-1">Penetration Testing</h3>
+                <p className="text-white/70 text-sm mb-3">Advanced Pentesting</p>
+              </div>
+            </div>
+
+            {/* IAM CyberArk Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Identity</div>
+                <h3 className="font-bold text-white text-lg mb-1">IAM - CyberArk</h3>
+                <p className="text-white/70 text-sm mb-3">Identity Management</p>
+              </div>
+            </div>
+
+            {/* Azure Sentinel Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Microsoft</div>
+                <h3 className="font-bold text-white text-lg mb-1">Azure Sentinel</h3>
+                <p className="text-white/70 text-sm mb-3">SIEM & Security Ops</p>
+              </div>
+            </div>
+
+            {/* Microsoft Defender Certification */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-purple-200 text-xs font-semibold uppercase tracking-wider mb-2">Microsoft</div>
+                <h3 className="font-bold text-white text-lg mb-1">Microsoft Defender</h3>
+                <p className="text-white/70 text-sm mb-3">Endpoint Security</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Stats Section */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-white mb-2">500+</div>
+              <div className="text-white/70 text-sm">Certifications Awarded</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-white mb-2">95%</div>
+              <div className="text-white/70 text-sm">Success Rate</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-white mb-2">50+</div>
+              <div className="text-white/70 text-sm">Corporate Partners</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Frequently Asked <span className="text-purple-600">Questions</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Get answers to common questions about our cybersecurity courses and services
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Left Column */}
+              <div className="space-y-6">
+                {/* FAQ 1 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(0)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What are the prerequisites for your cybersecurity courses?</span>
+                    <ChevronRight className={expandedFaq === 0 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 0 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Most of our beginner courses require only basic computer skills. For advanced courses, we recommend having some IT background or completing our foundational courses first.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 3 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(2)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Are your certifications industry-recognized?</span>
+                    <ChevronRight className={expandedFaq === 2 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 2 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Absolutely! Our certifications are recognized by leading organizations and align with industry standards like CEH, CompTIA Security+, and other globally recognized cybersecurity certifications.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 5 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(4)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you offer corporate training programs?</span>
+                    <ChevronRight className={expandedFaq === 4 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 4 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Yes, we provide customized corporate training programs tailored to your organization's specific needs. Our trainers can conduct sessions at your premises or online.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 7 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(6)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you provide course materials and recordings?</span>
+                    <ChevronRight className={expandedFaq === 6 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 6 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Yes, all students get access to comprehensive course materials, lab guides, and session recordings. These resources are available for lifetime access even after course completion.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 9 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(8)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What kind of lab access do students get?</span>
+                    <ChevronRight className={expandedFaq === 8 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 8 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Students get 24/7 access to our virtual lab environment with real-world scenarios, tools, and vulnerabilities. This includes access to penetration testing labs, SIEM platforms, and cloud environments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className="space-y-6">
+                {/* FAQ 2 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(1)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you provide job placement assistance?</span>
+                    <ChevronRight className={expandedFaq === 1 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 1 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Yes, we offer comprehensive career support including resume building, interview preparation, and connections with our network of hiring partners in the cybersecurity industry.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 4 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(3)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What is the duration of your courses?</span>
+                    <ChevronRight className={expandedFaq === 3 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 3 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Course durations vary from 8 weeks for foundational courses to 12 weeks for advanced programs. We also offer flexible weekend batches and self-paced learning options.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 6 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(5)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">What payment options are available?</span>
+                    <ChevronRight className={expandedFaq === 5 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 5 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      We offer flexible payment options including one-time payment, EMI options, and installment plans. We also accept major credit cards, debit cards, and online banking transfers.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 8 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(7)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Can I attend classes from outside India?</span>
+                    <ChevronRight className={expandedFaq === 7 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 7 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      Absolutely! Our online courses are accessible globally. We have students from various countries attending live sessions and accessing our learning platform from anywhere in the world.
+                    </p>
+                  </div>
+                </div>
+
+                {/* FAQ 10 */}
+                <div className="border border-purple-200 rounded-lg overflow-hidden bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple-200/20 hover:bg-white/90 hover:scale-[1.02] transition-all duration-300 group">
+                  <button
+                    onClick={() => toggleFaq(9)}
+                    className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-purple-50/50 transition-colors group-hover:bg-purple-100/50"
+                  >
+                    <span className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors duration-300">Do you offer refunds if I'm not satisfied?</span>
+                    <ChevronRight className={expandedFaq === 9 ? "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-180 group-hover:text-purple-600" : "w-5 h-5 text-purple-400 transition-transform duration-300 rotate-90 group-hover:text-purple-600"} />
+                  </button>
+                  <div className={expandedFaq === 9 ? "px-6 transition-all duration-300 py-4 opacity-100" : "px-6 transition-all duration-300 max-h-0 opacity-0 overflow-hidden"}>
+                    <p className="text-gray-600">
+                      We offer a 7-day money-back guarantee for most courses. If you're not satisfied within the first week, you can request a full refund. Certain specialized courses may have different policies.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="inline-flex items-center gap-2 text-purple-600 font-medium">
+              <span>Still have questions?</span>
+              <Link to="/contact" className="underline hover:no-underline">
+                Contact our support team
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
