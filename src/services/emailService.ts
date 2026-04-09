@@ -1,16 +1,13 @@
 import { toast } from "@/components/ui/use-toast";
 
-// Email configuration - Using environment variables for security
-const EMAIL_CONFIG = {
-  // SMTP2GO Configuration
-  SMTP2GO_API_KEY: import.meta.env.VITE_SMTP2GO_API_KEY,
-  
-  // Email Addresses
-  ADMIN_EMAIL: import.meta.env.VITE_ADMIN_EMAIL || 'admin@chakrabyte.com',
-  FROM_EMAIL: import.meta.env.VITE_FROM_EMAIL || 'noreply@chakrabyte.com',
-  FROM_NAME: import.meta.env.VITE_FROM_NAME || 'Chakrabyte Security',
+// NOTE: This is a Vite (frontend) app. Real emails must be sent server-side.
+// We call the Vercel Serverless Function at /api/contact.
+const CONTACT_API_PATH = '/api/contact';
+
+const PUBLIC_CONFIG = {
   WEBSITE_URL: import.meta.env.VITE_WEBSITE_URL || 'https://chakrabyte.com',
-  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91 79768 95846 / +91 94824 76051'
+  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91 79768 95846 / +91 94824 76051',
+  FROM_EMAIL: import.meta.env.VITE_FROM_EMAIL || 'info@chakrabyte.com',
 };
 
 export interface EmailData {
@@ -34,38 +31,35 @@ export interface LeadData {
 }
 
 class EmailService {
-  private async sendEmailViaSMTP2GO(emailData: EmailData): Promise<boolean> {
+  private async sendLeadToApi(leadData: LeadData): Promise<{ success: boolean; message: string }> {
     try {
-      if (!EMAIL_CONFIG.SMTP2GO_API_KEY) {
-        console.warn('SMTP2GO not configured. Please set up environment variables.');
-        return false;
-      }
-
-      const response = await fetch('https://api.smtp2go.com/v3/email/send', {
+      const response = await fetch(CONTACT_API_PATH, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${EMAIL_CONFIG.SMTP2GO_API_KEY}`
         },
-        body: JSON.stringify({
-          sender: `${EMAIL_CONFIG.FROM_NAME} <${EMAIL_CONFIG.FROM_EMAIL}>`,
-          recipients: [emailData.to],
-          subject: emailData.subject,
-          html_body: emailData.html,
-          reply_to: emailData.replyTo || emailData.from
-        })
+        body: JSON.stringify(leadData),
       });
 
-      if (response.ok) {
-        console.log('Email sent successfully via SMTP2GO');
-        return true;
-      } else {
-        console.error('SMTP2GO failed:', response.statusText);
-        return false;
+      const data = (await response.json().catch(() => ({}))) as Partial<{ success: boolean; message: string }>;
+
+      if (!response.ok) {
+        return {
+          success: false,
+          message: data.message || `Failed to send message (HTTP ${response.status})`,
+        };
       }
+
+      return {
+        success: !!data.success,
+        message: data.message || 'Message sent successfully',
+      };
     } catch (error) {
-      console.error('SMTP2GO error:', error);
-      return false;
+      console.error('Contact API error:', error);
+      return {
+        success: false,
+        message: 'Unable to reach email service. Please try again later.',
+      };
     }
   }
 
@@ -251,20 +245,20 @@ class EmailService {
             </div>
             
             <div style="text-align: center;">
-              <a href="${EMAIL_CONFIG.WEBSITE_URL}" class="cta-button">Visit Our Website</a>
+              <a href="${PUBLIC_CONFIG.WEBSITE_URL}" class="cta-button">Visit Our Website</a>
             </div>
             
             <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 6px; padding: 15px; margin: 20px 0;">
               <p style="margin: 0; color: #856404; font-size: 14px;">
-                <strong>Important:</strong> Please add <strong>${EMAIL_CONFIG.FROM_EMAIL}</strong> to your contacts to ensure our emails don't land in your spam folder.
+                <strong>Important:</strong> Please add <strong>${PUBLIC_CONFIG.FROM_EMAIL}</strong> to your contacts to ensure our emails don't land in your spam folder.
               </p>
             </div>
           </div>
           
           <div class="footer">
             <p><strong>Chakrabyte Security</strong></p>
-            <p>📞 ${EMAIL_CONFIG.COMPANY_PHONE} | 📧 ${EMAIL_CONFIG.FROM_EMAIL}</p>
-            <p>🌐 ${EMAIL_CONFIG.WEBSITE_URL}</p>
+            <p>📞 ${PUBLIC_CONFIG.COMPANY_PHONE} | 📧 ${PUBLIC_CONFIG.FROM_EMAIL}</p>
+            <p>🌐 ${PUBLIC_CONFIG.WEBSITE_URL}</p>
             <div class="social-links">
               <a href="#">LinkedIn</a> | 
               <a href="#">Twitter</a> | 
@@ -283,47 +277,7 @@ class EmailService {
   // Main method to send lead notifications
   async sendLeadNotification(leadData: LeadData): Promise<{ success: boolean; message: string }> {
     try {
-      // Check if SMTP2GO is configured
-      if (!EMAIL_CONFIG.SMTP2GO_API_KEY) {
-        console.warn('SMTP2GO not configured. Please set up environment variables.');
-        return {
-          success: false,
-          message: 'Email service not configured. Please contact administration.'
-        };
-      }
-
-      // Send email to admin
-      const adminEmailData: EmailData = {
-        to: EMAIL_CONFIG.ADMIN_EMAIL,
-        subject: `🚀 New Lead: ${leadData.type.toUpperCase()} - ${leadData.name}`,
-        html: this.generateAdminEmail(leadData),
-        replyTo: leadData.email
-      };
-
-      // Send confirmation email to user
-      const userEmailData: EmailData = {
-        to: leadData.email,
-        subject: 'Thank You - Chakrabyte Security',
-        html: this.generateUserConfirmationEmail(leadData)
-      };
-
-      // Send both emails concurrently for better performance
-      const [adminEmailSent, userEmailSent] = await Promise.all([
-        this.sendEmailViaSMTP2GO(adminEmailData),
-        this.sendEmailViaSMTP2GO(userEmailData)
-      ]);
-
-      if (adminEmailSent && userEmailSent) {
-        return {
-          success: true,
-          message: 'Your enquiry has been sent successfully! You will receive a confirmation email shortly.'
-        };
-      } else {
-        return {
-          success: false,
-          message: 'Failed to send email. Please try again or contact us directly.'
-        };
-      }
+      return await this.sendLeadToApi(leadData);
 
     } catch (error) {
       console.error('Lead notification error:', error);
@@ -340,13 +294,39 @@ class EmailService {
       name: 'Test User',
       email: 'test@example.com',
       phone: '+1234567890',
-      message: 'This is a test message',
+      message: 'This is a test message from contact form',
       type: 'contact',
       timestamp: new Date().toISOString()
     };
 
+    console.log('🧪 Testing email service with test data...');
     const result = await this.sendLeadNotification(testData);
+    console.log('📧 Test Result:', result);
     return result.success;
+  }
+
+  // Test method to verify configuration
+  async verifyConfiguration(): Promise<boolean> {
+    try {
+      // Frontend can't validate SMTP vars. Instead, verify the API route is reachable.
+      const response = await fetch(CONTACT_API_PATH, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Test User',
+          email: 'test@example.com',
+          phone: '+1234567890',
+          message: 'Test message',
+          type: 'contact',
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      // If API exists, it will respond (likely 400 for missing fields).
+      return response.status === 400 || response.status === 200;
+    } catch {
+      return false;
+    }
   }
 }
 

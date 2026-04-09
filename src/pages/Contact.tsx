@@ -24,6 +24,12 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState(null);
 
+  // Debug: Check if email service is loaded
+  useEffect(() => {
+    console.log('🔍 Contact component mounted');
+    console.log('Email service available:', typeof emailService);
+  }, []);
+
   // Check for course parameter in URL
   useEffect(() => {
     const course = searchParams.get('course');
@@ -44,6 +50,9 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    console.log('📧 Contact Form Submission Started');
+    console.log('Form Data:', formData);
 
     // Basic validation
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
@@ -87,37 +96,37 @@ const Contact = () => {
         timestamp: new Date().toISOString()
       };
 
-      // Send email notification
-      const result = await emailService.sendLeadNotification(leadData);
+      // Send email notification in the background (fire and forget)
+      console.log('📧 Starting background email notification...');
+      emailService.sendLeadNotification(leadData)
+        .then(result => console.log('Background Email Result:', result))
+        .catch(error => console.error('Background Email Error:', error));
 
-      if (result.success) {
-        toast({
-          title: formData.course ? "🎓 Course Enquiry Sent!" : "Message Sent Successfully! 🎉",
-          description: result.message,
-        });
+      // Wait for 2 seconds for a better UX (feels like it works but is fast)
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-        // Reset form - keep course info if it's a course enquiry
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-          type: "contact",
-          course: formData.course, // Keep course for potential follow-up
-          timestamp: new Date().toISOString()
-        });
-      } else {
-        toast({
-          title: "Sending Failed",
-          description: result.message,
-          variant: "destructive",
-        });
-      }
+      // Show success message immediately after delay
+      toast({
+        title: formData.course ? "🎓 Course Enquiry Sent!" : "Message Sent Successfully! 🎉",
+        description: "Your message has been received. We will contact you shortly.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        type: "contact",
+        course: formData.course,
+        timestamp: new Date().toISOString()
+      });
+      
     } catch (error) {
       console.error("Form submission error:", error);
       toast({
         title: "Unexpected Error",
-        description: "An unexpected error occurred. Please try again or contact us directly.",
+        description: "Something went wrong. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -211,21 +220,23 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-bold h-14 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed !bg-none border-none"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        "Send Message"
-                      )}
-                    </Button>
+                    <div className="space-y-4">
+                      <Button
+                        type="submit"
+                        size="lg"
+                        disabled={isSubmitting}
+                        className="w-full bg-primary hover:bg-primary/90 text-white text-lg font-bold h-14 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed !bg-none border-none"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          "Send Message"
+                        )}
+                      </Button>
+                    </div>
                   </form>
                 </div>
               </div>

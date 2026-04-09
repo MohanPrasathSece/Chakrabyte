@@ -149,21 +149,22 @@ export class PerformanceMonitor {
 
   private sendToAnalytics(name: string, value: number) {
     // Send to your analytics endpoint
+    // Disabled for now - uncomment when you have analytics endpoint
+    /*
     fetch('/api/analytics/metrics', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        metric: name,
-        value: value,
-        url: window.location.href,
-        userAgent: navigator.userAgent,
+        metric_name: name,
+        metric_value: value,
         timestamp: Date.now()
       })
     }).catch(() => {
       // Silently fail for analytics
     });
+    */
   }
 
   public getMetrics() {
