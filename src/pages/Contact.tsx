@@ -277,8 +277,7 @@ const Contact = () => {
                       <div>
                         <p className="font-semibold text-gray-900 text-sm">Location</p>
                         <p className="text-sm text-gray-600">
-                          Cyber Hub, Tech Park<br />
-                          Bangalore, Karnataka
+                          Bangalore & Vizag
                         </p>
                       </div>
                     </div>

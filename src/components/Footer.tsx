@@ -107,7 +107,7 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="text-primary mt-1" />
                 <span className="text-sm text-gray-400">
-                  Cyber Hub, Tech Park, Bangalore, India
+                  Bangalore & Vizag
                 </span>
               </li>
             </ul>
