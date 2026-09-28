@@ -33,7 +33,7 @@ const StaffingServices = () => {
                   Bridge the Talent Gap with Pre-Vetted Experts
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Finding certified, battle-tested talent is one of the biggest challenges enterprises face. Chakrabyte’s specialized Staffing Services connect your organization with top-tier technology, cloud, and IT infrastructure professionals tailored to your precise operational needs.
+                  Finding certified, battle-tested talent is one of the biggest challenges enterprises face. Chakrabyte’s specialized Staffing Services connect your organization with top-tier technology, cloud, and IT infrastructure security professionals tailored to your precise operational needs.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   Leveraging our proprietary training ecosystem and extensive network of vetted practitioners, we provide high-performing professionals ready to defend your perimeter, ensure compliance, and drive digital resilience from day one.

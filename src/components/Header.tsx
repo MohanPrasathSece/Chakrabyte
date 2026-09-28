@@ -124,12 +124,17 @@ const Header = () => {
           {/* Logo */}
           <button
             onClick={() => handleNavigation("/")}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity text-left"
           >
             <img src={logo} alt="chakrabyte security" className="h-10 w-10 lg:h-10 lg:w-10 md:h-9 md:w-9 sm:h-8 sm:w-8" />
-            <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase lg:text-lg md:text-base sm:text-sm">
-              CHAKRABYTE
-            </span>
+            <div className="flex flex-col text-left">
+              <span className="font-heading text-sm md:text-base lg:text-lg font-bold tracking-[0.2em] uppercase leading-tight text-gray-900">
+                CHAKRABYTE
+              </span>
+              <span className="font-heading text-[9px] md:text-[10px] lg:text-xs font-semibold tracking-[0.38em] uppercase text-purple-600 leading-tight">
+                SECURITY
+              </span>
+            </div>
           </button>
 
           {/* Desktop Navigation */}

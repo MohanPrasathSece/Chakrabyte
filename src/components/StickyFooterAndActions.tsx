@@ -44,7 +44,7 @@ const StickyFooterAndActions = () => {
                         <div className="flex items-center gap-6">
                             <div className="flex items-center gap-2">
                                 <Shield className="w-4 h-4 text-purple-400" />
-                                <span className="text-white font-bold">CHAKRABYTE</span>
+                                <span className="text-white font-bold tracking-wider">CHAKRABYTE <span className="text-purple-400">SECURITY</span></span>
                             </div>
                             <div className="flex items-center gap-4 border-l border-gray-700 pl-4">
                                 <Link to="/courses" className="text-white hover:text-purple-300 transition-colors">

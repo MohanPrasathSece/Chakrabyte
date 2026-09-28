@@ -34,9 +34,14 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center space-x-3 mb-4">
               <img src={logo} alt="chakrabyte security" className="h-10 w-10" />
-              <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase">
-                CHAKRABYTE
-              </span>
+              <div className="flex flex-col text-left">
+                <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase leading-tight">
+                  CHAKRABYTE
+                </span>
+                <span className="font-heading text-[10px] font-semibold tracking-[0.38em] uppercase text-purple-400 leading-tight">
+                  SECURITY
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-gray-400 mb-4">
               Professional cybersecurity training for students, colleges, and corporates. Building secure digital futures.
