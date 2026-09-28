@@ -62,11 +62,11 @@ const StickyFooterAndActions = () => {
                         {/* Right Side - Quick Contact */}
                         <div className="flex items-center gap-4 text-white">
                             <a
-                                href="tel:+917976895846"
+                                href="tel:+919482476051"
                                 className="hover:text-purple-300 transition-colors flex items-center gap-1"
                             >
                                 <Phone className="w-3 h-3 text-purple-400" />
-                                +91 79768 95846 / +91 94824 76051
+                                +91 94824 76051
                             </a>
                             <a
                                 href="mailto:info@chakrabyte.com"

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare, ArrowRight, GraduationCap } from "lucide-react";
+import { Shield, Users, Award, CheckCircle, Quote, ChevronRight, Target, MessageCircle, Phone, Mail, MessageSquare, ArrowRight, GraduationCap, Briefcase } from "lucide-react";
 import { useState } from "react";
 import CourseCard from "@/components/CourseCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -337,6 +337,25 @@ const Home = () => {
                 </p>
                 <div className="text-center mt-2">
                   <Link to="/services/college-workshops" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Staffing Services */}
+            <div className="group flex flex-col h-full">
+              <div className="bg-white/10 backdrop-blur-lg border border-purple-300/30 rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-white/15 flex flex-col h-full">
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-600/50 to-purple-700/50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500 group-hover:to-purple-600 transition-all duration-300">
+                  <Briefcase className="w-6 h-6 text-purple-200 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3 text-center">Staffing Services</h3>
+                <p className="text-purple-100 text-sm mb-4 text-center leading-relaxed min-h-[4.5rem] flex items-center justify-center">
+                  Pre-vetted, certified cybersecurity talent for contract, full-time, and executive roles
+                </p>
+                <div className="text-center mt-2">
+                  <Link to="/services/staffing-services" className="inline-flex items-center gap-1 text-purple-200 text-sm font-medium hover:text-white transition-colors">
                     <span>Learn More</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>

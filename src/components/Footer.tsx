@@ -17,11 +17,14 @@ const Footer = () => {
   ];
 
   const services = [
+    { name: "Gap Assessment", path: "/services/gap-assessment" },
     { name: "Corporate Training", path: "/services/corporate-training" },
     { name: "College Workshops", path: "/services/college-workshops" },
     { name: "Device Security", path: "/services/device-security" },
     { name: "VAPT Services", path: "/services/vapt" },
-    { name: "Consultation", path: "/services/consultation" },
+    { name: "Security Consulting", path: "/services/security-consulting" },
+    { name: "Career Consulting", path: "/services/career-consulting" },
+    { name: "Staffing Services", path: "/services/staffing-services" },
   ];
 
   return (
@@ -98,10 +101,10 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Phone size={16} className="text-primary mt-1" />
                 <a
-                  href="tel:+917976895846"
+                  href="tel:+919482476051"
                   className="text-sm text-gray-400 hover:text-white"
                 >
-                  +91 79768 95846<br />+91 94824 76051
+                  +91 94824 76051
                 </a>
               </li>
               <li className="flex items-start space-x-2">

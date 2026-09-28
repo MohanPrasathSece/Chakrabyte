@@ -17,11 +17,14 @@ const allRoutes = [
   { path: '/courses/malware-analysis', priority: 0.8, changeFreq: 'monthly' },
   { path: '/courses/cybersecurity-basics', priority: 0.8, changeFreq: 'monthly' },
   { path: '/services', priority: 0.9, changeFreq: 'weekly' },
+  { path: '/services/gap-assessment', priority: 0.8, changeFreq: 'monthly' },
   { path: '/services/corporate-training', priority: 0.8, changeFreq: 'monthly' },
   { path: '/services/college-workshops', priority: 0.8, changeFreq: 'monthly' },
   { path: '/services/device-security', priority: 0.8, changeFreq: 'monthly' },
   { path: '/services/vapt', priority: 0.8, changeFreq: 'monthly' },
-  { path: '/services/consultation', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/services/security-consulting', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/services/career-consulting', priority: 0.8, changeFreq: 'monthly' },
+  { path: '/services/staffing-services', priority: 0.8, changeFreq: 'monthly' },
   { path: '/contact', priority: 0.7, changeFreq: 'monthly' },
 ];
 

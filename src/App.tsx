@@ -35,6 +35,7 @@ import CareerConsulting from "./pages/services/CareerConsulting";
 import CollegeWorkshops from "./pages/services/CollegeWorkshops";
 import DeviceSecurity from "./pages/services/DeviceSecurity";
 import Consultation from "./pages/services/Consultation";
+import StaffingServices from "./pages/services/StaffingServices";
 import NotFound from "./pages/NotFound";
 
 // Initialize performance monitoring
@@ -202,6 +203,8 @@ const AppContent = () => {
             <Route path="/services/college-workshops" element={<CollegeWorkshops />} />
             <Route path="/services/device-security" element={<DeviceSecurity />} />
             <Route path="/services/consultation" element={<Consultation />} />
+            <Route path="/services/staffing-services" element={<StaffingServices />} />
+            <Route path="/services/staffing" element={<StaffingServices />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

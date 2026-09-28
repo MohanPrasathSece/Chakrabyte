@@ -37,6 +37,12 @@ const Services = () => {
       icon: Search,
       link: "/services/career-consulting",
     },
+    {
+      title: "Staffing Services",
+      description: "Pre-vetted, certified cybersecurity and IT talent for contract, permanent, and executive roles",
+      icon: Building2,
+      link: "/services/staffing-services",
+    },
   ];
 
   return (

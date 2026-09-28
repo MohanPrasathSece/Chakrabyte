@@ -99,6 +99,7 @@ const Header = () => {
     { name: "VAPT Services", path: "/services/vapt" },
     { name: "Security Consulting", path: "/services/security-consulting" },
     { name: "Career Consulting", path: "/services/career-consulting" },
+    { name: "Staffing Services", path: "/services/staffing-services" },
   ];
 
   const handleNavigation = (path: string) => {
@@ -498,7 +499,7 @@ const Header = () => {
                       >
                         All Services
                       </button>
-                      {services.slice(0, 5).map((service) => (
+                      {services.map((service) => (
                         <button
                           key={service.path}
                           onClick={() => {

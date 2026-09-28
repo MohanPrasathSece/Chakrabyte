@@ -159,10 +159,18 @@ const MegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose, type }) => {
       items: [
         {
           title: 'Security Consulting',
-          path: '/services/consultation',
+          path: '/services/security-consulting',
           description: 'Strategic cybersecurity consulting and advisory',
           duration: 'Ongoing',
           format: 'On-site/Remote',
+          image: '/service-consultation.webp'
+        },
+        {
+          title: 'Staffing Services',
+          path: '/services/staffing-services',
+          description: 'Cybersecurity & IT staffing and talent recruitment',
+          duration: 'On-demand',
+          format: 'Permanent/Contract',
           image: '/service-consultation.webp'
         }
       ]

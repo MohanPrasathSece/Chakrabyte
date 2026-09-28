@@ -6,7 +6,7 @@ const CONTACT_API_PATH = '/api/contact';
 
 const PUBLIC_CONFIG = {
   WEBSITE_URL: import.meta.env.VITE_WEBSITE_URL || 'https://chakrabyte.com',
-  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91 79768 95846 / +91 94824 76051',
+  COMPANY_PHONE: import.meta.env.VITE_COMPANY_PHONE || '+91 94824 76051',
   FROM_EMAIL: import.meta.env.VITE_FROM_EMAIL || 'info@chakrabyte.com',
 };
 

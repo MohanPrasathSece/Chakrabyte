@@ -36,6 +36,11 @@ const Breadcrumbs: React.FC = () => {
       'college-workshops': 'College Workshops',
       'device-security': 'Device Security',
       'vapt': 'VAPT Services',
+      'gap-assessment': 'Gap Assessment',
+      'security-consulting': 'Security Consulting',
+      'career-consulting': 'Career Consulting',
+      'staffing-services': 'Staffing Services',
+      'staffing': 'Staffing Services',
       'consultation': 'Security Consulting'
     };
 
