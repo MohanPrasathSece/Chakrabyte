@@ -131,7 +131,7 @@ const Header = () => {
               <span className="font-heading text-sm md:text-base lg:text-lg font-bold tracking-[0.2em] uppercase leading-tight text-gray-900">
                 CHAKRABYTE
               </span>
-              <span className="font-heading text-[9px] md:text-[10px] lg:text-xs font-semibold tracking-[0.38em] uppercase text-purple-600 leading-tight">
+              <span className="font-heading text-sm md:text-base lg:text-lg font-bold tracking-[0.2em] uppercase text-purple-600 leading-tight">
                 SECURITY
               </span>
             </div>

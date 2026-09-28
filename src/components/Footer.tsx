@@ -38,7 +38,7 @@ const Footer = () => {
                 <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase leading-tight">
                   CHAKRABYTE
                 </span>
-                <span className="font-heading text-[10px] font-semibold tracking-[0.38em] uppercase text-purple-400 leading-tight">
+                <span className="font-heading text-lg font-bold tracking-[0.2em] uppercase text-purple-400 leading-tight">
                   SECURITY
                 </span>
               </div>
