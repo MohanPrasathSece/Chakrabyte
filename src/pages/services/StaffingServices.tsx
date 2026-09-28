@@ -30,14 +30,19 @@ const StaffingServices = () => {
               {/* Overview */}
               <div>
                 <h2 className="font-heading text-3xl font-bold mb-4 text-gray-900">
-                  Bridge the Cybersecurity Talent Gap with Pre-Vetted Experts
+                  Bridge the Talent Gap with Pre-Vetted Experts
                 </h2>
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  In an era of relentless cyber threats, finding certified, battle-tested cybersecurity talent is one of the biggest challenges enterprises face. Chakrabyte’s specialized Staffing Services connect your organization with top-tier cybersecurity, cloud, and IT infrastructure professionals tailored to your precise operational needs.
+                  Finding certified, battle-tested talent is one of the biggest challenges enterprises face. Chakrabyte’s specialized Staffing Services connect your organization with top-tier technology, cloud, and IT infrastructure professionals tailored to your precise operational needs.
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-6">
                   Leveraging our proprietary training ecosystem and extensive network of vetted practitioners, we provide high-performing professionals ready to defend your perimeter, ensure compliance, and drive digital resilience from day one.
                 </p>
+                <div>
+                  <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg shadow-sm">
+                    <Link to="/contact">Contact Our Staffing Team</Link>
+                  </Button>
+                </div>
               </div>
 
               {/* Staffing Models */}
@@ -88,33 +93,6 @@ const StaffingServices = () => {
                 </div>
               </div>
 
-              {/* Specialized Roles */}
-              <div>
-                <h3 className="font-heading text-2xl font-bold mb-6 text-gray-900">
-                  Roles We Staff
-                </h3>
-                <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {[
-                    "SOC Analysts (L1, L2, L3)",
-                    "VAPT / Pen Testers",
-                    "IAM & CyberArk Specialists",
-                    "Cloud Security Engineers",
-                    "SIEM / Microsoft Sentinel Leads",
-                    "Incident Responders & DFIR",
-                    "Network & Perimeter Engineers",
-                    "GRC & Compliance Auditors",
-                    "DevSecOps Engineers",
-                    "Security Architects",
-                    "Threat Intelligence Analysts",
-                    "AppSec Engineers",
-                  ].map((role, index) => (
-                    <div key={index} className="flex items-center gap-2 p-3 bg-gray-50 rounded-lg border border-gray-100 text-sm font-medium text-gray-800">
-                      <CheckCircle className="w-4 h-4 text-purple-600 flex-shrink-0" />
-                      <span>{role}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               {/* Our Staffing Process */}
               <div>
@@ -181,7 +159,7 @@ const StaffingServices = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm font-medium">Fast turnaround times (48-72 hrs)</span>
+                    <span className="text-gray-700 text-sm font-medium">Fast turnaround times</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
@@ -200,10 +178,10 @@ const StaffingServices = () => {
                   <Building2 className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-heading text-xl font-bold mb-3">
-                  Hire Top Cyber Talent
+                  Hire Top Talent
                 </h3>
                 <p className="text-purple-100 text-sm mb-6 leading-relaxed">
-                  Tell us about your staffing requirements and let us source the right cybersecurity professionals for your team.
+                  Tell us about your staffing requirements and let us source the right professionals for your team.
                 </p>
                 <Button asChild size="lg" className="w-full bg-white text-primary hover:bg-white/90 font-bold h-12 rounded-xl shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 !bg-none border-none">
                   <Link to="/contact">Request Talent</Link>
